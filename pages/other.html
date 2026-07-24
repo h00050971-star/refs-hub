@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Content Hub</title>
+<!doctype html><html><head><meta charset="utf-8"><title>Остальное</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -46,11 +46,37 @@ nav a { color:#7cc4ff; margin-right:16px; text-decoration:none; font-size:14px; 
 a.origlink { font-size:11px; color:#7cc4ff; }
 </style>
 </head><body>
-<h1>Content Hub</h1>
+<h1>Остальное</h1>
 <nav>
-<a href="pages/refs.html">Рефы (10)</a>
-<a href="pages/theory.html">Теория (13)</a>
-<a href="pages/carousels.html">Карусели (8)</a>
-<a href="pages/other.html">Остальное (7)</a>
+<a href="../index.html">Главная</a>
+<a href="refs.html">Рефы</a>
+<a href="theory.html">Теория</a>
+<a href="carousels.html">Карусели</a>
+<a href="other.html">Остальное</a>
 </nav>
+<div class="grid">
+<div class="card"><div class="section-label">Заметка</div><div class="text">Кружочек и фронталка тг</div></div>
+<div class="card"><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/Da3CaQAoRJD/?igsh=amR0YXJlYmV3OG8y</div></div>
+<div class="card"><div class="section-label">Заметка</div><div class="text">Анимация тексты в Капкат</div></div>
+<div class="card"><div class="section-label">Заметка</div><div class="text">Хуки Клод</div></div>
+<div class="card"><div class="section-label">Заметка</div><div class="text">Хуки на видео наложить</div></div>
+<div class="card"><div class="section-label">Заметка</div><div class="text">Звуки</div></div>
+<div class="card"><div class="section-label">Заметка</div><div class="text">Звуки</div></div>
+</div>
+<script>
+function csSet(sc, idx) {
+  var wrap = document.getElementById('cwrap-' + sc);
+  wrap.dataset.idx = idx;
+  document.getElementById('main-' + sc).src = '../media/' + sc + '_' + idx + '.jpg';
+  wrap.parentElement.querySelectorAll('.thumbs img').forEach(function(t, i) {
+    t.classList.toggle('active', i === idx);
+  });
+}
+function csNav(sc, dir) {
+  var wrap = document.getElementById('cwrap-' + sc);
+  var count = parseInt(wrap.dataset.count, 10);
+  var idx = (parseInt(wrap.dataset.idx, 10) + dir + count) % count;
+  csSet(sc, idx);
+}
+</script>
 </body></html>
