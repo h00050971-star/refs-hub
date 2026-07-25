@@ -47,6 +47,16 @@ async function downloadSelectedTranscripts(){
   a.click();
   a.remove();
 }
+function toggleAccordion(group){
+  ['refs','theory'].forEach(function(g){
+    var el = document.getElementById('acc-' + g);
+    if(!el) return;
+    var open = (g === group);
+    el.classList.toggle('collapsed', !open);
+    var arrow = el.parentElement.querySelector('.acc-arrow');
+    if(arrow) arrow.textContent = open ? '▾' : '▸';
+  });
+}
 function sortCards(dir){
   var grid = document.querySelector('.grid');
   if(!grid) return;
