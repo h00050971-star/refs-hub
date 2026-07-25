@@ -5,6 +5,8 @@
 :root { color-scheme: dark; }
 body { background:#111; color:#eee; font-family:-apple-system,Segoe UI,Arial,sans-serif; margin:0; padding:24px; }
 h1 { font-size:22px; margin-bottom:4px; }
+.pageheader { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+.pageheader h1 { margin:0; }
 nav { margin-bottom:2px; }
 nav a { color:#7cc4ff; margin-right:14px; text-decoration:none; font-size:14px; }
 nav a.active { color:#fff; text-decoration:underline; }
@@ -76,7 +78,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 }
 .selbar button { background:#2ecc71; color:#111; border:none; border-radius:6px; padding:6px 10px; cursor:pointer; font-size:12px; font-weight:600; }
 .selbar button.secondary { background:#444; color:#eee; }
-.sortbar { display:flex; justify-content:flex-end; gap:8px; margin-top:10px; }
+.sortbar { display:flex; justify-content:flex-end; gap:8px; margin:0; }
 .sortbar button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .sortbar button.active { color:#fff; border-color:#7cc4ff; }
 @media (max-width:600px){ .sortbar{ justify-content:flex-start; flex-wrap:wrap; } }
@@ -108,6 +110,20 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <a href="pages/theory_posts.html">Одиночные посты (0)</a>
 <a href="pages/theory_tgposts.html">ТГ-посты (1)</a>
 <a href="pages/theory_other.html">Остальное (7)</a>
+</div>
+</div>
+</div>
+<div class="navblock">
+<span class="supercat" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▾</span> Миллионники</span>
+<div class="accordion-body" id="acc-millionniki">
+<div class="topicrow"><a href="pages/millionniki_all.html">Все</a><a href="pages/millionniki_topic_psychology.html">Психология (0)</a><a href="pages/millionniki_topic_marketing.html">Маркетинг (0)</a><a href="pages/millionniki_topic_design.html">Дизайн (0)</a><a href="pages/millionniki_topic_fonts.html">Шрифты (0)</a><a href="pages/millionniki_topic_editing.html">Монтаж (2)</a><a href="pages/millionniki_topic_ai.html">ИИ (0)</a><a href="pages/millionniki_topic_audio.html">Аудио (0)</a></div>
+<div class="typerow">
+<a href="pages/millionniki_all.html">Все</a>
+<a href="pages/millionniki_reels.html">Рилсы (2)</a>
+<a href="pages/millionniki_carousels.html">Карусели (0)</a>
+<a href="pages/millionniki_posts.html">Одиночные посты (0)</a>
+<a href="pages/millionniki_tgposts.html">ТГ-посты (0)</a>
+<a href="pages/millionniki_other.html">Остальное (0)</a>
 </div>
 </div>
 </div>

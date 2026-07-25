@@ -1,0 +1,141 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Миллионники — Психология — Карусели</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+:root { color-scheme: dark; }
+body { background:#111; color:#eee; font-family:-apple-system,Segoe UI,Arial,sans-serif; margin:0; padding:24px; }
+h1 { font-size:22px; margin-bottom:4px; }
+.pageheader { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+.pageheader h1 { margin:0; }
+nav { margin-bottom:2px; }
+nav a { color:#7cc4ff; margin-right:14px; text-decoration:none; font-size:14px; }
+nav a.active { color:#fff; text-decoration:underline; }
+nav a.home { color:#ddd; }
+.navblock { margin-bottom:10px; }
+.supercat { color:#6ee7c4; font-weight:700; text-transform:uppercase; letter-spacing:.05em; margin-right:10px; font-size:13px; cursor:pointer; user-select:none; }
+.acc-arrow { display:inline-block; width:10px; }
+.accordion-body.collapsed { display:none; }
+.topicrow { margin:4px 0 4px 0; }
+.topicrow a { color:#ff6b6b; margin-right:12px; text-decoration:none; font-size:13px; }
+.topicrow a.active { color:#fff; text-decoration:underline; }
+.typerow a { color:#7cc4ff; margin-right:14px; text-decoration:none; font-size:14px; }
+.typerow a.active { color:#fff; text-decoration:underline; }
+.grid { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:20px; }
+@media (max-width:1400px){ .grid{ grid-template-columns:repeat(4,1fr);} }
+@media (max-width:1100px){ .grid{ grid-template-columns:repeat(3,1fr);} }
+@media (max-width:800px){ .grid{ grid-template-columns:repeat(2,1fr);} }
+@media (max-width:500px){ .grid{ grid-template-columns:1fr;} }
+.card { background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; }
+.card video, .card img.main { width:100%; border-radius:6px; background:#000; max-height:340px; object-fit:contain; }
+.vwrap, .cwrap { position:relative; }
+.playbtn {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:56px; height:56px; border-radius:50%; background:rgba(0,0,0,.45);
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  transition:opacity .15s; pointer-events:auto;
+}
+.playbtn::after {
+  content:""; border-style:solid; border-width:12px 0 12px 20px;
+  border-color:transparent transparent transparent rgba(255,255,255,.85);
+  margin-left:4px;
+}
+.playbtn.hidden { opacity:0; pointer-events:none; }
+.carousel-nav {
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:34px; height:34px; border-radius:50%; background:rgba(0,0,0,.4);
+  color:rgba(255,255,255,.85); display:flex; align-items:center; justify-content:center;
+  cursor:pointer; font-size:18px; user-select:none;
+}
+.carousel-nav.prev { left:6px; }
+.carousel-nav.next { right:6px; }
+.thumbs { display:flex; gap:4px; margin-top:4px; overflow-x:auto; }
+.thumbs img { height:44px; border-radius:4px; cursor:pointer; opacity:.7; }
+.thumbs img.active { opacity:1; outline:2px solid #7cc4ff; }
+.stats { font-size:12px; color:#9c9; margin-top:6px; display:flex; gap:10px; flex-wrap:wrap; }
+.stats span { background:#242424; padding:2px 6px; border-radius:4px; }
+.owner { font-size:11px; color:#888; margin-top:4px; }
+.owner a.authorlink { color:#ddd; text-decoration:underline; cursor:pointer; }
+.owner a.authorlink:hover { color:#fff; }
+.section-label { font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:#7cc4ff; margin-top:8px; }
+.text { font-size:12.5px; line-height:1.4; color:#ccc; margin-top:4px; white-space:pre-wrap; max-height:160px; overflow-y:auto; }
+.note { font-size:12px; color:#e88; }
+a.origlink { font-size:11px; color:#7cc4ff; }
+.authors-list a { color:#7cc4ff; margin-right:12px; font-size:13px; text-decoration:none; display:inline-block; margin-bottom:6px; }
+.selectwrap { position:absolute; top:6px; right:6px; z-index:6; }
+.selectwrap input.selchk { display:none; }
+.selectwrap .selmark {
+  display:block; width:26px; height:26px; border-radius:50%;
+  background:rgba(0,0,0,.5); border:2px solid rgba(255,255,255,.6); cursor:pointer; position:relative;
+}
+.selectwrap input.selchk:checked + .selmark { background:#2ecc71; border-color:#2ecc71; }
+.selectwrap input.selchk:checked + .selmark::after {
+  content:""; position:absolute; left:7px; top:3px; width:7px; height:13px;
+  border:solid white; border-width:0 3px 3px 0; transform:rotate(40deg);
+}
+.selbar {
+  position:fixed; bottom:16px; right:16px; background:#1c1c1c; border:1px solid #333;
+  border-radius:10px; padding:10px 14px; font-size:13px; display:flex; gap:10px; align-items:center; z-index:50;
+}
+.selbar button { background:#2ecc71; color:#111; border:none; border-radius:6px; padding:6px 10px; cursor:pointer; font-size:12px; font-weight:600; }
+.selbar button.secondary { background:#444; color:#eee; }
+.sortbar { display:flex; justify-content:flex-end; gap:8px; margin:0; }
+.sortbar button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
+.sortbar button.active { color:#fff; border-color:#7cc4ff; }
+@media (max-width:600px){ .sortbar{ justify-content:flex-start; flex-wrap:wrap; } }
+</style>
+</head><body>
+<div class="pageheader">
+<h1>Миллионники — Психология — Карусели</h1>
+<div class="sortbar">
+<button id="sort-desc" onclick="sortCards('desc')">Сначала новые</button>
+<button id="sort-asc" onclick="sortCards('asc')">Сначала старые</button>
+</div>
+</div>
+<nav><a class="home" href="../index.html">Главная</a></nav>
+<div class="navblock">
+<span class="supercat" onclick="toggleAccordion('refs')"><span class="acc-arrow">▸</span> Рефы</span>
+<div class="accordion-body collapsed" id="acc-refs">
+<div class="topicrow"><a class="" href="refs_all.html">Все</a><a class="" href="refs_topic_psychology.html">Психология</a><a class="" href="refs_topic_marketing.html">Маркетинг</a><a class="" href="refs_topic_design.html">Дизайн</a><a class="" href="refs_topic_fonts.html">Шрифты</a><a class="" href="refs_topic_editing.html">Монтаж</a><a class="" href="refs_topic_ai.html">ИИ</a><a class="" href="refs_topic_audio.html">Аудио</a></div>
+<div class="typerow"><a class="" href="refs_all.html">Все</a><a class="" href="refs_reels.html">Рилсы</a><a class="" href="refs_carousels.html">Карусели</a><a class="" href="refs_posts.html">Одиночные посты</a><a class="" href="refs_tgposts.html">ТГ-посты</a><a class="" href="refs_other.html">Остальное</a></div>
+</div>
+</div>
+<div class="navblock">
+<span class="supercat" onclick="toggleAccordion('theory')"><span class="acc-arrow">▸</span> Теория</span>
+<div class="accordion-body collapsed" id="acc-theory">
+<div class="topicrow"><a class="" href="theory_all.html">Все</a><a class="" href="theory_topic_psychology.html">Психология</a><a class="" href="theory_topic_marketing.html">Маркетинг</a><a class="" href="theory_topic_design.html">Дизайн</a><a class="" href="theory_topic_fonts.html">Шрифты</a><a class="" href="theory_topic_editing.html">Монтаж</a><a class="" href="theory_topic_ai.html">ИИ</a><a class="" href="theory_topic_audio.html">Аудио</a></div>
+<div class="typerow"><a class="" href="theory_all.html">Все</a><a class="" href="theory_reels.html">Рилсы</a><a class="" href="theory_carousels.html">Карусели</a><a class="" href="theory_posts.html">Одиночные посты</a><a class="" href="theory_tgposts.html">ТГ-посты</a><a class="" href="theory_other.html">Остальное</a></div>
+</div>
+</div>
+<div class="navblock">
+<span class="supercat" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▾</span> Миллионники</span>
+<div class="accordion-body" id="acc-millionniki">
+<div class="topicrow"><a class="" href="millionniki_carousels.html">Все</a><a class="active" href="millionniki_psychology_carousels.html">Психология</a><a class="" href="millionniki_marketing_carousels.html">Маркетинг</a><a class="" href="millionniki_design_carousels.html">Дизайн</a><a class="" href="millionniki_fonts_carousels.html">Шрифты</a><a class="" href="millionniki_editing_carousels.html">Монтаж</a><a class="" href="millionniki_ai_carousels.html">ИИ</a><a class="" href="millionniki_audio_carousels.html">Аудио</a></div>
+<div class="typerow"><a class="" href="millionniki_topic_psychology.html">Все</a><a class="" href="millionniki_psychology_reels.html">Рилсы</a><a class="active" href="millionniki_psychology_carousels.html">Карусели</a><a class="" href="millionniki_psychology_posts.html">Одиночные посты</a><a class="" href="millionniki_psychology_tgposts.html">ТГ-посты</a><a class="" href="millionniki_psychology_other.html">Остальное</a></div>
+</div>
+</div>
+<div class="grid">
+
+</div>
+<div class="selbar">
+Выбрано: <span id="selcount">0</span>
+<button onclick="downloadSelectedTranscripts()">Скачать транскрипты</button>
+<button class="secondary" onclick="clearSelection()">Сбросить</button>
+</div>
+<script>
+function csSet(sc, idx) {
+  var wrap = document.getElementById('cwrap-' + sc);
+  wrap.dataset.idx = idx;
+  document.getElementById('main-' + sc).src = '../media/' + sc + '_' + idx + '.jpg';
+  wrap.parentElement.querySelectorAll('.thumbs img').forEach(function(t, i) {
+    t.classList.toggle('active', i === idx);
+  });
+}
+function csNav(sc, dir) {
+  var wrap = document.getElementById('cwrap-' + sc);
+  var count = parseInt(wrap.dataset.count, 10);
+  var idx = (parseInt(wrap.dataset.idx, 10) + dir + count) % count;
+  csSet(sc, idx);
+}
+</script>
+<script src="../assets/site.js"></script>
+</body></html>
