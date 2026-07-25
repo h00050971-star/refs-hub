@@ -11,9 +11,10 @@ nav { margin-bottom:2px; }
 nav a { color:#7cc4ff; margin-right:14px; text-decoration:none; font-size:14px; }
 nav a.active { color:#fff; text-decoration:underline; }
 nav a.home { color:#ddd; }
-.navblock { margin-bottom:10px; }
-.supercat { color:#6ee7c4; font-weight:700; text-transform:uppercase; letter-spacing:.05em; margin-right:10px; font-size:13px; cursor:pointer; user-select:none; }
+.supercat-row { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:6px; }
+.supercat { color:#6ee7c4; font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:13px; cursor:pointer; user-select:none; }
 .acc-arrow { display:inline-block; width:10px; }
+.accordion-body { margin-bottom:8px; }
 .accordion-body.collapsed { display:none; }
 .topicrow { margin:4px 0 4px 0; }
 .topicrow a { color:#ff6b6b; margin-right:12px; text-decoration:none; font-size:13px; }
@@ -27,7 +28,7 @@ nav a.home { color:#ddd; }
 @media (max-width:500px){ .grid{ grid-template-columns:1fr;} }
 .card { background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; }
 .card video, .card img.main { width:100%; border-radius:6px; background:#000; max-height:340px; object-fit:contain; }
-.vwrap, .cwrap { position:relative; }
+.vwrap, .cwrap, .imgwrap { position:relative; }
 .playbtn {
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
   width:56px; height:56px; border-radius:50%; background:rgba(0,0,0,.45);
@@ -78,6 +79,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 }
 .selbar button { background:#2ecc71; color:#111; border:none; border-radius:6px; padding:6px 10px; cursor:pointer; font-size:12px; font-weight:600; }
 .selbar button.secondary { background:#444; color:#eee; }
+.selbar button.teleprompter { background:#ff9800; color:#111; }
 .sortbar { display:flex; justify-content:flex-end; gap:8px; margin:0; }
 .sortbar button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .sortbar button.active { color:#fff; border-color:#7cc4ff; }
@@ -92,33 +94,24 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 </div>
 </div>
 <nav><a class="home" href="../index.html">Главная</a></nav>
-<div class="navblock">
-<span class="supercat" onclick="toggleAccordion('refs')"><span class="acc-arrow">▸</span> Рефы</span>
+<div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▸</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▸</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▾</span> Миллионники</span></div>
 <div class="accordion-body collapsed" id="acc-refs">
 <div class="topicrow"><a class="" href="refs_all.html">Все</a><a class="" href="refs_topic_psychology.html">Психология</a><a class="" href="refs_topic_marketing.html">Маркетинг</a><a class="" href="refs_topic_design.html">Дизайн</a><a class="" href="refs_topic_fonts.html">Шрифты</a><a class="" href="refs_topic_editing.html">Монтаж</a><a class="" href="refs_topic_ai.html">ИИ</a><a class="" href="refs_topic_audio.html">Аудио</a></div>
 <div class="typerow"><a class="" href="refs_all.html">Все</a><a class="" href="refs_reels.html">Рилсы</a><a class="" href="refs_carousels.html">Карусели</a><a class="" href="refs_posts.html">Одиночные посты</a><a class="" href="refs_tgposts.html">ТГ-посты</a><a class="" href="refs_other.html">Остальное</a></div>
-</div>
-</div>
-<div class="navblock">
-<span class="supercat" onclick="toggleAccordion('theory')"><span class="acc-arrow">▸</span> Теория</span>
-<div class="accordion-body collapsed" id="acc-theory">
+</div><div class="accordion-body collapsed" id="acc-theory">
 <div class="topicrow"><a class="" href="theory_all.html">Все</a><a class="" href="theory_topic_psychology.html">Психология</a><a class="" href="theory_topic_marketing.html">Маркетинг</a><a class="" href="theory_topic_design.html">Дизайн</a><a class="" href="theory_topic_fonts.html">Шрифты</a><a class="" href="theory_topic_editing.html">Монтаж</a><a class="" href="theory_topic_ai.html">ИИ</a><a class="" href="theory_topic_audio.html">Аудио</a></div>
 <div class="typerow"><a class="" href="theory_all.html">Все</a><a class="" href="theory_reels.html">Рилсы</a><a class="" href="theory_carousels.html">Карусели</a><a class="" href="theory_posts.html">Одиночные посты</a><a class="" href="theory_tgposts.html">ТГ-посты</a><a class="" href="theory_other.html">Остальное</a></div>
-</div>
-</div>
-<div class="navblock">
-<span class="supercat" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▾</span> Миллионники</span>
-<div class="accordion-body" id="acc-millionniki">
+</div><div class="accordion-body" id="acc-millionniki">
 <div class="topicrow"><a class="" href="millionniki_other.html">Все</a><a class="" href="millionniki_psychology_other.html">Психология</a><a class="active" href="millionniki_marketing_other.html">Маркетинг</a><a class="" href="millionniki_design_other.html">Дизайн</a><a class="" href="millionniki_fonts_other.html">Шрифты</a><a class="" href="millionniki_editing_other.html">Монтаж</a><a class="" href="millionniki_ai_other.html">ИИ</a><a class="" href="millionniki_audio_other.html">Аудио</a></div>
 <div class="typerow"><a class="" href="millionniki_topic_marketing.html">Все</a><a class="" href="millionniki_marketing_reels.html">Рилсы</a><a class="" href="millionniki_marketing_carousels.html">Карусели</a><a class="" href="millionniki_marketing_posts.html">Одиночные посты</a><a class="" href="millionniki_marketing_tgposts.html">ТГ-посты</a><a class="active" href="millionniki_marketing_other.html">Остальное</a></div>
-</div>
 </div>
 <div class="grid">
 
 </div>
 <div class="selbar">
 Выбрано: <span id="selcount">0</span>
-<button onclick="downloadSelectedTranscripts()">Скачать транскрипты</button>
+<button onclick="downloadSelectedTranscripts()">Скачать txt</button>
+<button class="teleprompter" onclick="sendToTeleprompter()">На суфлер</button>
 <button class="secondary" onclick="clearSelection()">Сбросить</button>
 </div>
 <script>

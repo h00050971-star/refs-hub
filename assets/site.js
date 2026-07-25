@@ -32,8 +32,8 @@ async function downloadSelectedTranscripts(){
   for (var i=0;i<sel.length;i++){
     var sc = sel[i];
     try {
-      var res = await fetch('../media/' + sc + '.txt');
-      var text = res.ok ? await res.text() : '(транскрипт недоступен)';
+      var res = await fetch('../media/' + sc + '_export.txt');
+      var text = res.ok ? await res.text() : '(текст недоступен)';
       parts.push('=== ' + sc + ' ===\n' + text.trim() + '\n');
     } catch(e){
       parts.push('=== ' + sc + ' ===\n(ошибка загрузки)\n');
@@ -48,14 +48,20 @@ async function downloadSelectedTranscripts(){
   a.remove();
 }
 function toggleAccordion(group){
-  ['refs','theory'].forEach(function(g){
+  ['refs','theory','millionniki'].forEach(function(g){
     var el = document.getElementById('acc-' + g);
+    var label = document.getElementById('label-' + g);
     if(!el) return;
     var open = (g === group);
     el.classList.toggle('collapsed', !open);
-    var arrow = el.parentElement.querySelector('.acc-arrow');
-    if(arrow) arrow.textContent = open ? '▾' : '▸';
+    if(label){
+      var arrow = label.querySelector('.acc-arrow');
+      if(arrow) arrow.textContent = open ? '▾' : '▸';
+    }
   });
+}
+function sendToTeleprompter(){
+  alert('На суфлер: скоро будет готово');
 }
 function sortCards(dir){
   var grid = document.querySelector('.grid');
