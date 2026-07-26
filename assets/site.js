@@ -1,4 +1,18 @@
 
+function toast(msg, isError){
+  var el = document.getElementById('toastbox');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'toastbox';
+    el.style.cssText = 'position:fixed;bottom:70px;right:16px;background:#1c1c1c;border:1px solid #333;border-radius:8px;padding:10px 14px;font-size:13px;z-index:60;max-width:280px;';
+    document.body.appendChild(el);
+  }
+  el.style.color = isError ? '#ff8080' : '#7ee787';
+  el.textContent = msg;
+  el.style.display = 'block';
+  clearTimeout(el._t);
+  el._t = setTimeout(function(){ el.style.display = 'none'; }, 5000);
+}
 function getSelected(){
   try { return JSON.parse(localStorage.getItem('selected_reels')||'[]'); } catch(e){ return []; }
 }
@@ -27,15 +41,19 @@ function updateSelCount(){
 }
 async function downloadSelectedTranscripts(){
   var sel = getSelected();
-  if(!sel.length){ alert('Ничего не выбрано'); return; }
+  if(!sel.length){ toast('Ничего не выбрано', true); return; }
+  toast('Собираю тексты (' + sel.length + ')...');
   var parts = [];
+  var errors = 0;
   for (var i=0;i<sel.length;i++){
     var sc = sel[i];
     try {
       var res = await fetch('../media/' + sc + '_export.txt');
       var text = res.ok ? await res.text() : '(текст недоступен)';
+      if(!res.ok) errors++;
       parts.push('=== ' + sc + ' ===\n' + text.trim() + '\n');
     } catch(e){
+      errors++;
       parts.push('=== ' + sc + ' ===\n(ошибка загрузки)\n');
     }
   }
@@ -46,6 +64,7 @@ async function downloadSelectedTranscripts(){
   document.body.appendChild(a);
   a.click();
   a.remove();
+  toast(errors ? ('Файл скачан, но ' + errors + ' из ' + sel.length + ' без текста') : 'Файл скачан ✓', errors > 0);
 }
 var SITE_BASE = 'https://h00050971-star.github.io/refs-hub';
 var _urlMapCache = null;
@@ -59,13 +78,16 @@ async function getUrlMap(){
 }
 async function downloadDesignBrief(){
   var sel = getSelected();
-  if(!sel.length){ alert('Ничего не выбрано'); return; }
+  if(!sel.length){ toast('Ничего не выбрано', true); return; }
+  toast('Собираю ТЗ (' + sel.length + ')...');
   var urlMap = await getUrlMap();
   var parts = [];
+  var missing = 0;
   for (var i=0;i<sel.length;i++){
     var sc = sel[i];
     var meta = urlMap[sc] || {};
     var block = '=== ' + sc + ' ===\n';
+    if(meta.ref_code) block += 'Реф: ' + meta.ref_code + '\n';
     block += 'Оригинал: ' + (meta.url || 'н/д') + '\n';
     var nImg = meta.images || 0;
     if(nImg > 0){
@@ -77,8 +99,10 @@ async function downloadDesignBrief(){
     try {
       var res = await fetch('../media/' + sc + '_design.txt');
       var text = res.ok ? (await res.text()).trim() : '';
+      if(!text) missing++;
       block += '\n' + (text || '(дизайн-описание недоступно для этого поста)') + '\n';
     } catch(e){
+      missing++;
       block += '\n(ошибка загрузки дизайн-описания)\n';
     }
     parts.push(block);
@@ -90,6 +114,39 @@ async function downloadDesignBrief(){
   document.body.appendChild(a);
   a.click();
   a.remove();
+  toast(missing ? ('ТЗ скачано, но ' + missing + ' из ' + sel.length + ' без дизайн-описания (ещё не сгенерировано)') : 'ТЗ скачано ✓ — передай файл агенту-дизайнеру в Клоде', missing > 0);
+}
+var _refIndexCache = null;
+async function getRefIndex(){
+  if(_refIndexCache) return _refIndexCache;
+  var base = location.pathname.includes('/pages/') ? '../' : '';
+  try {
+    var res = await fetch(base + 'assets/ref_index.json');
+    _refIndexCache = res.ok ? await res.json() : {};
+  } catch(e){ _refIndexCache = {}; }
+  return _refIndexCache;
+}
+async function searchByRefCode(){
+  var input = document.getElementById('refcodeInput');
+  var val = (input.value || '').trim().toUpperCase();
+  if(!val){ toast('Введи код, например REF-00042', true); return; }
+  var idx = await getRefIndex();
+  var info = idx[val];
+  if(!info){ toast('Код не найден: ' + val, true); return; }
+  var base = location.pathname.includes('/pages/') ? '' : 'pages/';
+  location.href = base + info.page + '#card-' + val;
+}
+function highlightFromHash(){
+  if(location.hash && location.hash.indexOf('#card-') === 0){
+    var el = document.querySelector(location.hash);
+    if(el){
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.add('hl');
+      setTimeout(function(){ el.classList.remove('hl'); }, 4000);
+    } else {
+      toast('Карточка ' + location.hash.replace('#card-','') + ' не найдена на этой странице', true);
+    }
+  }
 }
 function toggleAccordion(group){
   ['refs','theory','millionniki'].forEach(function(g){
@@ -126,4 +183,5 @@ function sortCards(dir){
 document.addEventListener('DOMContentLoaded', function(){
   restoreSelUI();
   sortCards('desc');
+  highlightFromHash();
 });

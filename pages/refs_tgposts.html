@@ -1,4 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Рефы — ТГ-посты</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8E%AC</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -29,6 +30,11 @@ nav a.home { color:#ddd; }
 @media (max-width:800px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:500px){ .grid{ grid-template-columns:minmax(0,1fr);} }
 .card { background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; min-width:0; max-width:100%; overflow:hidden; }
+.card.hl { outline:3px solid #ff6b6b; }
+.refcode { font-size:10.5px; color:#666; letter-spacing:.03em; margin-bottom:4px; font-family:monospace; }
+.searchbox { display:flex; gap:6px; align-items:center; margin:4px 0 2px; }
+.searchbox input { background:#1c1c1c; border:1px solid #333; color:#eee; border-radius:6px; padding:5px 8px; font-size:12px; width:140px; }
+.searchbox button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .card video, .card img.main { width:100%; border-radius:6px; background:#000; max-height:340px; object-fit:contain; }
 .vwrap, .cwrap, .imgwrap { position:relative; }
 .playbtn {
@@ -96,6 +102,10 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <button id="sort-asc" onclick="sortCards('asc')">Сначала старые</button>
 </div>
 </div>
+<div class="searchbox">
+<input type="text" id="refcodeInput" placeholder="REF-00042" onkeydown="if(event.key==='Enter')searchByRefCode()">
+<button onclick="searchByRefCode()">Найти по коду</button>
+</div>
 <nav><a class="home" href="../index.html">Главная</a></nav>
 <div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▾</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▸</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▸</span> Миллионники</span></div>
 <div class="accordion-body" id="acc-refs">
@@ -109,150 +119,107 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div>
 <div class="grid">
-<div class="card" data-date="2026-07-21T18:30:53+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1455332.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1455332" data-sc="refs_1455332" onchange="toggleSel('refs_1455332', this.checked)"><label for="chk-refs_1455332" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Пост #2706
+<div class="card" id="card-REF-00007" data-date="2026-06-26T08:54:50+00:00"><div class="refcode">REF-00007</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446599.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446599" data-sc="refs_1446599" onchange="toggleSel('refs_1446599', this.checked)"><label for="chk-refs_1446599" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00011" data-date="2026-06-26T08:56:48+00:00"><div class="refcode">REF-00011</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446603.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446603" data-sc="refs_1446603" onchange="toggleSel('refs_1446603', this.checked)"><label for="chk-refs_1446603" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00014" data-date="2026-06-26T09:42:35+00:00"><div class="refcode">REF-00014</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446643.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446643" data-sc="refs_1446643" onchange="toggleSel('refs_1446643', this.checked)"><label for="chk-refs_1446643" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">У россиян [началась](https://t.me/bazabazon/47046) «бензиновая тревожность» — подтверждённое психологами состояние, при котором люди переживают из-за топлива.
 
-Топливный кризис был подготовкой к финальному боссу:
+Пока «бензиновую тревожность» обнаружили только у мужчин. Они делились психологами своим страхом остаться без машины из-за ситуации с топливом, а также влекущей за этим потери уверенности в себе.
 
-https://t.me/collegi/22695</div></div>
-<div class="card" data-date="2026-07-20T01:10:29+00:00"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1455072" data-sc="refs_1455072" onchange="toggleSel('refs_1455072', this.checked)"><label for="chk-refs_1455072" class="selmark"></label></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-16T13:47:02+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1454084.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1454084" data-sc="refs_1454084" onchange="toggleSel('refs_1454084', this.checked)"><label for="chk-refs_1454084" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">😁 **ШРИФТ ДЛЯ СУБТИТРОВ И ЗАГОЛОВКОВ В РАЗНЫХ НАЧЕРТАНИЯХ **
+Для лечения эксперты советуют пациентам читать новости, в которых компании сообщают о том, что топливо никуда не денется.
 
-Он современный, чистый, хорошо читается и не перегружает кадр. 
+Вы знаете, кого успокоить этим постом.</div></div>
+<div class="card" id="card-REF-00017" data-date="2026-06-26T09:45:32+00:00"><div class="refcode">REF-00017</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446653.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446653" data-sc="refs_1446653" onchange="toggleSel('refs_1446653', this.checked)"><label for="chk-refs_1446653" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00018" data-date="2026-06-26T09:45:32+00:00"><div class="refcode">REF-00018</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446652.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446652" data-sc="refs_1446652" onchange="toggleSel('refs_1446652', this.checked)"><label for="chk-refs_1446652" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00019" data-date="2026-06-26T09:45:32+00:00"><div class="refcode">REF-00019</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446651.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446651" data-sc="refs_1446651" onchange="toggleSel('refs_1446651', this.checked)"><label for="chk-refs_1446651" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00020" data-date="2026-06-26T09:45:32+00:00"><div class="refcode">REF-00020</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446650.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446650" data-sc="refs_1446650" onchange="toggleSel('refs_1446650', this.checked)"><label for="chk-refs_1446650" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00021" data-date="2026-06-26T09:45:32+00:00"><div class="refcode">REF-00021</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446649.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446649" data-sc="refs_1446649" onchange="toggleSel('refs_1446649', this.checked)"><label for="chk-refs_1446649" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00022" data-date="2026-06-26T09:45:32+00:00"><div class="refcode">REF-00022</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446648.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446648" data-sc="refs_1446648" onchange="toggleSel('refs_1446648', this.checked)"><label for="chk-refs_1446648" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00023" data-date="2026-06-26T09:45:32+00:00"><div class="refcode">REF-00023</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446647.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446647" data-sc="refs_1446647" onchange="toggleSel('refs_1446647', this.checked)"><label for="chk-refs_1446647" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00024" data-date="2026-06-26T09:45:32+00:00"><div class="refcode">REF-00024</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446646.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446646" data-sc="refs_1446646" onchange="toggleSel('refs_1446646', this.checked)"><label for="chk-refs_1446646" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">[​​](https://www.instagram.com/p/DZ5MztxjXOx/)Спасибо, что пользуетесь - @SaveAsBot&#x27;ом</div></div>
+<div class="card" id="card-REF-00026" data-date="2026-06-26T15:02:03+00:00"><div class="refcode">REF-00026</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446697.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446697" data-sc="refs_1446697" onchange="toggleSel('refs_1446697', this.checked)"><label for="chk-refs_1446697" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Глобальное потепление сдвинуло дедлайны маркетологов: бренды меняют свои календари из-за аномальной жары. 
 
-А благодаря **разной толщине **можно **выделять** ключевые слова и **расставлять акценты. 
+И речь тут не только о коллекциях одежды: чем дольше на улице высокая температура, тем дольше люди пьют холодные напитки, покупают SPF, устанавливают кондиционеры и планируют свои викенды на природе. 
 
-**🤫 **Подробнее в новом рилсе**__
-__
-Шрифт бесплатный, его можно использовать и в личных, и в коммерческих проектах.
+В итоге в отделах маркетинга горит не только от +30 за окном, но еще и от дедлайнов и реакции работяг, которым остается надеяться только на помощь шаманов, чтобы те вернули прохладу, а вместе с ней и адекватное рабочие задачи 🔥</div></div>
+<div class="card" id="card-REF-00056" data-date="2026-06-26T15:18:06+00:00"><div class="refcode">REF-00056</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446765.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446765" data-sc="refs_1446765" onchange="toggleSel('refs_1446765', this.checked)"><label for="chk-refs_1446765" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Gmail в России — всё: президент подписал закон о штрафах до 700 000₽ за использование зарубежных сервисов автоматизации.
+
+Ответственность коснётся те платформы, которые продолжают предлагать иностранные способы входа и регистрации.
+
+F.</div></div>
+<div class="card" id="card-REF-00089" data-date="2026-06-26T17:44:23+00:00"><div class="refcode">REF-00089</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446838.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446838" data-sc="refs_1446838" onchange="toggleSel('refs_1446838', this.checked)"><label for="chk-refs_1446838" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Алкоголь официально вышел из моды **— московские зумеры больше не пьют. Нарколог Антон Масякин [утверждает](https://moskvichmag.ru/gorod/glavnyj-narkolog-moskvy-zayavil-alkogol-sredi-molodezhi-okonchatelno-vyshel-iz-mody/), что столица входит в число регионов с самым низким уровнем потребления алкоголя. Москва находится примерно на одной ступеньке с кавказскими республиками, где пить нельзя по религиозным причинам. 
+
+Все благодаря зумерам, которые выбирают **вместо бокала просекко спорт, пробежки, теннис и волейбол**.  
+
+Владельцам баров срочно нужно переоборудовать помещения под падел и бильярд 😋
+
+@trends</div></div>
+<div class="card" id="card-REF-00090" data-date="2026-06-26T17:51:44+00:00"><div class="refcode">REF-00090</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446839.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446839" data-sc="refs_1446839" onchange="toggleSel('refs_1446839', this.checked)"><label for="chk-refs_1446839" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Двигаюсь, кстати, на гибридной тяге. Lotus For Me. 
+Сегодня подснимали его. Когда-то давно я брал потестить Eletre и не понял. А эту понял.</div></div>
+<div class="card" id="card-REF-00093" data-date="2026-06-26T18:09:04+00:00"><div class="refcode">REF-00093</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446844.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446844" data-sc="refs_1446844" onchange="toggleSel('refs_1446844', this.checked)"><label for="chk-refs_1446844" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00094" data-date="2026-06-26T18:09:04+00:00"><div class="refcode">REF-00094</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446843.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446843" data-sc="refs_1446843" onchange="toggleSel('refs_1446843', this.checked)"><label for="chk-refs_1446843" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00096" data-date="2026-06-26T19:37:31+00:00"><div class="refcode">REF-00096</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446887.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446887" data-sc="refs_1446887" onchange="toggleSel('refs_1446887', this.checked)"><label for="chk-refs_1446887" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Кринж детектед** 🤓
+
+Лосины для кошек стали неожиданным хитом в Азии 😰 __Первую партию этой кошачьей имбы раскупили буквально за полдня. __
+
+**Представь, что к тебе пришёл заказчик с таким продуктом.**
+🐱 Как будешь продвигать? 
+🐱 На каких площадках? 
+🐾 С каких козырей и посылов зайдёшь?
+
+🐈🐈🐈 Пока котики страдают, **качай маркетинговую мышцу в комментах,** не стесняйся 👇</div></div>
+<div class="card" id="card-REF-00099" data-date="2026-06-26T19:41:59+00:00"><div class="refcode">REF-00099</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446891.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446891" data-sc="refs_1446891" onchange="toggleSel('refs_1446891', this.checked)"><label for="chk-refs_1446891" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Все телефоны в России поставят на учет — Путин подписал закон о формировании национальной базы IMEI-кодов. Это 15-значный номер, который есть у каждого смартфона. Если девайса не будет в базе, то с него не получится ни позвонить, ни отправить СМС. Телефон будет просто кирпичом.
+
+Закон объясняют борьбой с мошенниками и нелегальным ввозом. Про телефоны с Горбушки можно забыть 🤬</div></div>
+<div class="card" id="card-REF-00104" data-date="2026-06-27T07:42:09+00:00"><div class="refcode">REF-00104</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1447059.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1447059" data-sc="refs_1447059" onchange="toggleSel('refs_1447059', this.checked)"><label for="chk-refs_1447059" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Как понять, залетел ролик или нет? **🤔
+
+__Это зависит от размера вашего аккаунта.__
+
+Например, если у меня **300 тысяч подписчиков**, и ролик собирает **30 тысяч просмотров **- это не залёт, это слабый результат.
+
+А если у человека **100 подписчиков**, и ролик набрал **те же 30 тыс. просмотров** - это уже залетевший ролик.
+
+Поэтому ориентируемся не на просмотры, а на соотношение с вашей аудиторией.
+
+**ВОТ ФОРМУЛА: **
+❌ Если ролик набирает **меньше просмотров, чем у вас подписчиков - он не залетел**.
+
+✔️ Ролик считается залетевшим, когда он **набирает количество просмотров, равное вашим подписчикам + ещё примерно 100 тыс. сверху**.
+
+На моём примере:
+У меня 300 000 подписчиков → залёт начинается примерно от 400 000 просмотров.
+Это примерный ориентир, на который можно опираться при оценке своих результатов.
+
+⚠️ **Но тут важно понимать ещё одну вещь****⬇️****
 **
-**➡️ сами шрифты **забирай в комментариях** под этим постом. **
-**
-[**Инструкция, как добавить шрифты в CapCut**](https://t.me/c/2141235662/1009)** **👈 **тут
-**__
-____#шрифты_leramarkuss____
-__📌Подписывайся на канал, тут много пользы для блога, контента, Reels и продвижения.</div></div>
-<div class="card" data-date="2026-07-16T07:24:54+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1453953.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453953" data-sc="refs_1453953" onchange="toggleSel('refs_1453953', this.checked)"><label for="chk-refs_1453953" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-16T07:24:54+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1453952.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453952" data-sc="refs_1453952" onchange="toggleSel('refs_1453952', this.checked)"><label for="chk-refs_1453952" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-16T07:24:54+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1453951.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453951" data-sc="refs_1453951" onchange="toggleSel('refs_1453951', this.checked)"><label for="chk-refs_1453951" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-16T07:24:54+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1453950.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453950" data-sc="refs_1453950" onchange="toggleSel('refs_1453950', this.checked)"><label for="chk-refs_1453950" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-15T17:22:05+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1453912.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453912" data-sc="refs_1453912" onchange="toggleSel('refs_1453912', this.checked)"><label for="chk-refs_1453912" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Злость: почему вы запрещаете себе злиться.
-**
-15% людей запрещали злиться в детстве.
+Не забывайте, что дело не в количестве просмотров, а в качестве этих просмотров.
 
-«Не злись».
-«Хорошие девочки не злятся».
-«Злиться- это плохо».
+🌸 Лучше вас посмотрят **10 тысяч целевых людей**, которым реально **интересна ваша тема**, которые **подпишутся** и в будущем **купят ваш продукт**.
 
-**И во взрослом возрасте вы:
-**
-- Проглатываете обиду.
-- Улыбаетесь, когда внутри всё кипит.
-- Ждёте, что партнёр сам догадается.
+Чем залетит ролик с пердящей собакой на **миллион просмотров**, который соберёт **случайную аудиторию**, не принесёт **ни подписчиков, ни клиентов, ни денег**, а ещё и **собьёт алгоритмы**👍
 
-Злость - это не плохо.
-Это сигнал.
-Сигнал о том, что ваши границы нарушены.
+У меня, например, нет ни одного ролика-миллионника. Я не снимаю широкий развлекательный контент. Я выпускаю узконишевые ролики по продвижению.
 
-**Что происходит, когда вы подавляете злость?**
-- Она копится.
-- Она превращается в обиду.
-- Она взрывается (через месяцы или годы).
-- Она разрушает ваше тело (психосоматика).
+И несмотря на это, я системно расту на 30-40 тысяч подписчиков в месяц.
 
-**Как легализовать злость:**
-Признайте: «Я злюсь».
-Спросите: «На что именно?»
-Напишите письмо (не отправляйте).
-Выпустите злость безопасно (подушка, спорт, крик в машине).
+__Поэтому не гонитесь за просмотрами, гонитесь за качеством аудитории и будет вам счастье. **Всем добра**____❤️____
 
-Злость- это энергия.
-Её не надо подавлять.
-Её надо направить.
+____#продвижение_LeraMarkuss__
+✔️ **Подписывайся на канал**, тут много пользы для блога, контента, Reels и продвижения.</div></div>
+<div class="card" id="card-REF-00112" data-date="2026-06-27T14:10:42+00:00"><div class="refcode">REF-00112</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1447117.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1447117" data-sc="refs_1447117" onchange="toggleSel('refs_1447117', this.checked)"><label for="chk-refs_1447117" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Coors Light выпустили огромную банку пива «Tallerboy» к ЧМ по футболу специально для фанатов.
 
-**Но сначала- вспомните:
-Запрещали ли вам злиться в детстве?
+Банка символизируют протяжные крики «Гооооол» на матчах, так что вмещает в себя сразу 3 банки пива. Главное — лимитку раскупили в считанные дни.
 
-**Или злиться можно было, но только определённым образом?
+Идеальная баночка для выходных.</div></div>
+<div class="card" id="card-REF-00261" data-date="2026-07-05T23:37:26+00:00"><div class="refcode">REF-00261</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1449255" data-sc="refs_1449255" onchange="toggleSel('refs_1449255', this.checked)"><label for="chk-refs_1449255" class="selmark"></label></div><div class="section-label">Описание</div><div class="text">Комплиментам коллег доверять нельзя: слишком приторное поведение товарищей по цеху — признак, что они сплетничают о вам. 
 
-У каждого- свой запрет.
-На сайте - бесплатный опросник: «Любовь и отношения»
+Любители посудачить могут вести себя двумя главными способами: откровенно подшучивать и кидать на вас косые взгляды, либо же общасться с вами слишком уж любезно. Пресекать это поведение психологи советуют сразу же, не боясь потерять потенциального друга, который просто щедр на комплименты. 
 
-https://neurascope.ru/psychologists/anna
+«Но в целом общее правило на работе – это никогда не обсуждать свою личную жизнь, потому что ты не знаешь, кем завтра окажется этот человек и чем аукнется, скажем так, общение близкое. Никаких друзей никогда не должно быть на работе».
 
-**Этот опросник и вывод, который вы получаете после прохождения, заменяет полноценную диагностическую консультацию у специалиста. Это бесплатно.**</div></div>
-<div class="card" data-date="2026-07-13T13:54:20+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1453159.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453159" data-sc="refs_1453159" onchange="toggleSel('refs_1453159', this.checked)"><label for="chk-refs_1453159" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Перфекционизм - это то, что больше всего мешало мне регулярно вести блог.**
-
-Я могла монтировать один ролик по 8 часов, бесконечно переснимать и переделывать. 
-
-Мне казалось, что если сделать на троечку, люди **разочаруются**, **раскритикуют** меня или решат, что я **недостаточно хороша**.
-
-**В итоге происходило САМОЕ СТРАШНОЕ: **
-❌ контент либо не выходил вообще, 
-❌ либо у меня были настолько завышенные ожидания (Я ЖЕ ВСЮ ДУШУ В КОНТЕНТ ВОЛОЖИЛА), что после обычных результатов я чувствовала разочарование и выгорание.
-
-За всё время ведения блога я поняла одну важную вещь: **перфекционизм НЕ ПРОХОДИТ. **😢
-
-Нельзя однажды проснуться без перфекционизма. Но можно осознанно перестать ему подчиняться.
-
-Многие думают, что **сначала** нужно избавиться от перфекционизма, а уже потом начать действовать. **НЕТ, ВСЁ РАБОТАЕТ НАОБОРОТ**. 
-
-Перфекционизм постоянно будет сидеть где-то внутри. Нужно учиться жить так, чтобы он не управлял вашими решениями.
-
-__Заметили, что снова хочется переделать? Снова кажется, что «недостаточно хорошо»? __
-Отлично! Значит, вы **поймали** перфекционизм в моменте. Осознанно, пусть даже через сопротивление, **выкладывайте Рилс прям в эту секунду**. 😱
-
-❌ Потому что идеальный ролик, который так и НЕ вышел, **НЕ ПРИНОСИТ никакого результата**.
-✔️ А неидеальный, но опубликованный - **ПРИНОСИТ**.
-
-Сейчас я отношусь к блогу НЕ как к месту, где нужно __всем понравиться__, а как к **бизнес-системе**. Именно это и помогает мне расти из месяца в месяц. Моя задача регулярно выпускать контент (а не создавать идеальный ролик). 
-
-Поэтому мой главный принцип:
-
-🤓 **Лучше сделать на троечку сегодня, чем пытаться сделать на пятёрку и не выложить вообще ничего.**
-
-📎 Да, пусть кто-то рядом начал косить траву и в самом рилсе шумит газонокосилка. 
-📎 Пусть я затупила и звук на петличку плохо записался. 
-📎 Пусть волосы лежат не так, как мне нужно.
-📎 Пусть я запишу видео с  отвратительным освещением. 
-📎 Пусть в голове была гениальная идея, но в результате получилась какашка 💩⬇️
-
-**Я ВСЁ РАВНО ВЫЛОЖУ ЭТОТ РОЛИК.**
-
-Мне очень помогает мысль о смерти. Через сто лет нас всех уже не будет. Никто не вспомнит мой рилс / пост / как я облажалась. Хейтеры и люди, которые вставляют палки в колеса, тоже перестанут существовать.
-
-**Неужели я действительно хочу потратить свою и так короткую жизнь на переживания о том, что кто-то, возможно, подумает о моём ролике?**
-
-**КОНЕЧНО НЕТ.**
-
-Жизнь слишком короткая, чтобы откладывать свои действия из-за страха сделать что-то неидеально.
-
-[**__Не позволяйте перфекционизму управлять вашей жизнью. Не позволяйте ему лишать вас вашей мечты.__**](https://t.me/Easyreels_prodamus_bot?start=c1754210731782-ds)</div></div>
-<div class="card" data-date="2026-07-12T23:28:25+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452827.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452827" data-sc="refs_1452827" onchange="toggleSel('refs_1452827', this.checked)"><label for="chk-refs_1452827" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T23:28:25+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452826.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452826" data-sc="refs_1452826" onchange="toggleSel('refs_1452826', this.checked)"><label for="chk-refs_1452826" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T23:28:25+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452825.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452825" data-sc="refs_1452825" onchange="toggleSel('refs_1452825', this.checked)"><label for="chk-refs_1452825" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T23:28:25+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452824.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452824" data-sc="refs_1452824" onchange="toggleSel('refs_1452824', this.checked)"><label for="chk-refs_1452824" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">INTER, крупное активное слово как в рефах (ИДУ/КОТОРУЮ), без серого/обводки/точек. Safe zones Инсты соблюдены — последний кадр с красными зонами это подтверждает (текст вне их). Ок? Выжигаю весь ролик</div></div>
-<div class="card" data-date="2026-07-12T23:23:57+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452823.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452823" data-sc="refs_1452823" onchange="toggleSel('refs_1452823', this.checked)"><label for="chk-refs_1452823" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T23:23:57+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452822.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452822" data-sc="refs_1452822" onchange="toggleSel('refs_1452822', this.checked)"><label for="chk-refs_1452822" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">ШРИФТ 2 — INTER (компактнее, ближе к Instrument). Какой берём? Как выберешь — выжгу весь ролик</div></div>
-<div class="card" data-date="2026-07-12T23:23:48+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452821.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452821" data-sc="refs_1452821" onchange="toggleSel('refs_1452821', this.checked)"><label for="chk-refs_1452821" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T23:23:47+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452820.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452820" data-sc="refs_1452820" onchange="toggleSel('refs_1452820', this.checked)"><label for="chk-refs_1452820" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">ОБНОВЛЕНО: без серого, без обводки, без точек. ШРИФТ 1 — MONTSERRAT</div></div>
-<div class="card" data-date="2026-07-12T23:17:36+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452815.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452815" data-sc="refs_1452815" onchange="toggleSel('refs_1452815', this.checked)"><label for="chk-refs_1452815" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T23:17:36+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452814.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452814" data-sc="refs_1452814" onchange="toggleSel('refs_1452814', this.checked)"><label for="chk-refs_1452814" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">ШРИФТ 2 — INTER (гуманистический, ближе по характеру к Instrument из Captions). Сравни с Montserrat, выбери.</div></div>
-<div class="card" data-date="2026-07-12T23:17:27+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452813.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452813" data-sc="refs_1452813" onchange="toggleSel('refs_1452813', this.checked)"><label for="chk-refs_1452813" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T23:17:27+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452812.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452812" data-sc="refs_1452812" onchange="toggleSel('refs_1452812', this.checked)"><label for="chk-refs_1452812" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">ШРИФТ 1 — MONTSERRAT (геометричный, чуть шире). Позиция/выделение/межбуквенный доведены под рефы.</div></div>
-<div class="card" data-date="2026-07-12T23:08:24+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452809.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452809" data-sc="refs_1452809" onchange="toggleSel('refs_1452809', this.checked)"><label for="chk-refs_1452809" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T23:08:24+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452808.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452808" data-sc="refs_1452808" onchange="toggleSel('refs_1452808', this.checked)"><label for="chk-refs_1452808" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T23:08:24+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452807.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452807" data-sc="refs_1452807" onchange="toggleSel('refs_1452807', this.checked)"><label for="chk-refs_1452807" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Превью субтитров в стиле Captions (шрифт Montserrat, пословная подсветка). Черновая транскрибация small — слова на финале уточню на medium. Оцени стиль/шрифт/позицию.</div></div>
-<div class="card" data-date="2026-07-12T22:55:25+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452806.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452806" data-sc="refs_1452806" onchange="toggleSel('refs_1452806', this.checked)"><label for="chk-refs_1452806" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T22:52:42+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452805.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452805" data-sc="refs_1452805" onchange="toggleSel('refs_1452805', this.checked)"><label for="chk-refs_1452805" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T22:32:42+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452802.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452802" data-sc="refs_1452802" onchange="toggleSel('refs_1452802', this.checked)"><label for="chk-refs_1452802" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T22:32:42+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452801.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452801" data-sc="refs_1452801" onchange="toggleSel('refs_1452801', this.checked)"><label for="chk-refs_1452801" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T22:32:42+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452800.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452800" data-sc="refs_1452800" onchange="toggleSel('refs_1452800', this.checked)"><label for="chk-refs_1452800" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T22:32:42+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452799.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452799" data-sc="refs_1452799" onchange="toggleSel('refs_1452799', this.checked)"><label for="chk-refs_1452799" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T22:32:42+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452798.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452798" data-sc="refs_1452798" onchange="toggleSel('refs_1452798', this.checked)"><label for="chk-refs_1452798" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T22:32:42+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452797.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452797" data-sc="refs_1452797" onchange="toggleSel('refs_1452797', this.checked)"><label for="chk-refs_1452797" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T22:32:42+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452796.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452796" data-sc="refs_1452796" onchange="toggleSel('refs_1452796', this.checked)"><label for="chk-refs_1452796" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-12T22:32:42+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1452795.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452795" data-sc="refs_1452795" onchange="toggleSel('refs_1452795', this.checked)"><label for="chk-refs_1452795" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-09T20:00:38+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1451416.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1451416" data-sc="refs_1451416" onchange="toggleSel('refs_1451416', this.checked)"><label for="chk-refs_1451416" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Твой день устроен так, что в нём никогда не будет рилсов.
+__❤️ — поддерживаю полностью
+🔥 — иногда добрым словам людей нужно доверять__</div></div>
+<div class="card" id="card-REF-00338" data-date="2026-07-09T19:59:49+00:00"><div class="refcode">REF-00338</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1451415.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1451415" data-sc="refs_1451415" onchange="toggleSel('refs_1451415', this.checked)"><label for="chk-refs_1451415" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Если ты все ещё не снимаешь рилс каждый день — обязательно прочитай этот пост</div></div>
+<div class="card" id="card-REF-00339" data-date="2026-07-09T20:00:38+00:00"><div class="refcode">REF-00339</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1451416.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1451416" data-sc="refs_1451416" onchange="toggleSel('refs_1451416', this.checked)"><label for="chk-refs_1451416" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Твой день устроен так, что в нём никогда не будет рилсов.
 **
 Сейчас опишу его по минутам)
 
@@ -299,108 +266,151 @@ __Заметили, что снова хочется переделать? Сн�
 Напиши мне «группа» @potapovfx - расскажу детали.
 
 Гарантия прежняя: **10 000 подписчиков за 5 недель** или работаем дальше бесплатно, пока не сделаем.</div></div>
-<div class="card" data-date="2026-07-09T19:59:49+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1451415.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1451415" data-sc="refs_1451415" onchange="toggleSel('refs_1451415', this.checked)"><label for="chk-refs_1451415" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Если ты все ещё не снимаешь рилс каждый день — обязательно прочитай этот пост</div></div>
-<div class="card" data-date="2026-07-05T23:37:26+00:00"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1449255" data-sc="refs_1449255" onchange="toggleSel('refs_1449255', this.checked)"><label for="chk-refs_1449255" class="selmark"></label></div><div class="section-label">Описание</div><div class="text">Комплиментам коллег доверять нельзя: слишком приторное поведение товарищей по цеху — признак, что они сплетничают о вам. 
+<div class="card" id="card-REF-00374" data-date="2026-07-12T22:32:42+00:00"><div class="refcode">REF-00374</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452802.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452802" data-sc="refs_1452802" onchange="toggleSel('refs_1452802', this.checked)"><label for="chk-refs_1452802" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00375" data-date="2026-07-12T22:32:42+00:00"><div class="refcode">REF-00375</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452801.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452801" data-sc="refs_1452801" onchange="toggleSel('refs_1452801', this.checked)"><label for="chk-refs_1452801" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00376" data-date="2026-07-12T22:32:42+00:00"><div class="refcode">REF-00376</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452800.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452800" data-sc="refs_1452800" onchange="toggleSel('refs_1452800', this.checked)"><label for="chk-refs_1452800" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00377" data-date="2026-07-12T22:32:42+00:00"><div class="refcode">REF-00377</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452799.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452799" data-sc="refs_1452799" onchange="toggleSel('refs_1452799', this.checked)"><label for="chk-refs_1452799" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00378" data-date="2026-07-12T22:32:42+00:00"><div class="refcode">REF-00378</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452798.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452798" data-sc="refs_1452798" onchange="toggleSel('refs_1452798', this.checked)"><label for="chk-refs_1452798" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00379" data-date="2026-07-12T22:32:42+00:00"><div class="refcode">REF-00379</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452797.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452797" data-sc="refs_1452797" onchange="toggleSel('refs_1452797', this.checked)"><label for="chk-refs_1452797" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00380" data-date="2026-07-12T22:32:42+00:00"><div class="refcode">REF-00380</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452796.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452796" data-sc="refs_1452796" onchange="toggleSel('refs_1452796', this.checked)"><label for="chk-refs_1452796" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00381" data-date="2026-07-12T22:32:42+00:00"><div class="refcode">REF-00381</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452795.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452795" data-sc="refs_1452795" onchange="toggleSel('refs_1452795', this.checked)"><label for="chk-refs_1452795" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00383" data-date="2026-07-12T22:52:42+00:00"><div class="refcode">REF-00383</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452805.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452805" data-sc="refs_1452805" onchange="toggleSel('refs_1452805', this.checked)"><label for="chk-refs_1452805" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00384" data-date="2026-07-12T22:55:25+00:00"><div class="refcode">REF-00384</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452806.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452806" data-sc="refs_1452806" onchange="toggleSel('refs_1452806', this.checked)"><label for="chk-refs_1452806" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00385" data-date="2026-07-12T23:08:24+00:00"><div class="refcode">REF-00385</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452809.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452809" data-sc="refs_1452809" onchange="toggleSel('refs_1452809', this.checked)"><label for="chk-refs_1452809" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00386" data-date="2026-07-12T23:08:24+00:00"><div class="refcode">REF-00386</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452808.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452808" data-sc="refs_1452808" onchange="toggleSel('refs_1452808', this.checked)"><label for="chk-refs_1452808" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00387" data-date="2026-07-12T23:08:24+00:00"><div class="refcode">REF-00387</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452807.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452807" data-sc="refs_1452807" onchange="toggleSel('refs_1452807', this.checked)"><label for="chk-refs_1452807" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Превью субтитров в стиле Captions (шрифт Montserrat, пословная подсветка). Черновая транскрибация small — слова на финале уточню на medium. Оцени стиль/шрифт/позицию.</div></div>
+<div class="card" id="card-REF-00389" data-date="2026-07-12T23:17:27+00:00"><div class="refcode">REF-00389</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452813.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452813" data-sc="refs_1452813" onchange="toggleSel('refs_1452813', this.checked)"><label for="chk-refs_1452813" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00390" data-date="2026-07-12T23:17:27+00:00"><div class="refcode">REF-00390</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452812.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452812" data-sc="refs_1452812" onchange="toggleSel('refs_1452812', this.checked)"><label for="chk-refs_1452812" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">ШРИФТ 1 — MONTSERRAT (геометричный, чуть шире). Позиция/выделение/межбуквенный доведены под рефы.</div></div>
+<div class="card" id="card-REF-00391" data-date="2026-07-12T23:17:36+00:00"><div class="refcode">REF-00391</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452815.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452815" data-sc="refs_1452815" onchange="toggleSel('refs_1452815', this.checked)"><label for="chk-refs_1452815" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00392" data-date="2026-07-12T23:17:36+00:00"><div class="refcode">REF-00392</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452814.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452814" data-sc="refs_1452814" onchange="toggleSel('refs_1452814', this.checked)"><label for="chk-refs_1452814" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">ШРИФТ 2 — INTER (гуманистический, ближе по характеру к Instrument из Captions). Сравни с Montserrat, выбери.</div></div>
+<div class="card" id="card-REF-00393" data-date="2026-07-12T23:23:47+00:00"><div class="refcode">REF-00393</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452820.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452820" data-sc="refs_1452820" onchange="toggleSel('refs_1452820', this.checked)"><label for="chk-refs_1452820" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">ОБНОВЛЕНО: без серого, без обводки, без точек. ШРИФТ 1 — MONTSERRAT</div></div>
+<div class="card" id="card-REF-00394" data-date="2026-07-12T23:23:48+00:00"><div class="refcode">REF-00394</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452821.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452821" data-sc="refs_1452821" onchange="toggleSel('refs_1452821', this.checked)"><label for="chk-refs_1452821" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00395" data-date="2026-07-12T23:23:57+00:00"><div class="refcode">REF-00395</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452823.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452823" data-sc="refs_1452823" onchange="toggleSel('refs_1452823', this.checked)"><label for="chk-refs_1452823" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00396" data-date="2026-07-12T23:23:57+00:00"><div class="refcode">REF-00396</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452822.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452822" data-sc="refs_1452822" onchange="toggleSel('refs_1452822', this.checked)"><label for="chk-refs_1452822" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">ШРИФТ 2 — INTER (компактнее, ближе к Instrument). Какой берём? Как выберешь — выжгу весь ролик</div></div>
+<div class="card" id="card-REF-00397" data-date="2026-07-12T23:28:25+00:00"><div class="refcode">REF-00397</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452827.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452827" data-sc="refs_1452827" onchange="toggleSel('refs_1452827', this.checked)"><label for="chk-refs_1452827" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00398" data-date="2026-07-12T23:28:25+00:00"><div class="refcode">REF-00398</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452826.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452826" data-sc="refs_1452826" onchange="toggleSel('refs_1452826', this.checked)"><label for="chk-refs_1452826" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00399" data-date="2026-07-12T23:28:25+00:00"><div class="refcode">REF-00399</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452825.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452825" data-sc="refs_1452825" onchange="toggleSel('refs_1452825', this.checked)"><label for="chk-refs_1452825" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00400" data-date="2026-07-12T23:28:25+00:00"><div class="refcode">REF-00400</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452824.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452824" data-sc="refs_1452824" onchange="toggleSel('refs_1452824', this.checked)"><label for="chk-refs_1452824" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">INTER, крупное активное слово как в рефах (ИДУ/КОТОРУЮ), без серого/обводки/точек. Safe zones Инсты соблюдены — последний кадр с красными зонами это подтверждает (текст вне их). Ок? Выжигаю весь ролик</div></div>
+<div class="card" id="card-REF-00413" data-date="2026-07-13T13:54:20+00:00"><div class="refcode">REF-00413</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1453159.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453159" data-sc="refs_1453159" onchange="toggleSel('refs_1453159', this.checked)"><label for="chk-refs_1453159" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Перфекционизм - это то, что больше всего мешало мне регулярно вести блог.**
 
-Любители посудачить могут вести себя двумя главными способами: откровенно подшучивать и кидать на вас косые взгляды, либо же общасться с вами слишком уж любезно. Пресекать это поведение психологи советуют сразу же, не боясь потерять потенциального друга, который просто щедр на комплименты. 
+Я могла монтировать один ролик по 8 часов, бесконечно переснимать и переделывать. 
 
-«Но в целом общее правило на работе – это никогда не обсуждать свою личную жизнь, потому что ты не знаешь, кем завтра окажется этот человек и чем аукнется, скажем так, общение близкое. Никаких друзей никогда не должно быть на работе».
+Мне казалось, что если сделать на троечку, люди **разочаруются**, **раскритикуют** меня или решат, что я **недостаточно хороша**.
 
-__❤️ — поддерживаю полностью
-🔥 — иногда добрым словам людей нужно доверять__</div></div>
-<div class="card" data-date="2026-06-27T14:10:42+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1447117.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1447117" data-sc="refs_1447117" onchange="toggleSel('refs_1447117', this.checked)"><label for="chk-refs_1447117" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Coors Light выпустили огромную банку пива «Tallerboy» к ЧМ по футболу специально для фанатов.
+**В итоге происходило САМОЕ СТРАШНОЕ: **
+❌ контент либо не выходил вообще, 
+❌ либо у меня были настолько завышенные ожидания (Я ЖЕ ВСЮ ДУШУ В КОНТЕНТ ВОЛОЖИЛА), что после обычных результатов я чувствовала разочарование и выгорание.
 
-Банка символизируют протяжные крики «Гооооол» на матчах, так что вмещает в себя сразу 3 банки пива. Главное — лимитку раскупили в считанные дни.
+За всё время ведения блога я поняла одну важную вещь: **перфекционизм НЕ ПРОХОДИТ. **😢
 
-Идеальная баночка для выходных.</div></div>
-<div class="card" data-date="2026-06-27T07:42:09+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1447059.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1447059" data-sc="refs_1447059" onchange="toggleSel('refs_1447059', this.checked)"><label for="chk-refs_1447059" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Как понять, залетел ролик или нет? **🤔
+Нельзя однажды проснуться без перфекционизма. Но можно осознанно перестать ему подчиняться.
 
-__Это зависит от размера вашего аккаунта.__
+Многие думают, что **сначала** нужно избавиться от перфекционизма, а уже потом начать действовать. **НЕТ, ВСЁ РАБОТАЕТ НАОБОРОТ**. 
 
-Например, если у меня **300 тысяч подписчиков**, и ролик собирает **30 тысяч просмотров **- это не залёт, это слабый результат.
+Перфекционизм постоянно будет сидеть где-то внутри. Нужно учиться жить так, чтобы он не управлял вашими решениями.
 
-А если у человека **100 подписчиков**, и ролик набрал **те же 30 тыс. просмотров** - это уже залетевший ролик.
+__Заметили, что снова хочется переделать? Снова кажется, что «недостаточно хорошо»? __
+Отлично! Значит, вы **поймали** перфекционизм в моменте. Осознанно, пусть даже через сопротивление, **выкладывайте Рилс прям в эту секунду**. 😱
 
-Поэтому ориентируемся не на просмотры, а на соотношение с вашей аудиторией.
+❌ Потому что идеальный ролик, который так и НЕ вышел, **НЕ ПРИНОСИТ никакого результата**.
+✔️ А неидеальный, но опубликованный - **ПРИНОСИТ**.
 
-**ВОТ ФОРМУЛА: **
-❌ Если ролик набирает **меньше просмотров, чем у вас подписчиков - он не залетел**.
+Сейчас я отношусь к блогу НЕ как к месту, где нужно __всем понравиться__, а как к **бизнес-системе**. Именно это и помогает мне расти из месяца в месяц. Моя задача регулярно выпускать контент (а не создавать идеальный ролик). 
 
-✔️ Ролик считается залетевшим, когда он **набирает количество просмотров, равное вашим подписчикам + ещё примерно 100 тыс. сверху**.
+Поэтому мой главный принцип:
 
-На моём примере:
-У меня 300 000 подписчиков → залёт начинается примерно от 400 000 просмотров.
-Это примерный ориентир, на который можно опираться при оценке своих результатов.
+🤓 **Лучше сделать на троечку сегодня, чем пытаться сделать на пятёрку и не выложить вообще ничего.**
 
-⚠️ **Но тут важно понимать ещё одну вещь****⬇️****
+📎 Да, пусть кто-то рядом начал косить траву и в самом рилсе шумит газонокосилка. 
+📎 Пусть я затупила и звук на петличку плохо записался. 
+📎 Пусть волосы лежат не так, как мне нужно.
+📎 Пусть я запишу видео с  отвратительным освещением. 
+📎 Пусть в голове была гениальная идея, но в результате получилась какашка 💩⬇️
+
+**Я ВСЁ РАВНО ВЫЛОЖУ ЭТОТ РОЛИК.**
+
+Мне очень помогает мысль о смерти. Через сто лет нас всех уже не будет. Никто не вспомнит мой рилс / пост / как я облажалась. Хейтеры и люди, которые вставляют палки в колеса, тоже перестанут существовать.
+
+**Неужели я действительно хочу потратить свою и так короткую жизнь на переживания о том, что кто-то, возможно, подумает о моём ролике?**
+
+**КОНЕЧНО НЕТ.**
+
+Жизнь слишком короткая, чтобы откладывать свои действия из-за страха сделать что-то неидеально.
+
+[**__Не позволяйте перфекционизму управлять вашей жизнью. Не позволяйте ему лишать вас вашей мечты.__**](https://t.me/Easyreels_prodamus_bot?start=c1754210731782-ds)</div></div>
+<div class="card" id="card-REF-00422" data-date="2026-07-15T17:22:05+00:00"><div class="refcode">REF-00422</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1453912.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453912" data-sc="refs_1453912" onchange="toggleSel('refs_1453912', this.checked)"><label for="chk-refs_1453912" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Злость: почему вы запрещаете себе злиться.
 **
-Не забывайте, что дело не в количестве просмотров, а в качестве этих просмотров.
+15% людей запрещали злиться в детстве.
 
-🌸 Лучше вас посмотрят **10 тысяч целевых людей**, которым реально **интересна ваша тема**, которые **подпишутся** и в будущем **купят ваш продукт**.
+«Не злись».
+«Хорошие девочки не злятся».
+«Злиться- это плохо».
 
-Чем залетит ролик с пердящей собакой на **миллион просмотров**, который соберёт **случайную аудиторию**, не принесёт **ни подписчиков, ни клиентов, ни денег**, а ещё и **собьёт алгоритмы**👍
+**И во взрослом возрасте вы:
+**
+- Проглатываете обиду.
+- Улыбаетесь, когда внутри всё кипит.
+- Ждёте, что партнёр сам догадается.
 
-У меня, например, нет ни одного ролика-миллионника. Я не снимаю широкий развлекательный контент. Я выпускаю узконишевые ролики по продвижению.
+Злость - это не плохо.
+Это сигнал.
+Сигнал о том, что ваши границы нарушены.
 
-И несмотря на это, я системно расту на 30-40 тысяч подписчиков в месяц.
+**Что происходит, когда вы подавляете злость?**
+- Она копится.
+- Она превращается в обиду.
+- Она взрывается (через месяцы или годы).
+- Она разрушает ваше тело (психосоматика).
 
-__Поэтому не гонитесь за просмотрами, гонитесь за качеством аудитории и будет вам счастье. **Всем добра**____❤️____
+**Как легализовать злость:**
+Признайте: «Я злюсь».
+Спросите: «На что именно?»
+Напишите письмо (не отправляйте).
+Выпустите злость безопасно (подушка, спорт, крик в машине).
 
-____#продвижение_LeraMarkuss__
-✔️ **Подписывайся на канал**, тут много пользы для блога, контента, Reels и продвижения.</div></div>
-<div class="card" data-date="2026-06-26T19:41:59+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446891.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446891" data-sc="refs_1446891" onchange="toggleSel('refs_1446891', this.checked)"><label for="chk-refs_1446891" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Все телефоны в России поставят на учет — Путин подписал закон о формировании национальной базы IMEI-кодов. Это 15-значный номер, который есть у каждого смартфона. Если девайса не будет в базе, то с него не получится ни позвонить, ни отправить СМС. Телефон будет просто кирпичом.
+Злость- это энергия.
+Её не надо подавлять.
+Её надо направить.
 
-Закон объясняют борьбой с мошенниками и нелегальным ввозом. Про телефоны с Горбушки можно забыть 🤬</div></div>
-<div class="card" data-date="2026-06-26T19:37:31+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446887.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446887" data-sc="refs_1446887" onchange="toggleSel('refs_1446887', this.checked)"><label for="chk-refs_1446887" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Кринж детектед** 🤓
+**Но сначала- вспомните:
+Запрещали ли вам злиться в детстве?
 
-Лосины для кошек стали неожиданным хитом в Азии 😰 __Первую партию этой кошачьей имбы раскупили буквально за полдня. __
+**Или злиться можно было, но только определённым образом?
 
-**Представь, что к тебе пришёл заказчик с таким продуктом.**
-🐱 Как будешь продвигать? 
-🐱 На каких площадках? 
-🐾 С каких козырей и посылов зайдёшь?
+У каждого- свой запрет.
+На сайте - бесплатный опросник: «Любовь и отношения»
 
-🐈🐈🐈 Пока котики страдают, **качай маркетинговую мышцу в комментах,** не стесняйся 👇</div></div>
-<div class="card" data-date="2026-06-26T18:09:04+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446844.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446844" data-sc="refs_1446844" onchange="toggleSel('refs_1446844', this.checked)"><label for="chk-refs_1446844" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-06-26T18:09:04+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446843.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446843" data-sc="refs_1446843" onchange="toggleSel('refs_1446843', this.checked)"><label for="chk-refs_1446843" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-06-26T17:51:44+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446839.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446839" data-sc="refs_1446839" onchange="toggleSel('refs_1446839', this.checked)"><label for="chk-refs_1446839" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Двигаюсь, кстати, на гибридной тяге. Lotus For Me. 
-Сегодня подснимали его. Когда-то давно я брал потестить Eletre и не понял. А эту понял.</div></div>
-<div class="card" data-date="2026-06-26T17:44:23+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446838.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446838" data-sc="refs_1446838" onchange="toggleSel('refs_1446838', this.checked)"><label for="chk-refs_1446838" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Алкоголь официально вышел из моды **— московские зумеры больше не пьют. Нарколог Антон Масякин [утверждает](https://moskvichmag.ru/gorod/glavnyj-narkolog-moskvy-zayavil-alkogol-sredi-molodezhi-okonchatelno-vyshel-iz-mody/), что столица входит в число регионов с самым низким уровнем потребления алкоголя. Москва находится примерно на одной ступеньке с кавказскими республиками, где пить нельзя по религиозным причинам. 
+https://neurascope.ru/psychologists/anna
 
-Все благодаря зумерам, которые выбирают **вместо бокала просекко спорт, пробежки, теннис и волейбол**.  
+**Этот опросник и вывод, который вы получаете после прохождения, заменяет полноценную диагностическую консультацию у специалиста. Это бесплатно.**</div></div>
+<div class="card" id="card-REF-00431" data-date="2026-07-16T07:24:54+00:00"><div class="refcode">REF-00431</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1453953.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453953" data-sc="refs_1453953" onchange="toggleSel('refs_1453953', this.checked)"><label for="chk-refs_1453953" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00432" data-date="2026-07-16T07:24:54+00:00"><div class="refcode">REF-00432</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1453952.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453952" data-sc="refs_1453952" onchange="toggleSel('refs_1453952', this.checked)"><label for="chk-refs_1453952" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00433" data-date="2026-07-16T07:24:54+00:00"><div class="refcode">REF-00433</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1453951.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453951" data-sc="refs_1453951" onchange="toggleSel('refs_1453951', this.checked)"><label for="chk-refs_1453951" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00434" data-date="2026-07-16T07:24:54+00:00"><div class="refcode">REF-00434</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1453950.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453950" data-sc="refs_1453950" onchange="toggleSel('refs_1453950', this.checked)"><label for="chk-refs_1453950" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00448" data-date="2026-07-16T13:47:02+00:00"><div class="refcode">REF-00448</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1454084.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1454084" data-sc="refs_1454084" onchange="toggleSel('refs_1454084', this.checked)"><label for="chk-refs_1454084" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">😁 **ШРИФТ ДЛЯ СУБТИТРОВ И ЗАГОЛОВКОВ В РАЗНЫХ НАЧЕРТАНИЯХ **
 
-Владельцам баров срочно нужно переоборудовать помещения под падел и бильярд 😋
+Он современный, чистый, хорошо читается и не перегружает кадр. 
 
-@trends</div></div>
-<div class="card" data-date="2026-06-26T15:18:06+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446765.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446765" data-sc="refs_1446765" onchange="toggleSel('refs_1446765', this.checked)"><label for="chk-refs_1446765" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Gmail в России — всё: президент подписал закон о штрафах до 700 000₽ за использование зарубежных сервисов автоматизации.
+А благодаря **разной толщине **можно **выделять** ключевые слова и **расставлять акценты. 
 
-Ответственность коснётся те платформы, которые продолжают предлагать иностранные способы входа и регистрации.
+**🤫 **Подробнее в новом рилсе**__
+__
+Шрифт бесплатный, его можно использовать и в личных, и в коммерческих проектах.
+**
+**➡️ сами шрифты **забирай в комментариях** под этим постом. **
+**
+[**Инструкция, как добавить шрифты в CapCut**](https://t.me/c/2141235662/1009)** **👈 **тут
+**__
+____#шрифты_leramarkuss____
+__📌Подписывайся на канал, тут много пользы для блога, контента, Reels и продвижения.</div></div>
+<div class="card" id="card-REF-00521" data-date="2026-07-20T01:10:29+00:00"><div class="refcode">REF-00521</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1455072" data-sc="refs_1455072" onchange="toggleSel('refs_1455072', this.checked)"><label for="chk-refs_1455072" class="selmark"></label></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00538" data-date="2026-07-21T18:30:53+00:00"><div class="refcode">REF-00538</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1455332.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1455332" data-sc="refs_1455332" onchange="toggleSel('refs_1455332', this.checked)"><label for="chk-refs_1455332" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Пост #2706
 
-F.</div></div>
-<div class="card" data-date="2026-06-26T15:02:03+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446697.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446697" data-sc="refs_1446697" onchange="toggleSel('refs_1446697', this.checked)"><label for="chk-refs_1446697" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Глобальное потепление сдвинуло дедлайны маркетологов: бренды меняют свои календари из-за аномальной жары. 
+Топливный кризис был подготовкой к финальному боссу:
 
-И речь тут не только о коллекциях одежды: чем дольше на улице высокая температура, тем дольше люди пьют холодные напитки, покупают SPF, устанавливают кондиционеры и планируют свои викенды на природе. 
-
-В итоге в отделах маркетинга горит не только от +30 за окном, но еще и от дедлайнов и реакции работяг, которым остается надеяться только на помощь шаманов, чтобы те вернули прохладу, а вместе с ней и адекватное рабочие задачи 🔥</div></div>
-<div class="card" data-date="2026-06-26T09:45:32+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446653.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446653" data-sc="refs_1446653" onchange="toggleSel('refs_1446653', this.checked)"><label for="chk-refs_1446653" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-06-26T09:45:32+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446652.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446652" data-sc="refs_1446652" onchange="toggleSel('refs_1446652', this.checked)"><label for="chk-refs_1446652" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-06-26T09:45:32+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446651.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446651" data-sc="refs_1446651" onchange="toggleSel('refs_1446651', this.checked)"><label for="chk-refs_1446651" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-06-26T09:45:32+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446650.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446650" data-sc="refs_1446650" onchange="toggleSel('refs_1446650', this.checked)"><label for="chk-refs_1446650" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-06-26T09:45:32+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446649.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446649" data-sc="refs_1446649" onchange="toggleSel('refs_1446649', this.checked)"><label for="chk-refs_1446649" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-06-26T09:45:32+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446648.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446648" data-sc="refs_1446648" onchange="toggleSel('refs_1446648', this.checked)"><label for="chk-refs_1446648" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-06-26T09:45:32+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446647.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446647" data-sc="refs_1446647" onchange="toggleSel('refs_1446647', this.checked)"><label for="chk-refs_1446647" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-06-26T09:45:32+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446646.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446646" data-sc="refs_1446646" onchange="toggleSel('refs_1446646', this.checked)"><label for="chk-refs_1446646" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">[​​](https://www.instagram.com/p/DZ5MztxjXOx/)Спасибо, что пользуетесь - @SaveAsBot&#x27;ом</div></div>
-<div class="card" data-date="2026-06-26T09:42:35+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446643.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446643" data-sc="refs_1446643" onchange="toggleSel('refs_1446643', this.checked)"><label for="chk-refs_1446643" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">У россиян [началась](https://t.me/bazabazon/47046) «бензиновая тревожность» — подтверждённое психологами состояние, при котором люди переживают из-за топлива.
-
-Пока «бензиновую тревожность» обнаружили только у мужчин. Они делились психологами своим страхом остаться без машины из-за ситуации с топливом, а также влекущей за этим потери уверенности в себе.
-
-Для лечения эксперты советуют пациентам читать новости, в которых компании сообщают о том, что топливо никуда не денется.
-
-Вы знаете, кого успокоить этим постом.</div></div>
-<div class="card" data-date="2026-06-26T08:56:48+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446603.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446603" data-sc="refs_1446603" onchange="toggleSel('refs_1446603', this.checked)"><label for="chk-refs_1446603" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-06-26T08:54:50+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446599.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446599" data-sc="refs_1446599" onchange="toggleSel('refs_1446599', this.checked)"><label for="chk-refs_1446599" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
-<div class="card" data-date="2026-07-25T00:25:29+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1456176.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1456176" data-sc="refs_1456176" onchange="toggleSel('refs_1456176', this.checked)"><label for="chk-refs_1456176" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Навязчивые мысли в моей голове в 2 часа ночи</div></div>
-<div class="card" data-date="2026-07-26T20:41:03+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1456652.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1456652" data-sc="refs_1456652" onchange="toggleSel('refs_1456652', this.checked)"><label for="chk-refs_1456652" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Дорогой дневник**…**все травмируют детей.
+https://t.me/collegi/22695</div></div>
+<div class="card" id="card-REF-00560" data-date="2026-07-25T00:25:29+00:00"><div class="refcode">REF-00560</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1456176.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1456176" data-sc="refs_1456176" onchange="toggleSel('refs_1456176', this.checked)"><label for="chk-refs_1456176" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Навязчивые мысли в моей голове в 2 часа ночи</div></div>
+<div class="card" id="card-REF-00584" data-date="2026-07-26T20:41:03+00:00"><div class="refcode">REF-00584</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1456652.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1456652" data-sc="refs_1456652" onchange="toggleSel('refs_1456652', this.checked)"><label for="chk-refs_1456652" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Дорогой дневник**…**все травмируют детей.
 О своем родительстве расскажу вам. Немного. 
 В контексте травм и дпдг.
 **
@@ -491,6 +501,8 @@ __Дневник вытаскивает эти правила жизни на с
 **https://neurascope.ru/psychologists/anna**
 
 Доступ к дневникам будет бонусом ❤️</div></div>
+<div class="card" id="card-REF-00592" data-date="2026-07-26T21:46:02+00:00"><div class="refcode">REF-00592</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1456673.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1456673" data-sc="refs_1456673" onchange="toggleSel('refs_1456673', this.checked)"><label for="chk-refs_1456673" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
+<div class="card" id="card-REF-00595" data-date="2026-07-26T22:03:22+00:00"><div class="refcode">REF-00595</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1456677.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1456677" data-sc="refs_1456677" onchange="toggleSel('refs_1456677', this.checked)"><label for="chk-refs_1456677" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">https://www.threads.com/@vibecode.girl/post/DbQ__-8DLbG?xmt=AQG0Acm85djY2aR8o9AfsZ5gNvFsDznAOfuTh7GP2aLTbP29VYmHXq-C7Z6mesQi35xrrKw&amp;slof=1</div></div>
 </div>
 <div class="selbar">
 Выбрано: <span id="selcount">0</span>

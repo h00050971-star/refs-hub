@@ -1,4 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Автор: @chernykh_smm</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8E%AC</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -29,6 +30,11 @@ nav a.home { color:#ddd; }
 @media (max-width:800px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:500px){ .grid{ grid-template-columns:minmax(0,1fr);} }
 .card { background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; min-width:0; max-width:100%; overflow:hidden; }
+.card.hl { outline:3px solid #ff6b6b; }
+.refcode { font-size:10.5px; color:#666; letter-spacing:.03em; margin-bottom:4px; font-family:monospace; }
+.searchbox { display:flex; gap:6px; align-items:center; margin:4px 0 2px; }
+.searchbox input { background:#1c1c1c; border:1px solid #333; color:#eee; border-radius:6px; padding:5px 8px; font-size:12px; width:140px; }
+.searchbox button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .card video, .card img.main { width:100%; border-radius:6px; background:#000; max-height:340px; object-fit:contain; }
 .vwrap, .cwrap, .imgwrap { position:relative; }
 .playbtn {
@@ -96,6 +102,10 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <button id="sort-asc" onclick="sortCards('asc')">Сначала старые</button>
 </div>
 </div>
+<div class="searchbox">
+<input type="text" id="refcodeInput" placeholder="REF-00042" onkeydown="if(event.key==='Enter')searchByRefCode()">
+<button onclick="searchByRefCode()">Найти по коду</button>
+</div>
 <nav><a class="home" href="../index.html">Главная</a></nav>
 <div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▾</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▾</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▾</span> Миллионники</span></div>
 <div class="accordion-body" id="acc-refs">
@@ -109,7 +119,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div>
 <div class="grid">
-<div class="card" data-date="2026-07-06T09:14:05+00:00"><div class="cwrap" id="cwrap-DacgSG3FVKp" data-idx="0" data-count="12"><img class="main" id="main-DacgSG3FVKp" src="../media/DacgSG3FVKp_0.jpg"><div class="carousel-nav prev" onclick="csNav('DacgSG3FVKp',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DacgSG3FVKp',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DacgSG3FVKp" data-sc="DacgSG3FVKp" onchange="toggleSel('DacgSG3FVKp', this.checked)"><label for="chk-DacgSG3FVKp" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DacgSG3FVKp_0.jpg" class="active" onclick="csSet('DacgSG3FVKp',0)"><img src="../media/DacgSG3FVKp_1.jpg" class="" onclick="csSet('DacgSG3FVKp',1)"><img src="../media/DacgSG3FVKp_2.jpg" class="" onclick="csSet('DacgSG3FVKp',2)"><img src="../media/DacgSG3FVKp_3.jpg" class="" onclick="csSet('DacgSG3FVKp',3)"><img src="../media/DacgSG3FVKp_4.jpg" class="" onclick="csSet('DacgSG3FVKp',4)"><img src="../media/DacgSG3FVKp_5.jpg" class="" onclick="csSet('DacgSG3FVKp',5)"><img src="../media/DacgSG3FVKp_6.jpg" class="" onclick="csSet('DacgSG3FVKp',6)"><img src="../media/DacgSG3FVKp_7.jpg" class="" onclick="csSet('DacgSG3FVKp',7)"><img src="../media/DacgSG3FVKp_8.jpg" class="" onclick="csSet('DacgSG3FVKp',8)"><img src="../media/DacgSG3FVKp_9.jpg" class="" onclick="csSet('DacgSG3FVKp',9)"><img src="../media/DacgSG3FVKp_10.jpg" class="" onclick="csSet('DacgSG3FVKp',10)"><img src="../media/DacgSG3FVKp_11.jpg" class="" onclick="csSet('DacgSG3FVKp',11)"></div><div class="stats"><span>❤ 228</span><span>💬 26</span><span>🖼 12 фото</span></div><div class="owner"><a class="authorlink" href="author_chernykh_smm.html">@chernykh_smm</a> · <a class="origlink" href="https://www.instagram.com/p/DacgSG3FVKp/?img_index=1&amp;igsh=cGl3ejl4dnBmbGM2" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">Я помогаю делать контент с помощью нейросетей, чтобы он приносил клиентов и при этом не занимал много времени уже очень давно. 
+<div class="card" id="card-REF-00268" data-date="2026-07-06T09:14:05+00:00"><div class="refcode">REF-00268</div><div class="cwrap" id="cwrap-DacgSG3FVKp" data-idx="0" data-count="12"><img class="main" id="main-DacgSG3FVKp" src="../media/DacgSG3FVKp_0.jpg"><div class="carousel-nav prev" onclick="csNav('DacgSG3FVKp',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DacgSG3FVKp',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DacgSG3FVKp" data-sc="DacgSG3FVKp" onchange="toggleSel('DacgSG3FVKp', this.checked)"><label for="chk-DacgSG3FVKp" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DacgSG3FVKp_0.jpg" class="active" onclick="csSet('DacgSG3FVKp',0)"><img src="../media/DacgSG3FVKp_1.jpg" class="" onclick="csSet('DacgSG3FVKp',1)"><img src="../media/DacgSG3FVKp_2.jpg" class="" onclick="csSet('DacgSG3FVKp',2)"><img src="../media/DacgSG3FVKp_3.jpg" class="" onclick="csSet('DacgSG3FVKp',3)"><img src="../media/DacgSG3FVKp_4.jpg" class="" onclick="csSet('DacgSG3FVKp',4)"><img src="../media/DacgSG3FVKp_5.jpg" class="" onclick="csSet('DacgSG3FVKp',5)"><img src="../media/DacgSG3FVKp_6.jpg" class="" onclick="csSet('DacgSG3FVKp',6)"><img src="../media/DacgSG3FVKp_7.jpg" class="" onclick="csSet('DacgSG3FVKp',7)"><img src="../media/DacgSG3FVKp_8.jpg" class="" onclick="csSet('DacgSG3FVKp',8)"><img src="../media/DacgSG3FVKp_9.jpg" class="" onclick="csSet('DacgSG3FVKp',9)"><img src="../media/DacgSG3FVKp_10.jpg" class="" onclick="csSet('DacgSG3FVKp',10)"><img src="../media/DacgSG3FVKp_11.jpg" class="" onclick="csSet('DacgSG3FVKp',11)"></div><div class="stats"><span>❤ 228</span><span>💬 26</span><span>🖼 12 фото</span></div><div class="owner"><a class="authorlink" href="author_chernykh_smm.html">@chernykh_smm</a> · <a class="origlink" href="https://www.instagram.com/p/DacgSG3FVKp/?img_index=1&amp;igsh=cGl3ejl4dnBmbGM2" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">Я помогаю делать контент с помощью нейросетей, чтобы он приносил клиентов и при этом не занимал много времени уже очень давно. 
 
 И есть у людей одно большое заблуждение: все думают, что ИИ — это какая-то волшебная таблетка. Что ты нажмешь одну кнопку, и ты и получишь и видео, и пост, и 100 заявок в директе. 
 

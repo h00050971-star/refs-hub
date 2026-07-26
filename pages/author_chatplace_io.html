@@ -1,4 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Автор: @chatplace.io</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8E%AC</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -29,6 +30,11 @@ nav a.home { color:#ddd; }
 @media (max-width:800px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:500px){ .grid{ grid-template-columns:minmax(0,1fr);} }
 .card { background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; min-width:0; max-width:100%; overflow:hidden; }
+.card.hl { outline:3px solid #ff6b6b; }
+.refcode { font-size:10.5px; color:#666; letter-spacing:.03em; margin-bottom:4px; font-family:monospace; }
+.searchbox { display:flex; gap:6px; align-items:center; margin:4px 0 2px; }
+.searchbox input { background:#1c1c1c; border:1px solid #333; color:#eee; border-radius:6px; padding:5px 8px; font-size:12px; width:140px; }
+.searchbox button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .card video, .card img.main { width:100%; border-radius:6px; background:#000; max-height:340px; object-fit:contain; }
 .vwrap, .cwrap, .imgwrap { position:relative; }
 .playbtn {
@@ -96,6 +102,10 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <button id="sort-asc" onclick="sortCards('asc')">Сначала старые</button>
 </div>
 </div>
+<div class="searchbox">
+<input type="text" id="refcodeInput" placeholder="REF-00042" onkeydown="if(event.key==='Enter')searchByRefCode()">
+<button onclick="searchByRefCode()">Найти по коду</button>
+</div>
 <nav><a class="home" href="../index.html">Главная</a></nav>
 <div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▾</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▾</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▾</span> Миллионники</span></div>
 <div class="accordion-body" id="acc-refs">
@@ -109,94 +119,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div>
 <div class="grid">
-<div class="card" data-date="2026-07-23T12:05:53+00:00"><div class="vwrap"><video id="v-DbIl8iRKNKK" controls preload="metadata" src="../media/DbIl8iRKNKK.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-DbIl8iRKNKK').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DbIl8iRKNKK" data-sc="DbIl8iRKNKK" onchange="toggleSel('DbIl8iRKNKK', this.checked)"><label for="chk-DbIl8iRKNKK" class="selmark"></label></div></div><div class="stats"><span>❤ 34</span><span>💬 40</span><span>👁 4K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/reel/DbIl8iRKNKK/?igsh=dzJ5YW4ycG51ZDFu" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">Ребята, это, пожалуй, самое топовое обновление в Telegram за последнее время. Павел Дуров и его команда выкатили функционал, который позволяет создавать посты Крусели прямо в своем Telegram канале. Теперь, собственно, как это сделать? При публикации мы нажимаем на скрепку и выбираем пункт статья. Дальше мы можем выбрать фото или видео и создаем первый слайд. В шаг 3 нажимаем на значок Крусели. После этого обязательно проверяем, что фотографии объединились в Крусель и пролистываются. Ну и, собственно, все, получаем готовые Крусели. Если вы до сих пор их делаете вручную, то рекомендую затестить вот этот вот сервис. В нем можете создавать вот такие, такие, такие, такие, в общем разные Крусели с помощью обученного и креатора. Пиши слово Виралии и мы скинем бесплатный доступ.</div><div class="section-label">Описание</div><div class="text">🔥 Пиши VIRALE и забирай бесплатный доступ к этой нейронке на 2 недели
-
-Virale — это твой личный продюсер по контенту и росту блога, который:
-
-→ Каждую ночь анализирует тысячи свежих видео по нишам и регионам — и на основе этого показывает, какие форматы, темы и подача прямо сейчас залетают именно у тебя
-
-→ Создаёт Reels под ключ:
-Генерирует идеи, пишет сценарий, создаёт персонажей, раскадровку и а</div></div>
-<div class="card" data-date="2026-07-17T16:03:15+00:00"><div class="stats"><span>❤ 303</span><span>💬 751</span><span>👁 26.2K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/reel/Da5YCpEKxLM/?igsh=MWhraHhsZzBjZDA0bQ==" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text note">в очереди…</div><div class="section-label">Описание</div><div class="text">⭐ Пиши слово МУЛЬТИК, чтобы забрать 2 недели бесплатного доступа к сервису
-
-Теперь у Креаторов есть сервис с обученной нейросетью, закрывающий полный цикл создания Reels и ИИ-ролики. Сервис напрямую подключается к твоему аккаунту и:
-
-🔸Ищет релевантные идеи по трендам из твоей ниши
-🔸Создаёт текст сценария
-🔸Делает раскадровку
-🔸Пишет промпт для генерации
-
-Внутри - множество готовых скиллов, которые в</div></div>
-<div class="card" data-date="2026-07-17T12:26:43+00:00"><div class="vwrap"><video id="v-Da2rnA5B6-s" controls preload="metadata" src="../media/Da2rnA5B6-s.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-Da2rnA5B6-s').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-Da2rnA5B6-s" data-sc="Da2rnA5B6-s" onchange="toggleSel('Da2rnA5B6-s', this.checked)"><label for="chk-Da2rnA5B6-s" class="selmark"></label></div></div><div class="stats"><span>❤ 259</span><span>💬 410</span><span>👁 14.5K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/reel/Da2rnA5B6-s/?igsh=b2dsd3Z2M3hvdmcw" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">Занятие мы нашли сервис, в котором можно подключить клод к своему инстаграм -аккаунту и делать бесконечное количество контента. Сервис называется Виралия, это официальный партнер компании Meta, вот сюда подключаем свой инстаграм -аккаунт, и вот тут, пожалуйста, уже разные модели клода, скоро тут что -то же Мина изучат, GPT появится. И вот клод прямо тут в чате анализирует ваш аккаунт, ваши рилсы, генерирует и мультики, посты -крусели, нейрофотосессии, карточки товаров, создают воронки, чат -боты для рилс и это все в рамках одного чата. Если хочешь за тези бесплатно, пиши слово Виралия и я скину доступ в директ.</div><div class="section-label">Описание</div><div class="text">✅ Пиши VIRALE и забирай бесплатный доступ
-
-🤯Новая официальная нейросеть для продвижения Instagram 
-
-Virale — это твой личный продюсер по контенту и росту блога, который:
-
-→ Каждую ночь анализирует тысячи свежих видео по нишам и регионам — и на основе этого показывает, какие форматы, темы и подача прямо сейчас залетают именно у тебя
-
-→ Пишет сценарии на основе реального ресёрча ниши — изучает лучши</div></div>
-<div class="card" data-date="2026-07-10T14:09:38+00:00"><div class="cwrap" id="cwrap-DanXJ4VihAN" data-idx="0" data-count="10"><img class="main" id="main-DanXJ4VihAN" src="../media/DanXJ4VihAN_0.jpg"><div class="carousel-nav prev" onclick="csNav('DanXJ4VihAN',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DanXJ4VihAN',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DanXJ4VihAN" data-sc="DanXJ4VihAN" onchange="toggleSel('DanXJ4VihAN', this.checked)"><label for="chk-DanXJ4VihAN" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DanXJ4VihAN_0.jpg" class="active" onclick="csSet('DanXJ4VihAN',0)"><img src="../media/DanXJ4VihAN_1.jpg" class="" onclick="csSet('DanXJ4VihAN',1)"><img src="../media/DanXJ4VihAN_2.jpg" class="" onclick="csSet('DanXJ4VihAN',2)"><img src="../media/DanXJ4VihAN_3.jpg" class="" onclick="csSet('DanXJ4VihAN',3)"><img src="../media/DanXJ4VihAN_4.jpg" class="" onclick="csSet('DanXJ4VihAN',4)"><img src="../media/DanXJ4VihAN_5.jpg" class="" onclick="csSet('DanXJ4VihAN',5)"><img src="../media/DanXJ4VihAN_6.jpg" class="" onclick="csSet('DanXJ4VihAN',6)"><img src="../media/DanXJ4VihAN_7.jpg" class="" onclick="csSet('DanXJ4VihAN',7)"><img src="../media/DanXJ4VihAN_8.jpg" class="" onclick="csSet('DanXJ4VihAN',8)"><img src="../media/DanXJ4VihAN_9.jpg" class="" onclick="csSet('DanXJ4VihAN',9)"></div><div class="stats"><span>❤ 1K</span><span>💬 252</span><span>🖼 10 фото</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/p/DanXJ4VihAN/?img_index=3&amp;igsh=MXk2dWN4Y3QxaGMz" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">✨Пиши СЕРВИС и забирай доступ к платформе для создания вирусного контента
-
-Она построена на базе Claude и автоматически подключается к твоему аккаунту Instagram. Тебе не нужно заниматься длительным обучением
-
-Вот, что она умеет:
-
-• Генерирует Reels в различных форматах всего за несколько предложений
-• Показывает сильные и слабые стороны блога, подкрепляя их цифрами
-• Разбирает Reels, улучшает их и адаптирует под твой блог
-• Создаёт дизайн для постов, обложек Reels, аватарок и презентаций на базе NanoBanana
-• Создаёт и управляет автоматизациями из чата
-
-И это ещё не всё её возможности!
-
-Сервис </div></div>
-<div class="card" data-date="2026-07-09T17:09:01+00:00"><div class="cwrap" id="cwrap-DalFR1WCoQa" data-idx="0" data-count="7"><img class="main" id="main-DalFR1WCoQa" src="../media/DalFR1WCoQa_0.jpg"><div class="carousel-nav prev" onclick="csNav('DalFR1WCoQa',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DalFR1WCoQa',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DalFR1WCoQa" data-sc="DalFR1WCoQa" onchange="toggleSel('DalFR1WCoQa', this.checked)"><label for="chk-DalFR1WCoQa" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DalFR1WCoQa_0.jpg" class="active" onclick="csSet('DalFR1WCoQa',0)"><img src="../media/DalFR1WCoQa_1.jpg" class="" onclick="csSet('DalFR1WCoQa',1)"><img src="../media/DalFR1WCoQa_2.jpg" class="" onclick="csSet('DalFR1WCoQa',2)"><img src="../media/DalFR1WCoQa_3.jpg" class="" onclick="csSet('DalFR1WCoQa',3)"><img src="../media/DalFR1WCoQa_4.jpg" class="" onclick="csSet('DalFR1WCoQa',4)"><img src="../media/DalFR1WCoQa_5.jpg" class="" onclick="csSet('DalFR1WCoQa',5)"><img src="../media/DalFR1WCoQa_6.jpg" class="" onclick="csSet('DalFR1WCoQa',6)"></div><div class="stats"><span>❤ 308</span><span>💬 146</span><span>🖼 7 фото</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/p/DalFR1WCoQa/?img_index=1&amp;igsh=MTZobHVyaHVkNWp0ZA==" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">✨Пиши СЕРВИС и забирай доступ к платформе с топовыми нейронками для блога
-
-Она построена на базе Claude и автоматически подключается к твоему аккаунту Instagram. Тебе не нужно заниматься длительным обучением
-
-Вот, что она умеет:
-
-• Генерирует Reels в различных форматах всего за несколько предложений
-• Показывает сильные и слабые стороны блога, подкрепляя их цифрами
-• Разбирает Reels, улучшает их и адаптирует под твой блог
-• Создаёт дизайн для постов, обложек Reels, аватарок и презентаций на базе NanoBanana
-• Создаёт и управляет автоматизациями из чата
-
-И это ещё не всё её возможности!
-
-Сервис </div></div>
-<div class="card" data-date="2026-07-11T11:43:48+00:00"><div class="cwrap" id="cwrap-DappgU1iqt6" data-idx="0" data-count="12"><img class="main" id="main-DappgU1iqt6" src="../media/DappgU1iqt6_0.jpg"><div class="carousel-nav prev" onclick="csNav('DappgU1iqt6',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DappgU1iqt6',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DappgU1iqt6" data-sc="DappgU1iqt6" onchange="toggleSel('DappgU1iqt6', this.checked)"><label for="chk-DappgU1iqt6" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DappgU1iqt6_0.jpg" class="active" onclick="csSet('DappgU1iqt6',0)"><img src="../media/DappgU1iqt6_1.jpg" class="" onclick="csSet('DappgU1iqt6',1)"><img src="../media/DappgU1iqt6_2.jpg" class="" onclick="csSet('DappgU1iqt6',2)"><img src="../media/DappgU1iqt6_3.jpg" class="" onclick="csSet('DappgU1iqt6',3)"><img src="../media/DappgU1iqt6_4.jpg" class="" onclick="csSet('DappgU1iqt6',4)"><img src="../media/DappgU1iqt6_5.jpg" class="" onclick="csSet('DappgU1iqt6',5)"><img src="../media/DappgU1iqt6_6.jpg" class="" onclick="csSet('DappgU1iqt6',6)"><img src="../media/DappgU1iqt6_7.jpg" class="" onclick="csSet('DappgU1iqt6',7)"><img src="../media/DappgU1iqt6_8.jpg" class="" onclick="csSet('DappgU1iqt6',8)"><img src="../media/DappgU1iqt6_9.jpg" class="" onclick="csSet('DappgU1iqt6',9)"><img src="../media/DappgU1iqt6_10.jpg" class="" onclick="csSet('DappgU1iqt6',10)"><img src="../media/DappgU1iqt6_11.jpg" class="" onclick="csSet('DappgU1iqt6',11)"></div><div class="stats"><span>❤ 2K</span><span>💬 293</span><span>🖼 12 фото</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/p/DappgU1iqt6/?img_index=1&amp;igsh=YmRlYnNlNjRoeDVw" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">✨Пиши СЕРВИС и забирай доступ к платформе с топовыми нейронками для блога
-
-Она построена на базе Claude и автоматически подключается к твоему аккаунту Instagram. Тебе не нужно заниматься длительным обучением
-
-Вот, что она умеет:
-
-• Генерирует Reels в различных форматах всего за несколько предложений
-• Показывает сильные и слабые стороны блога, подкрепляя их цифрами
-• Разбирает Reels, улучшает их и адаптирует под твой блог
-• Создаёт дизайн для постов, обложек Reels, аватарок и презентаций на базе NanoBanana
-• Создаёт и управляет автоматизациями из чата
-
-И это ещё не всё её возможности!
-
-Сервис </div></div>
-<div class="card" data-date="2026-07-10T14:09:32+00:00"><div class="cwrap" id="cwrap-DanXJ4VihAN" data-idx="0" data-count="10"><img class="main" id="main-DanXJ4VihAN" src="../media/DanXJ4VihAN_0.jpg"><div class="carousel-nav prev" onclick="csNav('DanXJ4VihAN',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DanXJ4VihAN',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DanXJ4VihAN" data-sc="DanXJ4VihAN" onchange="toggleSel('DanXJ4VihAN', this.checked)"><label for="chk-DanXJ4VihAN" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DanXJ4VihAN_0.jpg" class="active" onclick="csSet('DanXJ4VihAN',0)"><img src="../media/DanXJ4VihAN_1.jpg" class="" onclick="csSet('DanXJ4VihAN',1)"><img src="../media/DanXJ4VihAN_2.jpg" class="" onclick="csSet('DanXJ4VihAN',2)"><img src="../media/DanXJ4VihAN_3.jpg" class="" onclick="csSet('DanXJ4VihAN',3)"><img src="../media/DanXJ4VihAN_4.jpg" class="" onclick="csSet('DanXJ4VihAN',4)"><img src="../media/DanXJ4VihAN_5.jpg" class="" onclick="csSet('DanXJ4VihAN',5)"><img src="../media/DanXJ4VihAN_6.jpg" class="" onclick="csSet('DanXJ4VihAN',6)"><img src="../media/DanXJ4VihAN_7.jpg" class="" onclick="csSet('DanXJ4VihAN',7)"><img src="../media/DanXJ4VihAN_8.jpg" class="" onclick="csSet('DanXJ4VihAN',8)"><img src="../media/DanXJ4VihAN_9.jpg" class="" onclick="csSet('DanXJ4VihAN',9)"></div><div class="stats"><span>❤ 1.1K</span><span>💬 254</span><span>🖼 10 фото</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/p/DanXJ4VihAN/?img_index=3&amp;igsh=MXk2dWN4Y3QxaGMz" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">✨Пиши СЕРВИС и забирай доступ к платформе для создания вирусного контента
-
-Она построена на базе Claude и автоматически подключается к твоему аккаунту Instagram. Тебе не нужно заниматься длительным обучением
-
-Вот, что она умеет:
-
-• Генерирует Reels в различных форматах всего за несколько предложений
-• Показывает сильные и слабые стороны блога, подкрепляя их цифрами
-• Разбирает Reels, улучшает их и адаптирует под твой блог
-• Создаёт дизайн для постов, обложек Reels, аватарок и презентаций на базе NanoBanana
-• Создаёт и управляет автоматизациями из чата
-
-И это ещё не всё её возможности!
-
-Сервис </div></div>
-<div class="card" data-date="2026-07-02T13:10:10+00:00"><div class="cwrap" id="cwrap-DaSqNcBimZQ" data-idx="0" data-count="6"><img class="main" id="main-DaSqNcBimZQ" src="../media/DaSqNcBimZQ_0.jpg"><div class="carousel-nav prev" onclick="csNav('DaSqNcBimZQ',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DaSqNcBimZQ',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DaSqNcBimZQ" data-sc="DaSqNcBimZQ" onchange="toggleSel('DaSqNcBimZQ', this.checked)"><label for="chk-DaSqNcBimZQ" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DaSqNcBimZQ_0.jpg" class="active" onclick="csSet('DaSqNcBimZQ',0)"><img src="../media/DaSqNcBimZQ_1.jpg" class="" onclick="csSet('DaSqNcBimZQ',1)"><img src="../media/DaSqNcBimZQ_2.jpg" class="" onclick="csSet('DaSqNcBimZQ',2)"><img src="../media/DaSqNcBimZQ_3.jpg" class="" onclick="csSet('DaSqNcBimZQ',3)"><img src="../media/DaSqNcBimZQ_4.jpg" class="" onclick="csSet('DaSqNcBimZQ',4)"><img src="../media/DaSqNcBimZQ_5.jpg" class="" onclick="csSet('DaSqNcBimZQ',5)"></div><div class="stats"><span>❤ 73</span><span>💬 170</span><span>🖼 6 фото</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/p/DaSqNcBimZQ/?igsh=c3NwZTNxb2xyOW45" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">⭐ Пиши СЕРВИС и забирай доступ к платформе с топовыми нейронками для блога
+<div class="card" id="card-REF-00174" data-date="2026-07-02T13:10:10+00:00"><div class="refcode">REF-00174</div><div class="cwrap" id="cwrap-DaSqNcBimZQ" data-idx="0" data-count="6"><img class="main" id="main-DaSqNcBimZQ" src="../media/DaSqNcBimZQ_0.jpg"><div class="carousel-nav prev" onclick="csNav('DaSqNcBimZQ',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DaSqNcBimZQ',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DaSqNcBimZQ" data-sc="DaSqNcBimZQ" onchange="toggleSel('DaSqNcBimZQ', this.checked)"><label for="chk-DaSqNcBimZQ" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DaSqNcBimZQ_0.jpg" class="active" onclick="csSet('DaSqNcBimZQ',0)"><img src="../media/DaSqNcBimZQ_1.jpg" class="" onclick="csSet('DaSqNcBimZQ',1)"><img src="../media/DaSqNcBimZQ_2.jpg" class="" onclick="csSet('DaSqNcBimZQ',2)"><img src="../media/DaSqNcBimZQ_3.jpg" class="" onclick="csSet('DaSqNcBimZQ',3)"><img src="../media/DaSqNcBimZQ_4.jpg" class="" onclick="csSet('DaSqNcBimZQ',4)"><img src="../media/DaSqNcBimZQ_5.jpg" class="" onclick="csSet('DaSqNcBimZQ',5)"></div><div class="stats"><span>❤ 73</span><span>💬 170</span><span>🖼 6 фото</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/p/DaSqNcBimZQ/?igsh=c3NwZTNxb2xyOW45" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">⭐ Пиши СЕРВИС и забирай доступ к платформе с топовыми нейронками для блога
 
 Она построена на базе Claude и автоматически подключается к твоему аккаунту Instagram. Тебе не нужно заниматься длительным обучением
 
@@ -211,6 +134,93 @@ Virale — это твой личный продюсер по контенту �
 И это ещё не всё её возможности!
 
 Сервис</div></div>
+<div class="card" id="card-REF-00334" data-date="2026-07-09T17:09:01+00:00"><div class="refcode">REF-00334</div><div class="cwrap" id="cwrap-DalFR1WCoQa" data-idx="0" data-count="7"><img class="main" id="main-DalFR1WCoQa" src="../media/DalFR1WCoQa_0.jpg"><div class="carousel-nav prev" onclick="csNav('DalFR1WCoQa',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DalFR1WCoQa',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DalFR1WCoQa" data-sc="DalFR1WCoQa" onchange="toggleSel('DalFR1WCoQa', this.checked)"><label for="chk-DalFR1WCoQa" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DalFR1WCoQa_0.jpg" class="active" onclick="csSet('DalFR1WCoQa',0)"><img src="../media/DalFR1WCoQa_1.jpg" class="" onclick="csSet('DalFR1WCoQa',1)"><img src="../media/DalFR1WCoQa_2.jpg" class="" onclick="csSet('DalFR1WCoQa',2)"><img src="../media/DalFR1WCoQa_3.jpg" class="" onclick="csSet('DalFR1WCoQa',3)"><img src="../media/DalFR1WCoQa_4.jpg" class="" onclick="csSet('DalFR1WCoQa',4)"><img src="../media/DalFR1WCoQa_5.jpg" class="" onclick="csSet('DalFR1WCoQa',5)"><img src="../media/DalFR1WCoQa_6.jpg" class="" onclick="csSet('DalFR1WCoQa',6)"></div><div class="stats"><span>❤ 308</span><span>💬 146</span><span>🖼 7 фото</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/p/DalFR1WCoQa/?img_index=1&amp;igsh=MTZobHVyaHVkNWp0ZA==" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">✨Пиши СЕРВИС и забирай доступ к платформе с топовыми нейронками для блога
+
+Она построена на базе Claude и автоматически подключается к твоему аккаунту Instagram. Тебе не нужно заниматься длительным обучением
+
+Вот, что она умеет:
+
+• Генерирует Reels в различных форматах всего за несколько предложений
+• Показывает сильные и слабые стороны блога, подкрепляя их цифрами
+• Разбирает Reels, улучшает их и адаптирует под твой блог
+• Создаёт дизайн для постов, обложек Reels, аватарок и презентаций на базе NanoBanana
+• Создаёт и управляет автоматизациями из чата
+
+И это ещё не всё её возможности!
+
+Сервис </div></div>
+<div class="card" id="card-REF-00348" data-date="2026-07-10T14:09:32+00:00"><div class="refcode">REF-00348</div><div class="cwrap" id="cwrap-DanXJ4VihAN" data-idx="0" data-count="10"><img class="main" id="main-DanXJ4VihAN" src="../media/DanXJ4VihAN_0.jpg"><div class="carousel-nav prev" onclick="csNav('DanXJ4VihAN',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DanXJ4VihAN',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DanXJ4VihAN" data-sc="DanXJ4VihAN" onchange="toggleSel('DanXJ4VihAN', this.checked)"><label for="chk-DanXJ4VihAN" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DanXJ4VihAN_0.jpg" class="active" onclick="csSet('DanXJ4VihAN',0)"><img src="../media/DanXJ4VihAN_1.jpg" class="" onclick="csSet('DanXJ4VihAN',1)"><img src="../media/DanXJ4VihAN_2.jpg" class="" onclick="csSet('DanXJ4VihAN',2)"><img src="../media/DanXJ4VihAN_3.jpg" class="" onclick="csSet('DanXJ4VihAN',3)"><img src="../media/DanXJ4VihAN_4.jpg" class="" onclick="csSet('DanXJ4VihAN',4)"><img src="../media/DanXJ4VihAN_5.jpg" class="" onclick="csSet('DanXJ4VihAN',5)"><img src="../media/DanXJ4VihAN_6.jpg" class="" onclick="csSet('DanXJ4VihAN',6)"><img src="../media/DanXJ4VihAN_7.jpg" class="" onclick="csSet('DanXJ4VihAN',7)"><img src="../media/DanXJ4VihAN_8.jpg" class="" onclick="csSet('DanXJ4VihAN',8)"><img src="../media/DanXJ4VihAN_9.jpg" class="" onclick="csSet('DanXJ4VihAN',9)"></div><div class="stats"><span>❤ 1.1K</span><span>💬 254</span><span>🖼 10 фото</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/p/DanXJ4VihAN/?img_index=3&amp;igsh=MXk2dWN4Y3QxaGMz" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">✨Пиши СЕРВИС и забирай доступ к платформе для создания вирусного контента
+
+Она построена на базе Claude и автоматически подключается к твоему аккаунту Instagram. Тебе не нужно заниматься длительным обучением
+
+Вот, что она умеет:
+
+• Генерирует Reels в различных форматах всего за несколько предложений
+• Показывает сильные и слабые стороны блога, подкрепляя их цифрами
+• Разбирает Reels, улучшает их и адаптирует под твой блог
+• Создаёт дизайн для постов, обложек Reels, аватарок и презентаций на базе NanoBanana
+• Создаёт и управляет автоматизациями из чата
+
+И это ещё не всё её возможности!
+
+Сервис </div></div>
+<div class="card" id="card-REF-00349" data-date="2026-07-10T14:09:38+00:00"><div class="refcode">REF-00349</div><div class="cwrap" id="cwrap-DanXJ4VihAN" data-idx="0" data-count="10"><img class="main" id="main-DanXJ4VihAN" src="../media/DanXJ4VihAN_0.jpg"><div class="carousel-nav prev" onclick="csNav('DanXJ4VihAN',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DanXJ4VihAN',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DanXJ4VihAN" data-sc="DanXJ4VihAN" onchange="toggleSel('DanXJ4VihAN', this.checked)"><label for="chk-DanXJ4VihAN" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DanXJ4VihAN_0.jpg" class="active" onclick="csSet('DanXJ4VihAN',0)"><img src="../media/DanXJ4VihAN_1.jpg" class="" onclick="csSet('DanXJ4VihAN',1)"><img src="../media/DanXJ4VihAN_2.jpg" class="" onclick="csSet('DanXJ4VihAN',2)"><img src="../media/DanXJ4VihAN_3.jpg" class="" onclick="csSet('DanXJ4VihAN',3)"><img src="../media/DanXJ4VihAN_4.jpg" class="" onclick="csSet('DanXJ4VihAN',4)"><img src="../media/DanXJ4VihAN_5.jpg" class="" onclick="csSet('DanXJ4VihAN',5)"><img src="../media/DanXJ4VihAN_6.jpg" class="" onclick="csSet('DanXJ4VihAN',6)"><img src="../media/DanXJ4VihAN_7.jpg" class="" onclick="csSet('DanXJ4VihAN',7)"><img src="../media/DanXJ4VihAN_8.jpg" class="" onclick="csSet('DanXJ4VihAN',8)"><img src="../media/DanXJ4VihAN_9.jpg" class="" onclick="csSet('DanXJ4VihAN',9)"></div><div class="stats"><span>❤ 1K</span><span>💬 252</span><span>🖼 10 фото</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/p/DanXJ4VihAN/?img_index=3&amp;igsh=MXk2dWN4Y3QxaGMz" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">✨Пиши СЕРВИС и забирай доступ к платформе для создания вирусного контента
+
+Она построена на базе Claude и автоматически подключается к твоему аккаунту Instagram. Тебе не нужно заниматься длительным обучением
+
+Вот, что она умеет:
+
+• Генерирует Reels в различных форматах всего за несколько предложений
+• Показывает сильные и слабые стороны блога, подкрепляя их цифрами
+• Разбирает Reels, улучшает их и адаптирует под твой блог
+• Создаёт дизайн для постов, обложек Reels, аватарок и презентаций на базе NanoBanana
+• Создаёт и управляет автоматизациями из чата
+
+И это ещё не всё её возможности!
+
+Сервис </div></div>
+<div class="card" id="card-REF-00364" data-date="2026-07-11T11:43:48+00:00"><div class="refcode">REF-00364</div><div class="cwrap" id="cwrap-DappgU1iqt6" data-idx="0" data-count="12"><img class="main" id="main-DappgU1iqt6" src="../media/DappgU1iqt6_0.jpg"><div class="carousel-nav prev" onclick="csNav('DappgU1iqt6',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DappgU1iqt6',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DappgU1iqt6" data-sc="DappgU1iqt6" onchange="toggleSel('DappgU1iqt6', this.checked)"><label for="chk-DappgU1iqt6" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DappgU1iqt6_0.jpg" class="active" onclick="csSet('DappgU1iqt6',0)"><img src="../media/DappgU1iqt6_1.jpg" class="" onclick="csSet('DappgU1iqt6',1)"><img src="../media/DappgU1iqt6_2.jpg" class="" onclick="csSet('DappgU1iqt6',2)"><img src="../media/DappgU1iqt6_3.jpg" class="" onclick="csSet('DappgU1iqt6',3)"><img src="../media/DappgU1iqt6_4.jpg" class="" onclick="csSet('DappgU1iqt6',4)"><img src="../media/DappgU1iqt6_5.jpg" class="" onclick="csSet('DappgU1iqt6',5)"><img src="../media/DappgU1iqt6_6.jpg" class="" onclick="csSet('DappgU1iqt6',6)"><img src="../media/DappgU1iqt6_7.jpg" class="" onclick="csSet('DappgU1iqt6',7)"><img src="../media/DappgU1iqt6_8.jpg" class="" onclick="csSet('DappgU1iqt6',8)"><img src="../media/DappgU1iqt6_9.jpg" class="" onclick="csSet('DappgU1iqt6',9)"><img src="../media/DappgU1iqt6_10.jpg" class="" onclick="csSet('DappgU1iqt6',10)"><img src="../media/DappgU1iqt6_11.jpg" class="" onclick="csSet('DappgU1iqt6',11)"></div><div class="stats"><span>❤ 2K</span><span>💬 293</span><span>🖼 12 фото</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/p/DappgU1iqt6/?img_index=1&amp;igsh=YmRlYnNlNjRoeDVw" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">✨Пиши СЕРВИС и забирай доступ к платформе с топовыми нейронками для блога
+
+Она построена на базе Claude и автоматически подключается к твоему аккаунту Instagram. Тебе не нужно заниматься длительным обучением
+
+Вот, что она умеет:
+
+• Генерирует Reels в различных форматах всего за несколько предложений
+• Показывает сильные и слабые стороны блога, подкрепляя их цифрами
+• Разбирает Reels, улучшает их и адаптирует под твой блог
+• Создаёт дизайн для постов, обложек Reels, аватарок и презентаций на базе NanoBanana
+• Создаёт и управляет автоматизациями из чата
+
+И это ещё не всё её возможности!
+
+Сервис </div></div>
+<div class="card" id="card-REF-00467" data-date="2026-07-17T12:26:43+00:00"><div class="refcode">REF-00467</div><div class="vwrap"><video id="v-Da2rnA5B6-s" controls preload="metadata" src="../media/Da2rnA5B6-s.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-Da2rnA5B6-s').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-Da2rnA5B6-s" data-sc="Da2rnA5B6-s" onchange="toggleSel('Da2rnA5B6-s', this.checked)"><label for="chk-Da2rnA5B6-s" class="selmark"></label></div></div><div class="stats"><span>❤ 259</span><span>💬 410</span><span>👁 14.5K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/reel/Da2rnA5B6-s/?igsh=b2dsd3Z2M3hvdmcw" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">Занятие мы нашли сервис, в котором можно подключить клод к своему инстаграм -аккаунту и делать бесконечное количество контента. Сервис называется Виралия, это официальный партнер компании Meta, вот сюда подключаем свой инстаграм -аккаунт, и вот тут, пожалуйста, уже разные модели клода, скоро тут что -то же Мина изучат, GPT появится. И вот клод прямо тут в чате анализирует ваш аккаунт, ваши рилсы, генерирует и мультики, посты -крусели, нейрофотосессии, карточки товаров, создают воронки, чат -боты для рилс и это все в рамках одного чата. Если хочешь за тези бесплатно, пиши слово Виралия и я скину доступ в директ.</div><div class="section-label">Описание</div><div class="text">✅ Пиши VIRALE и забирай бесплатный доступ
+
+🤯Новая официальная нейросеть для продвижения Instagram 
+
+Virale — это твой личный продюсер по контенту и росту блога, который:
+
+→ Каждую ночь анализирует тысячи свежих видео по нишам и регионам — и на основе этого показывает, какие форматы, темы и подача прямо сейчас залетают именно у тебя
+
+→ Пишет сценарии на основе реального ресёрча ниши — изучает лучши</div></div>
+<div class="card" id="card-REF-00477" data-date="2026-07-17T16:03:15+00:00"><div class="refcode">REF-00477</div><div class="stats"><span>❤ 303</span><span>💬 751</span><span>👁 26.2K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/reel/Da5YCpEKxLM/?igsh=MWhraHhsZzBjZDA0bQ==" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text note">в очереди…</div><div class="section-label">Описание</div><div class="text">⭐ Пиши слово МУЛЬТИК, чтобы забрать 2 недели бесплатного доступа к сервису
+
+Теперь у Креаторов есть сервис с обученной нейросетью, закрывающий полный цикл создания Reels и ИИ-ролики. Сервис напрямую подключается к твоему аккаунту и:
+
+🔸Ищет релевантные идеи по трендам из твоей ниши
+🔸Создаёт текст сценария
+🔸Делает раскадровку
+🔸Пишет промпт для генерации
+
+Внутри - множество готовых скиллов, которые в</div></div>
+<div class="card" id="card-REF-00546" data-date="2026-07-23T12:05:53+00:00"><div class="refcode">REF-00546</div><div class="vwrap"><video id="v-DbIl8iRKNKK" controls preload="metadata" src="../media/DbIl8iRKNKK.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-DbIl8iRKNKK').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DbIl8iRKNKK" data-sc="DbIl8iRKNKK" onchange="toggleSel('DbIl8iRKNKK', this.checked)"><label for="chk-DbIl8iRKNKK" class="selmark"></label></div></div><div class="stats"><span>❤ 34</span><span>💬 40</span><span>👁 4K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/reel/DbIl8iRKNKK/?igsh=dzJ5YW4ycG51ZDFu" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">Ребята, это, пожалуй, самое топовое обновление в Telegram за последнее время. Павел Дуров и его команда выкатили функционал, который позволяет создавать посты Крусели прямо в своем Telegram канале. Теперь, собственно, как это сделать? При публикации мы нажимаем на скрепку и выбираем пункт статья. Дальше мы можем выбрать фото или видео и создаем первый слайд. В шаг 3 нажимаем на значок Крусели. После этого обязательно проверяем, что фотографии объединились в Крусель и пролистываются. Ну и, собственно, все, получаем готовые Крусели. Если вы до сих пор их делаете вручную, то рекомендую затестить вот этот вот сервис. В нем можете создавать вот такие, такие, такие, такие, в общем разные Крусели с помощью обученного и креатора. Пиши слово Виралии и мы скинем бесплатный доступ.</div><div class="section-label">Описание</div><div class="text">🔥 Пиши VIRALE и забирай бесплатный доступ к этой нейронке на 2 недели
+
+Virale — это твой личный продюсер по контенту и росту блога, который:
+
+→ Каждую ночь анализирует тысячи свежих видео по нишам и регионам — и на основе этого показывает, какие форматы, темы и подача прямо сейчас залетают именно у тебя
+
+→ Создаёт Reels под ключ:
+Генерирует идеи, пишет сценарий, создаёт персонажей, раскадровку и а</div></div>
 </div>
 <div class="selbar">
 Выбрано: <span id="selcount">0</span>

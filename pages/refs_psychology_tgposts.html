@@ -1,4 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Рефы — Психология — ТГ-посты</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8E%AC</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -29,6 +30,11 @@ nav a.home { color:#ddd; }
 @media (max-width:800px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:500px){ .grid{ grid-template-columns:minmax(0,1fr);} }
 .card { background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; min-width:0; max-width:100%; overflow:hidden; }
+.card.hl { outline:3px solid #ff6b6b; }
+.refcode { font-size:10.5px; color:#666; letter-spacing:.03em; margin-bottom:4px; font-family:monospace; }
+.searchbox { display:flex; gap:6px; align-items:center; margin:4px 0 2px; }
+.searchbox input { background:#1c1c1c; border:1px solid #333; color:#eee; border-radius:6px; padding:5px 8px; font-size:12px; width:140px; }
+.searchbox button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .card video, .card img.main { width:100%; border-radius:6px; background:#000; max-height:340px; object-fit:contain; }
 .vwrap, .cwrap, .imgwrap { position:relative; }
 .playbtn {
@@ -96,6 +102,10 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <button id="sort-asc" onclick="sortCards('asc')">Сначала старые</button>
 </div>
 </div>
+<div class="searchbox">
+<input type="text" id="refcodeInput" placeholder="REF-00042" onkeydown="if(event.key==='Enter')searchByRefCode()">
+<button onclick="searchByRefCode()">Найти по коду</button>
+</div>
 <nav><a class="home" href="../index.html">Главная</a></nav>
 <div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▾</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▸</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▸</span> Миллионники</span></div>
 <div class="accordion-body" id="acc-refs">
@@ -109,99 +119,29 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div>
 <div class="grid">
-<div class="card" data-date="2026-07-15T17:22:05+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1453912.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453912" data-sc="refs_1453912" onchange="toggleSel('refs_1453912', this.checked)"><label for="chk-refs_1453912" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Злость: почему вы запрещаете себе злиться.
-**
-15% людей запрещали злиться в детстве.
+<div class="card" id="card-REF-00014" data-date="2026-06-26T09:42:35+00:00"><div class="refcode">REF-00014</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446643.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446643" data-sc="refs_1446643" onchange="toggleSel('refs_1446643', this.checked)"><label for="chk-refs_1446643" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">У россиян [началась](https://t.me/bazabazon/47046) «бензиновая тревожность» — подтверждённое психологами состояние, при котором люди переживают из-за топлива.
 
-«Не злись».
-«Хорошие девочки не злятся».
-«Злиться- это плохо».
+Пока «бензиновую тревожность» обнаружили только у мужчин. Они делились психологами своим страхом остаться без машины из-за ситуации с топливом, а также влекущей за этим потери уверенности в себе.
 
-**И во взрослом возрасте вы:
-**
-- Проглатываете обиду.
-- Улыбаетесь, когда внутри всё кипит.
-- Ждёте, что партнёр сам догадается.
+Для лечения эксперты советуют пациентам читать новости, в которых компании сообщают о том, что топливо никуда не денется.
 
-Злость - это не плохо.
-Это сигнал.
-Сигнал о том, что ваши границы нарушены.
+Вы знаете, кого успокоить этим постом.</div></div>
+<div class="card" id="card-REF-00089" data-date="2026-06-26T17:44:23+00:00"><div class="refcode">REF-00089</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446838.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446838" data-sc="refs_1446838" onchange="toggleSel('refs_1446838', this.checked)"><label for="chk-refs_1446838" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Алкоголь официально вышел из моды **— московские зумеры больше не пьют. Нарколог Антон Масякин [утверждает](https://moskvichmag.ru/gorod/glavnyj-narkolog-moskvy-zayavil-alkogol-sredi-molodezhi-okonchatelno-vyshel-iz-mody/), что столица входит в число регионов с самым низким уровнем потребления алкоголя. Москва находится примерно на одной ступеньке с кавказскими республиками, где пить нельзя по религиозным причинам. 
 
-**Что происходит, когда вы подавляете злость?**
-- Она копится.
-- Она превращается в обиду.
-- Она взрывается (через месяцы или годы).
-- Она разрушает ваше тело (психосоматика).
+Все благодаря зумерам, которые выбирают **вместо бокала просекко спорт, пробежки, теннис и волейбол**.  
 
-**Как легализовать злость:**
-Признайте: «Я злюсь».
-Спросите: «На что именно?»
-Напишите письмо (не отправляйте).
-Выпустите злость безопасно (подушка, спорт, крик в машине).
+Владельцам баров срочно нужно переоборудовать помещения под падел и бильярд 😋
 
-Злость- это энергия.
-Её не надо подавлять.
-Её надо направить.
+@trends</div></div>
+<div class="card" id="card-REF-00261" data-date="2026-07-05T23:37:26+00:00"><div class="refcode">REF-00261</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1449255" data-sc="refs_1449255" onchange="toggleSel('refs_1449255', this.checked)"><label for="chk-refs_1449255" class="selmark"></label></div><div class="section-label">Описание</div><div class="text">Комплиментам коллег доверять нельзя: слишком приторное поведение товарищей по цеху — признак, что они сплетничают о вам. 
 
-**Но сначала- вспомните:
-Запрещали ли вам злиться в детстве?
+Любители посудачить могут вести себя двумя главными способами: откровенно подшучивать и кидать на вас косые взгляды, либо же общасться с вами слишком уж любезно. Пресекать это поведение психологи советуют сразу же, не боясь потерять потенциального друга, который просто щедр на комплименты. 
 
-**Или злиться можно было, но только определённым образом?
+«Но в целом общее правило на работе – это никогда не обсуждать свою личную жизнь, потому что ты не знаешь, кем завтра окажется этот человек и чем аукнется, скажем так, общение близкое. Никаких друзей никогда не должно быть на работе».
 
-У каждого- свой запрет.
-На сайте - бесплатный опросник: «Любовь и отношения»
-
-https://neurascope.ru/psychologists/anna
-
-**Этот опросник и вывод, который вы получаете после прохождения, заменяет полноценную диагностическую консультацию у специалиста. Это бесплатно.**</div></div>
-<div class="card" data-date="2026-07-13T13:54:20+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1453159.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453159" data-sc="refs_1453159" onchange="toggleSel('refs_1453159', this.checked)"><label for="chk-refs_1453159" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Перфекционизм - это то, что больше всего мешало мне регулярно вести блог.**
-
-Я могла монтировать один ролик по 8 часов, бесконечно переснимать и переделывать. 
-
-Мне казалось, что если сделать на троечку, люди **разочаруются**, **раскритикуют** меня или решат, что я **недостаточно хороша**.
-
-**В итоге происходило САМОЕ СТРАШНОЕ: **
-❌ контент либо не выходил вообще, 
-❌ либо у меня были настолько завышенные ожидания (Я ЖЕ ВСЮ ДУШУ В КОНТЕНТ ВОЛОЖИЛА), что после обычных результатов я чувствовала разочарование и выгорание.
-
-За всё время ведения блога я поняла одну важную вещь: **перфекционизм НЕ ПРОХОДИТ. **😢
-
-Нельзя однажды проснуться без перфекционизма. Но можно осознанно перестать ему подчиняться.
-
-Многие думают, что **сначала** нужно избавиться от перфекционизма, а уже потом начать действовать. **НЕТ, ВСЁ РАБОТАЕТ НАОБОРОТ**. 
-
-Перфекционизм постоянно будет сидеть где-то внутри. Нужно учиться жить так, чтобы он не управлял вашими решениями.
-
-__Заметили, что снова хочется переделать? Снова кажется, что «недостаточно хорошо»? __
-Отлично! Значит, вы **поймали** перфекционизм в моменте. Осознанно, пусть даже через сопротивление, **выкладывайте Рилс прям в эту секунду**. 😱
-
-❌ Потому что идеальный ролик, который так и НЕ вышел, **НЕ ПРИНОСИТ никакого результата**.
-✔️ А неидеальный, но опубликованный - **ПРИНОСИТ**.
-
-Сейчас я отношусь к блогу НЕ как к месту, где нужно __всем понравиться__, а как к **бизнес-системе**. Именно это и помогает мне расти из месяца в месяц. Моя задача регулярно выпускать контент (а не создавать идеальный ролик). 
-
-Поэтому мой главный принцип:
-
-🤓 **Лучше сделать на троечку сегодня, чем пытаться сделать на пятёрку и не выложить вообще ничего.**
-
-📎 Да, пусть кто-то рядом начал косить траву и в самом рилсе шумит газонокосилка. 
-📎 Пусть я затупила и звук на петличку плохо записался. 
-📎 Пусть волосы лежат не так, как мне нужно.
-📎 Пусть я запишу видео с  отвратительным освещением. 
-📎 Пусть в голове была гениальная идея, но в результате получилась какашка 💩⬇️
-
-**Я ВСЁ РАВНО ВЫЛОЖУ ЭТОТ РОЛИК.**
-
-Мне очень помогает мысль о смерти. Через сто лет нас всех уже не будет. Никто не вспомнит мой рилс / пост / как я облажалась. Хейтеры и люди, которые вставляют палки в колеса, тоже перестанут существовать.
-
-**Неужели я действительно хочу потратить свою и так короткую жизнь на переживания о том, что кто-то, возможно, подумает о моём ролике?**
-
-**КОНЕЧНО НЕТ.**
-
-Жизнь слишком короткая, чтобы откладывать свои действия из-за страха сделать что-то неидеально.
-
-[**__Не позволяйте перфекционизму управлять вашей жизнью. Не позволяйте ему лишать вас вашей мечты.__**](https://t.me/Easyreels_prodamus_bot?start=c1754210731782-ds)</div></div>
-<div class="card" data-date="2026-07-09T20:00:38+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1451416.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1451416" data-sc="refs_1451416" onchange="toggleSel('refs_1451416', this.checked)"><label for="chk-refs_1451416" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Твой день устроен так, что в нём никогда не будет рилсов.
+__❤️ — поддерживаю полностью
+🔥 — иногда добрым словам людей нужно доверять__</div></div>
+<div class="card" id="card-REF-00339" data-date="2026-07-09T20:00:38+00:00"><div class="refcode">REF-00339</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1451416.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1451416" data-sc="refs_1451416" onchange="toggleSel('refs_1451416', this.checked)"><label for="chk-refs_1451416" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Твой день устроен так, что в нём никогда не будет рилсов.
 **
 Сейчас опишу его по минутам)
 
@@ -248,30 +188,100 @@ __Заметили, что снова хочется переделать? Сн�
 Напиши мне «группа» @potapovfx - расскажу детали.
 
 Гарантия прежняя: **10 000 подписчиков за 5 недель** или работаем дальше бесплатно, пока не сделаем.</div></div>
-<div class="card" data-date="2026-07-05T23:37:26+00:00"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1449255" data-sc="refs_1449255" onchange="toggleSel('refs_1449255', this.checked)"><label for="chk-refs_1449255" class="selmark"></label></div><div class="section-label">Описание</div><div class="text">Комплиментам коллег доверять нельзя: слишком приторное поведение товарищей по цеху — признак, что они сплетничают о вам. 
+<div class="card" id="card-REF-00413" data-date="2026-07-13T13:54:20+00:00"><div class="refcode">REF-00413</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1453159.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453159" data-sc="refs_1453159" onchange="toggleSel('refs_1453159', this.checked)"><label for="chk-refs_1453159" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Перфекционизм - это то, что больше всего мешало мне регулярно вести блог.**
 
-Любители посудачить могут вести себя двумя главными способами: откровенно подшучивать и кидать на вас косые взгляды, либо же общасться с вами слишком уж любезно. Пресекать это поведение психологи советуют сразу же, не боясь потерять потенциального друга, который просто щедр на комплименты. 
+Я могла монтировать один ролик по 8 часов, бесконечно переснимать и переделывать. 
 
-«Но в целом общее правило на работе – это никогда не обсуждать свою личную жизнь, потому что ты не знаешь, кем завтра окажется этот человек и чем аукнется, скажем так, общение близкое. Никаких друзей никогда не должно быть на работе».
+Мне казалось, что если сделать на троечку, люди **разочаруются**, **раскритикуют** меня или решат, что я **недостаточно хороша**.
 
-__❤️ — поддерживаю полностью
-🔥 — иногда добрым словам людей нужно доверять__</div></div>
-<div class="card" data-date="2026-06-26T17:44:23+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446838.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446838" data-sc="refs_1446838" onchange="toggleSel('refs_1446838', this.checked)"><label for="chk-refs_1446838" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Алкоголь официально вышел из моды **— московские зумеры больше не пьют. Нарколог Антон Масякин [утверждает](https://moskvichmag.ru/gorod/glavnyj-narkolog-moskvy-zayavil-alkogol-sredi-molodezhi-okonchatelno-vyshel-iz-mody/), что столица входит в число регионов с самым низким уровнем потребления алкоголя. Москва находится примерно на одной ступеньке с кавказскими республиками, где пить нельзя по религиозным причинам. 
+**В итоге происходило САМОЕ СТРАШНОЕ: **
+❌ контент либо не выходил вообще, 
+❌ либо у меня были настолько завышенные ожидания (Я ЖЕ ВСЮ ДУШУ В КОНТЕНТ ВОЛОЖИЛА), что после обычных результатов я чувствовала разочарование и выгорание.
 
-Все благодаря зумерам, которые выбирают **вместо бокала просекко спорт, пробежки, теннис и волейбол**.  
+За всё время ведения блога я поняла одну важную вещь: **перфекционизм НЕ ПРОХОДИТ. **😢
 
-Владельцам баров срочно нужно переоборудовать помещения под падел и бильярд 😋
+Нельзя однажды проснуться без перфекционизма. Но можно осознанно перестать ему подчиняться.
 
-@trends</div></div>
-<div class="card" data-date="2026-06-26T09:42:35+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1446643.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446643" data-sc="refs_1446643" onchange="toggleSel('refs_1446643', this.checked)"><label for="chk-refs_1446643" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">У россиян [началась](https://t.me/bazabazon/47046) «бензиновая тревожность» — подтверждённое психологами состояние, при котором люди переживают из-за топлива.
+Многие думают, что **сначала** нужно избавиться от перфекционизма, а уже потом начать действовать. **НЕТ, ВСЁ РАБОТАЕТ НАОБОРОТ**. 
 
-Пока «бензиновую тревожность» обнаружили только у мужчин. Они делились психологами своим страхом остаться без машины из-за ситуации с топливом, а также влекущей за этим потери уверенности в себе.
+Перфекционизм постоянно будет сидеть где-то внутри. Нужно учиться жить так, чтобы он не управлял вашими решениями.
 
-Для лечения эксперты советуют пациентам читать новости, в которых компании сообщают о том, что топливо никуда не денется.
+__Заметили, что снова хочется переделать? Снова кажется, что «недостаточно хорошо»? __
+Отлично! Значит, вы **поймали** перфекционизм в моменте. Осознанно, пусть даже через сопротивление, **выкладывайте Рилс прям в эту секунду**. 😱
 
-Вы знаете, кого успокоить этим постом.</div></div>
-<div class="card" data-date="2026-07-25T00:25:29+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1456176.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1456176" data-sc="refs_1456176" onchange="toggleSel('refs_1456176', this.checked)"><label for="chk-refs_1456176" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Навязчивые мысли в моей голове в 2 часа ночи</div></div>
-<div class="card" data-date="2026-07-26T20:41:03+00:00"><div class="imgwrap"><img class="main" src="../media/refs_photo_1456652.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1456652" data-sc="refs_1456652" onchange="toggleSel('refs_1456652', this.checked)"><label for="chk-refs_1456652" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Дорогой дневник**…**все травмируют детей.
+❌ Потому что идеальный ролик, который так и НЕ вышел, **НЕ ПРИНОСИТ никакого результата**.
+✔️ А неидеальный, но опубликованный - **ПРИНОСИТ**.
+
+Сейчас я отношусь к блогу НЕ как к месту, где нужно __всем понравиться__, а как к **бизнес-системе**. Именно это и помогает мне расти из месяца в месяц. Моя задача регулярно выпускать контент (а не создавать идеальный ролик). 
+
+Поэтому мой главный принцип:
+
+🤓 **Лучше сделать на троечку сегодня, чем пытаться сделать на пятёрку и не выложить вообще ничего.**
+
+📎 Да, пусть кто-то рядом начал косить траву и в самом рилсе шумит газонокосилка. 
+📎 Пусть я затупила и звук на петличку плохо записался. 
+📎 Пусть волосы лежат не так, как мне нужно.
+📎 Пусть я запишу видео с  отвратительным освещением. 
+📎 Пусть в голове была гениальная идея, но в результате получилась какашка 💩⬇️
+
+**Я ВСЁ РАВНО ВЫЛОЖУ ЭТОТ РОЛИК.**
+
+Мне очень помогает мысль о смерти. Через сто лет нас всех уже не будет. Никто не вспомнит мой рилс / пост / как я облажалась. Хейтеры и люди, которые вставляют палки в колеса, тоже перестанут существовать.
+
+**Неужели я действительно хочу потратить свою и так короткую жизнь на переживания о том, что кто-то, возможно, подумает о моём ролике?**
+
+**КОНЕЧНО НЕТ.**
+
+Жизнь слишком короткая, чтобы откладывать свои действия из-за страха сделать что-то неидеально.
+
+[**__Не позволяйте перфекционизму управлять вашей жизнью. Не позволяйте ему лишать вас вашей мечты.__**](https://t.me/Easyreels_prodamus_bot?start=c1754210731782-ds)</div></div>
+<div class="card" id="card-REF-00422" data-date="2026-07-15T17:22:05+00:00"><div class="refcode">REF-00422</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1453912.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453912" data-sc="refs_1453912" onchange="toggleSel('refs_1453912', this.checked)"><label for="chk-refs_1453912" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Злость: почему вы запрещаете себе злиться.
+**
+15% людей запрещали злиться в детстве.
+
+«Не злись».
+«Хорошие девочки не злятся».
+«Злиться- это плохо».
+
+**И во взрослом возрасте вы:
+**
+- Проглатываете обиду.
+- Улыбаетесь, когда внутри всё кипит.
+- Ждёте, что партнёр сам догадается.
+
+Злость - это не плохо.
+Это сигнал.
+Сигнал о том, что ваши границы нарушены.
+
+**Что происходит, когда вы подавляете злость?**
+- Она копится.
+- Она превращается в обиду.
+- Она взрывается (через месяцы или годы).
+- Она разрушает ваше тело (психосоматика).
+
+**Как легализовать злость:**
+Признайте: «Я злюсь».
+Спросите: «На что именно?»
+Напишите письмо (не отправляйте).
+Выпустите злость безопасно (подушка, спорт, крик в машине).
+
+Злость- это энергия.
+Её не надо подавлять.
+Её надо направить.
+
+**Но сначала- вспомните:
+Запрещали ли вам злиться в детстве?
+
+**Или злиться можно было, но только определённым образом?
+
+У каждого- свой запрет.
+На сайте - бесплатный опросник: «Любовь и отношения»
+
+https://neurascope.ru/psychologists/anna
+
+**Этот опросник и вывод, который вы получаете после прохождения, заменяет полноценную диагностическую консультацию у специалиста. Это бесплатно.**</div></div>
+<div class="card" id="card-REF-00560" data-date="2026-07-25T00:25:29+00:00"><div class="refcode">REF-00560</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1456176.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1456176" data-sc="refs_1456176" onchange="toggleSel('refs_1456176', this.checked)"><label for="chk-refs_1456176" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Навязчивые мысли в моей голове в 2 часа ночи</div></div>
+<div class="card" id="card-REF-00584" data-date="2026-07-26T20:41:03+00:00"><div class="refcode">REF-00584</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1456652.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1456652" data-sc="refs_1456652" onchange="toggleSel('refs_1456652', this.checked)"><label for="chk-refs_1456652" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Дорогой дневник**…**все травмируют детей.
 О своем родительстве расскажу вам. Немного. 
 В контексте травм и дпдг.
 **

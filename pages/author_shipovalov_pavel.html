@@ -1,4 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Автор: @shipovalov_pavel</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8E%AC</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -29,6 +30,11 @@ nav a.home { color:#ddd; }
 @media (max-width:800px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:500px){ .grid{ grid-template-columns:minmax(0,1fr);} }
 .card { background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; min-width:0; max-width:100%; overflow:hidden; }
+.card.hl { outline:3px solid #ff6b6b; }
+.refcode { font-size:10.5px; color:#666; letter-spacing:.03em; margin-bottom:4px; font-family:monospace; }
+.searchbox { display:flex; gap:6px; align-items:center; margin:4px 0 2px; }
+.searchbox input { background:#1c1c1c; border:1px solid #333; color:#eee; border-radius:6px; padding:5px 8px; font-size:12px; width:140px; }
+.searchbox button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .card video, .card img.main { width:100%; border-radius:6px; background:#000; max-height:340px; object-fit:contain; }
 .vwrap, .cwrap, .imgwrap { position:relative; }
 .playbtn {
@@ -96,6 +102,10 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <button id="sort-asc" onclick="sortCards('asc')">Сначала старые</button>
 </div>
 </div>
+<div class="searchbox">
+<input type="text" id="refcodeInput" placeholder="REF-00042" onkeydown="if(event.key==='Enter')searchByRefCode()">
+<button onclick="searchByRefCode()">Найти по коду</button>
+</div>
 <nav><a class="home" href="../index.html">Главная</a></nav>
 <div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▾</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▾</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▾</span> Миллионники</span></div>
 <div class="accordion-body" id="acc-refs">
@@ -109,12 +119,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div>
 <div class="grid">
-<div class="card" data-date="2026-07-17T12:27:31+00:00"><div class="vwrap"><video id="v-Da5IFV-Pa5R" controls preload="metadata" src="../media/Da5IFV-Pa5R.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-Da5IFV-Pa5R').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-Da5IFV-Pa5R" data-sc="Da5IFV-Pa5R" onchange="toggleSel('Da5IFV-Pa5R', this.checked)"><label for="chk-Da5IFV-Pa5R" class="selmark"></label></div></div><div class="stats"><span>❤ 1.4K</span><span>💬 540</span><span>👁 76.6K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_shipovalov_pavel.html">@shipovalov_pavel</a> · <a class="origlink" href="https://www.instagram.com/reel/Da5IFV-Pa5R/?igsh=dHNvcWw2Z25pYnBx" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">(речь не распознана)</div><div class="section-label">Описание</div><div class="text">Разверни 👇👇👇
-
-Хочешь научиться правильно и красиво снимать даже на телефон загляни ко мне в YouTube канал. Там найдёшь много полезного!!
-
-Напиши слово КАМЕРА, скину тебе ссылку</div></div>
-<div class="card" data-date="2026-07-02T22:51:45+00:00"><div class="vwrap"><video id="v-DaSd2jRvivu" controls preload="metadata" src="../media/DaSd2jRvivu.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-DaSd2jRvivu').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DaSd2jRvivu" data-sc="DaSd2jRvivu" onchange="toggleSel('DaSd2jRvivu', this.checked)"><label for="chk-DaSd2jRvivu" class="selmark"></label></div></div><div class="stats"><span>❤ 587</span><span>💬 121</span><span>👁 26.7K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_shipovalov_pavel.html">@shipovalov_pavel</a> · <a class="origlink" href="https://www.instagram.com/reel/DaSd2jRvivu/?igsh=anB5ZzZwMXVwZ2E0" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">Когда мозг видит этот объект, ему не нужно анализировать каждую деталь отдельно. Поэтому такие изображения воспринимаются быстрее. Мнобенно собирают внимание и вот вас уже не хочется смахнуть. Симметричный кадр смотрится красиво, потому что мозг воспринимает его практически мгновенно. И это только один приём, чтобы держать внимание. Остальные забирай в описании.</div><div class="section-label">Описание</div><div class="text">Чтобы удерживать внимание, существует много разных способов. И визуальный – лишь один из них. Пиши в комментарии РАЗБОР получишь бесплатный урок, где на примере подписчицы показал:
+<div class="card" id="card-REF-00191" data-date="2026-07-02T22:51:45+00:00"><div class="refcode">REF-00191</div><div class="vwrap"><video id="v-DaSd2jRvivu" controls preload="metadata" src="../media/DaSd2jRvivu.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-DaSd2jRvivu').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DaSd2jRvivu" data-sc="DaSd2jRvivu" onchange="toggleSel('DaSd2jRvivu', this.checked)"><label for="chk-DaSd2jRvivu" class="selmark"></label></div></div><div class="stats"><span>❤ 587</span><span>💬 121</span><span>👁 26.7K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_shipovalov_pavel.html">@shipovalov_pavel</a> · <a class="origlink" href="https://www.instagram.com/reel/DaSd2jRvivu/?igsh=anB5ZzZwMXVwZ2E0" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">Когда мозг видит этот объект, ему не нужно анализировать каждую деталь отдельно. Поэтому такие изображения воспринимаются быстрее. Мнобенно собирают внимание и вот вас уже не хочется смахнуть. Симметричный кадр смотрится красиво, потому что мозг воспринимает его практически мгновенно. И это только один приём, чтобы держать внимание. Остальные забирай в описании.</div><div class="section-label">Описание</div><div class="text">Чтобы удерживать внимание, существует много разных способов. И визуальный – лишь один из них. Пиши в комментарии РАЗБОР получишь бесплатный урок, где на примере подписчицы показал:
 
 ㅤ
 
@@ -123,6 +128,11 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 • как снимать так, чтобы было интересно смотреть
 
 • и что нужно сделать, чтобы на тебя подписывались</div></div>
+<div class="card" id="card-REF-00468" data-date="2026-07-17T12:27:31+00:00"><div class="refcode">REF-00468</div><div class="vwrap"><video id="v-Da5IFV-Pa5R" controls preload="metadata" src="../media/Da5IFV-Pa5R.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-Da5IFV-Pa5R').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-Da5IFV-Pa5R" data-sc="Da5IFV-Pa5R" onchange="toggleSel('Da5IFV-Pa5R', this.checked)"><label for="chk-Da5IFV-Pa5R" class="selmark"></label></div></div><div class="stats"><span>❤ 1.4K</span><span>💬 540</span><span>👁 76.6K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_shipovalov_pavel.html">@shipovalov_pavel</a> · <a class="origlink" href="https://www.instagram.com/reel/Da5IFV-Pa5R/?igsh=dHNvcWw2Z25pYnBx" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">(речь не распознана)</div><div class="section-label">Описание</div><div class="text">Разверни 👇👇👇
+
+Хочешь научиться правильно и красиво снимать даже на телефон загляни ко мне в YouTube канал. Там найдёшь много полезного!!
+
+Напиши слово КАМЕРА, скину тебе ссылку</div></div>
 </div>
 <div class="selbar">
 Выбрано: <span id="selcount">0</span>

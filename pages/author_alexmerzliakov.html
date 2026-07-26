@@ -1,4 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Автор: @alexmerzliakov</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8E%AC</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -29,6 +30,11 @@ nav a.home { color:#ddd; }
 @media (max-width:800px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:500px){ .grid{ grid-template-columns:minmax(0,1fr);} }
 .card { background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; min-width:0; max-width:100%; overflow:hidden; }
+.card.hl { outline:3px solid #ff6b6b; }
+.refcode { font-size:10.5px; color:#666; letter-spacing:.03em; margin-bottom:4px; font-family:monospace; }
+.searchbox { display:flex; gap:6px; align-items:center; margin:4px 0 2px; }
+.searchbox input { background:#1c1c1c; border:1px solid #333; color:#eee; border-radius:6px; padding:5px 8px; font-size:12px; width:140px; }
+.searchbox button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .card video, .card img.main { width:100%; border-radius:6px; background:#000; max-height:340px; object-fit:contain; }
 .vwrap, .cwrap, .imgwrap { position:relative; }
 .playbtn {
@@ -96,6 +102,10 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <button id="sort-asc" onclick="sortCards('asc')">Сначала старые</button>
 </div>
 </div>
+<div class="searchbox">
+<input type="text" id="refcodeInput" placeholder="REF-00042" onkeydown="if(event.key==='Enter')searchByRefCode()">
+<button onclick="searchByRefCode()">Найти по коду</button>
+</div>
 <nav><a class="home" href="../index.html">Главная</a></nav>
 <div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▾</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▾</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▾</span> Миллионники</span></div>
 <div class="accordion-body" id="acc-refs">
@@ -109,8 +119,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div>
 <div class="grid">
-<div class="card" data-date="2026-07-16T16:30:20+00:00"><div class="cwrap" id="cwrap-DazxImRETJ_" data-idx="0" data-count="9"><img class="main" id="main-DazxImRETJ_" src="../media/DazxImRETJ__0.jpg"><div class="carousel-nav prev" onclick="csNav('DazxImRETJ_',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DazxImRETJ_',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DazxImRETJ_" data-sc="DazxImRETJ_" onchange="toggleSel('DazxImRETJ_', this.checked)"><label for="chk-DazxImRETJ_" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DazxImRETJ__0.jpg" class="active" onclick="csSet('DazxImRETJ_',0)"><img src="../media/DazxImRETJ__1.jpg" class="" onclick="csSet('DazxImRETJ_',1)"><img src="../media/DazxImRETJ__2.jpg" class="" onclick="csSet('DazxImRETJ_',2)"><img src="../media/DazxImRETJ__3.jpg" class="" onclick="csSet('DazxImRETJ_',3)"><img src="../media/DazxImRETJ__4.jpg" class="" onclick="csSet('DazxImRETJ_',4)"><img src="../media/DazxImRETJ__5.jpg" class="" onclick="csSet('DazxImRETJ_',5)"><img src="../media/DazxImRETJ__6.jpg" class="" onclick="csSet('DazxImRETJ_',6)"><img src="../media/DazxImRETJ__7.jpg" class="" onclick="csSet('DazxImRETJ_',7)"><img src="../media/DazxImRETJ__8.jpg" class="" onclick="csSet('DazxImRETJ_',8)"></div><div class="stats"><span>❤ 813</span><span>💬 185</span><span>🖼 9 фото</span></div><div class="owner"><a class="authorlink" href="author_alexmerzliakov.html">@alexmerzliakov</a> · <a class="origlink" href="https://www.instagram.com/p/DazxImRETJ_/?img_index=4&amp;igsh=OG4wdDcyOXZvdTBl" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">Разбираю и показываю что мощного теперь можно делать в Телеграме. Особенно если вы ведете блог.</div></div>
-<div class="card" data-date="2026-07-10T20:27:59+00:00"><div class="vwrap"><video id="v-DahD--OxQVE" controls preload="metadata" src="../media/DahD--OxQVE.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-DahD--OxQVE').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DahD--OxQVE" data-sc="DahD--OxQVE" onchange="toggleSel('DahD--OxQVE', this.checked)"><label for="chk-DahD--OxQVE" class="selmark"></label></div></div><div class="stats"><span>❤ 8.7K</span><span>💬 6.7K</span><span>👁 390.5K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_alexmerzliakov.html">@alexmerzliakov</a> · <a class="origlink" href="https://www.instagram.com/reel/DahD--OxQVE/?igsh=MTBhdWFmNzI4b2lsdQ==" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">(речь не распознана)</div><div class="section-label">Описание</div><div class="text">Забирай инструкцию: «Claude без VPN и блокировок — подробная инструкция за 30 минут»
+<div class="card" id="card-REF-00359" data-date="2026-07-10T20:27:59+00:00"><div class="refcode">REF-00359</div><div class="vwrap"><video id="v-DahD--OxQVE" controls preload="metadata" src="../media/DahD--OxQVE.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-DahD--OxQVE').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DahD--OxQVE" data-sc="DahD--OxQVE" onchange="toggleSel('DahD--OxQVE', this.checked)"><label for="chk-DahD--OxQVE" class="selmark"></label></div></div><div class="stats"><span>❤ 8.7K</span><span>💬 6.7K</span><span>👁 390.5K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_alexmerzliakov.html">@alexmerzliakov</a> · <a class="origlink" href="https://www.instagram.com/reel/DahD--OxQVE/?igsh=MTBhdWFmNzI4b2lsdQ==" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">(речь не распознана)</div><div class="section-label">Описание</div><div class="text">Забирай инструкцию: «Claude без VPN и блокировок — подробная инструкция за 30 минут»
 
 Внутри:
 
@@ -119,6 +128,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 • Готовое задание для Claude — самую сложную настройку он делает сам
 • Как защитить аккаунт от бана, а наработки — от потери
 • Что ещё умеет твой сервер: боты</div></div>
+<div class="card" id="card-REF-00458" data-date="2026-07-16T16:30:20+00:00"><div class="refcode">REF-00458</div><div class="cwrap" id="cwrap-DazxImRETJ_" data-idx="0" data-count="9"><img class="main" id="main-DazxImRETJ_" src="../media/DazxImRETJ__0.jpg"><div class="carousel-nav prev" onclick="csNav('DazxImRETJ_',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DazxImRETJ_',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DazxImRETJ_" data-sc="DazxImRETJ_" onchange="toggleSel('DazxImRETJ_', this.checked)"><label for="chk-DazxImRETJ_" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DazxImRETJ__0.jpg" class="active" onclick="csSet('DazxImRETJ_',0)"><img src="../media/DazxImRETJ__1.jpg" class="" onclick="csSet('DazxImRETJ_',1)"><img src="../media/DazxImRETJ__2.jpg" class="" onclick="csSet('DazxImRETJ_',2)"><img src="../media/DazxImRETJ__3.jpg" class="" onclick="csSet('DazxImRETJ_',3)"><img src="../media/DazxImRETJ__4.jpg" class="" onclick="csSet('DazxImRETJ_',4)"><img src="../media/DazxImRETJ__5.jpg" class="" onclick="csSet('DazxImRETJ_',5)"><img src="../media/DazxImRETJ__6.jpg" class="" onclick="csSet('DazxImRETJ_',6)"><img src="../media/DazxImRETJ__7.jpg" class="" onclick="csSet('DazxImRETJ_',7)"><img src="../media/DazxImRETJ__8.jpg" class="" onclick="csSet('DazxImRETJ_',8)"></div><div class="stats"><span>❤ 813</span><span>💬 185</span><span>🖼 9 фото</span></div><div class="owner"><a class="authorlink" href="author_alexmerzliakov.html">@alexmerzliakov</a> · <a class="origlink" href="https://www.instagram.com/p/DazxImRETJ_/?img_index=4&amp;igsh=OG4wdDcyOXZvdTBl" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">Разбираю и показываю что мощного теперь можно делать в Телеграме. Особенно если вы ведете блог.</div></div>
 </div>
 <div class="selbar">
 Выбрано: <span id="selcount">0</span>

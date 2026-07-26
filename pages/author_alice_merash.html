@@ -1,4 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Автор: @alice.merash</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%8E%AC</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -29,6 +30,11 @@ nav a.home { color:#ddd; }
 @media (max-width:800px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:500px){ .grid{ grid-template-columns:minmax(0,1fr);} }
 .card { background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; min-width:0; max-width:100%; overflow:hidden; }
+.card.hl { outline:3px solid #ff6b6b; }
+.refcode { font-size:10.5px; color:#666; letter-spacing:.03em; margin-bottom:4px; font-family:monospace; }
+.searchbox { display:flex; gap:6px; align-items:center; margin:4px 0 2px; }
+.searchbox input { background:#1c1c1c; border:1px solid #333; color:#eee; border-radius:6px; padding:5px 8px; font-size:12px; width:140px; }
+.searchbox button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .card video, .card img.main { width:100%; border-radius:6px; background:#000; max-height:340px; object-fit:contain; }
 .vwrap, .cwrap, .imgwrap { position:relative; }
 .playbtn {
@@ -96,6 +102,10 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <button id="sort-asc" onclick="sortCards('asc')">Сначала старые</button>
 </div>
 </div>
+<div class="searchbox">
+<input type="text" id="refcodeInput" placeholder="REF-00042" onkeydown="if(event.key==='Enter')searchByRefCode()">
+<button onclick="searchByRefCode()">Найти по коду</button>
+</div>
 <nav><a class="home" href="../index.html">Главная</a></nav>
 <div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▾</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▾</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▾</span> Миллионники</span></div>
 <div class="accordion-body" id="acc-refs">
@@ -109,14 +119,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div>
 <div class="grid">
-<div class="card" data-date="2026-07-23T07:37:34+00:00"><div class="cwrap" id="cwrap-DbF4w6RCEHJ" data-idx="0" data-count="6"><img class="main" id="main-DbF4w6RCEHJ" src="../media/DbF4w6RCEHJ_0.jpg"><div class="carousel-nav prev" onclick="csNav('DbF4w6RCEHJ',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DbF4w6RCEHJ',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DbF4w6RCEHJ" data-sc="DbF4w6RCEHJ" onchange="toggleSel('DbF4w6RCEHJ', this.checked)"><label for="chk-DbF4w6RCEHJ" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DbF4w6RCEHJ_0.jpg" class="active" onclick="csSet('DbF4w6RCEHJ',0)"><img src="../media/DbF4w6RCEHJ_1.jpg" class="" onclick="csSet('DbF4w6RCEHJ',1)"><img src="../media/DbF4w6RCEHJ_2.jpg" class="" onclick="csSet('DbF4w6RCEHJ',2)"><img src="../media/DbF4w6RCEHJ_3.jpg" class="" onclick="csSet('DbF4w6RCEHJ',3)"><img src="../media/DbF4w6RCEHJ_4.jpg" class="" onclick="csSet('DbF4w6RCEHJ',4)"><img src="../media/DbF4w6RCEHJ_5.jpg" class="" onclick="csSet('DbF4w6RCEHJ',5)"></div><div class="stats"><span>❤ 97</span><span>💬 320</span><span>🖼 6 фото</span></div><div class="owner"><a class="authorlink" href="author_alice_merash.html">@alice.merash</a> · <a class="origlink" href="https://www.instagram.com/p/DbF4w6RCEHJ/?img_index=2&amp;igsh=NHk0dmR4YWZwa25y" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">⭐️Показываю внутрянку своего контент завода и дам конкретные шаги, как повторить и создать уникальную систему для себя! Код «СИСТЕМА»
-
-Кому точно надо? 
-✔️Вы предприниматель. Сократить расходы, создать контент-отдел и десятки, сотни контента в день
-✔️Вы креатор. Хотите упростить себе жизнь, поднять чек на услуги, делать работу качественнее 
-✔️Вы блогер. Агент сделает вам клона и будет вести социальные сети за Вас 
-✔️Искатель. Вы хотите нырнуть в новое и оказывать услуги по настройке бизнес-процессов</div></div>
-<div class="card" data-date="2026-07-20T22:12:29+00:00"><div class="vwrap"><video id="v-DbAxjobI0v2" controls preload="metadata" src="../media/DbAxjobI0v2.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-DbAxjobI0v2').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DbAxjobI0v2" data-sc="DbAxjobI0v2" onchange="toggleSel('DbAxjobI0v2', this.checked)"><label for="chk-DbAxjobI0v2" class="selmark"></label></div></div><div class="stats"><span>❤ 106</span><span>💬 283</span><span>👁 9.1K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_alice_merash.html">@alice.merash</a> · <a class="origlink" href="https://www.instagram.com/reel/DbAxjobI0v2/?igsh=eGhhYm9qdWViNDB3" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">Как мне сказали люди, которые думают, что создадут одного агента, и он решит все их задачи? Проснитесь и поймите, что это не так. Моя миссия — это много титанических, много контента и охватов, и я протестировала разные гипотезы. И поняла, что мне нужен контент -завод — это не просто красивое название, а выстроенная система. У меня есть продюсер, который собирает брит, сценарист, который логично что пишет сценарий, режиссер для раскадровок и креатеру, которого есть доступ ко всем топовым нейронкам для того, чтобы генерировать классный контент. И монтажер. По -другому это не работает, и сейчас я могу создавать десятки топовых риллз в день. Пиши система в комментариях и забирай урок, как создать для себя такой контент -завод.</div><div class="section-label">Описание</div><div class="text">📗Отдаю инструкцию о том, как создать систему агентов. Моя миссия: много, титанически много контента! Я за качество и результаты 
+<div class="card" id="card-REF-00533" data-date="2026-07-20T22:12:29+00:00"><div class="refcode">REF-00533</div><div class="vwrap"><video id="v-DbAxjobI0v2" controls preload="metadata" src="../media/DbAxjobI0v2.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-DbAxjobI0v2').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DbAxjobI0v2" data-sc="DbAxjobI0v2" onchange="toggleSel('DbAxjobI0v2', this.checked)"><label for="chk-DbAxjobI0v2" class="selmark"></label></div></div><div class="stats"><span>❤ 106</span><span>💬 283</span><span>👁 9.1K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_alice_merash.html">@alice.merash</a> · <a class="origlink" href="https://www.instagram.com/reel/DbAxjobI0v2/?igsh=eGhhYm9qdWViNDB3" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">Как мне сказали люди, которые думают, что создадут одного агента, и он решит все их задачи? Проснитесь и поймите, что это не так. Моя миссия — это много титанических, много контента и охватов, и я протестировала разные гипотезы. И поняла, что мне нужен контент -завод — это не просто красивое название, а выстроенная система. У меня есть продюсер, который собирает брит, сценарист, который логично что пишет сценарий, режиссер для раскадровок и креатеру, которого есть доступ ко всем топовым нейронкам для того, чтобы генерировать классный контент. И монтажер. По -другому это не работает, и сейчас я могу создавать десятки топовых риллз в день. Пиши система в комментариях и забирай урок, как создать для себя такой контент -завод.</div><div class="section-label">Описание</div><div class="text">📗Отдаю инструкцию о том, как создать систему агентов. Моя миссия: много, титанически много контента! Я за качество и результаты 
 
 Поэтому создала контент-систему. 
 1) Продюсер 
@@ -128,6 +131,13 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 Это моя ai-команда агентов! Пиши &quot;система&quot; и я расскажу, как создать такой контент-завод 🎯
 
 @alice.merash</div></div>
+<div class="card" id="card-REF-00544" data-date="2026-07-23T07:37:34+00:00"><div class="refcode">REF-00544</div><div class="cwrap" id="cwrap-DbF4w6RCEHJ" data-idx="0" data-count="6"><img class="main" id="main-DbF4w6RCEHJ" src="../media/DbF4w6RCEHJ_0.jpg"><div class="carousel-nav prev" onclick="csNav('DbF4w6RCEHJ',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DbF4w6RCEHJ',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DbF4w6RCEHJ" data-sc="DbF4w6RCEHJ" onchange="toggleSel('DbF4w6RCEHJ', this.checked)"><label for="chk-DbF4w6RCEHJ" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DbF4w6RCEHJ_0.jpg" class="active" onclick="csSet('DbF4w6RCEHJ',0)"><img src="../media/DbF4w6RCEHJ_1.jpg" class="" onclick="csSet('DbF4w6RCEHJ',1)"><img src="../media/DbF4w6RCEHJ_2.jpg" class="" onclick="csSet('DbF4w6RCEHJ',2)"><img src="../media/DbF4w6RCEHJ_3.jpg" class="" onclick="csSet('DbF4w6RCEHJ',3)"><img src="../media/DbF4w6RCEHJ_4.jpg" class="" onclick="csSet('DbF4w6RCEHJ',4)"><img src="../media/DbF4w6RCEHJ_5.jpg" class="" onclick="csSet('DbF4w6RCEHJ',5)"></div><div class="stats"><span>❤ 97</span><span>💬 320</span><span>🖼 6 фото</span></div><div class="owner"><a class="authorlink" href="author_alice_merash.html">@alice.merash</a> · <a class="origlink" href="https://www.instagram.com/p/DbF4w6RCEHJ/?img_index=2&amp;igsh=NHk0dmR4YWZwa25y" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">⭐️Показываю внутрянку своего контент завода и дам конкретные шаги, как повторить и создать уникальную систему для себя! Код «СИСТЕМА»
+
+Кому точно надо? 
+✔️Вы предприниматель. Сократить расходы, создать контент-отдел и десятки, сотни контента в день
+✔️Вы креатор. Хотите упростить себе жизнь, поднять чек на услуги, делать работу качественнее 
+✔️Вы блогер. Агент сделает вам клона и будет вести социальные сети за Вас 
+✔️Искатель. Вы хотите нырнуть в новое и оказывать услуги по настройке бизнес-процессов</div></div>
 </div>
 <div class="selbar">
 Выбрано: <span id="selcount">0</span>
