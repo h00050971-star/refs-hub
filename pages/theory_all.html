@@ -82,6 +82,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 .selbar button { background:#2ecc71; color:#111; border:none; border-radius:6px; padding:6px 10px; cursor:pointer; font-size:12px; font-weight:600; }
 .selbar button.secondary { background:#444; color:#eee; }
 .selbar button.teleprompter { background:#ff9800; color:#111; }
+.selbar button.design { background:#a970ff; color:#111; }
 .sortbar { display:flex; justify-content:flex-end; gap:8px; margin:0; }
 .sortbar button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .sortbar button.active { color:#fff; border-color:#7cc4ff; }
@@ -685,6 +686,7 @@ https://t.me/c/2626240192/3</div></div>
 Выбрано: <span id="selcount">0</span>
 <button onclick="downloadSelectedTranscripts()">Скачать txt</button>
 <button class="teleprompter" onclick="sendToTeleprompter()">На суфлер</button>
+<button class="design" onclick="downloadDesignBrief()">ТЗ Дизайн Каруселей</button>
 <button class="secondary" onclick="clearSelection()">Сбросить</button>
 </div>
 <script>

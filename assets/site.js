@@ -47,6 +47,50 @@ async function downloadSelectedTranscripts(){
   a.click();
   a.remove();
 }
+var SITE_BASE = 'https://h00050971-star.github.io/refs-hub';
+var _urlMapCache = null;
+async function getUrlMap(){
+  if(_urlMapCache) return _urlMapCache;
+  try {
+    var res = await fetch('../assets/urls.json');
+    _urlMapCache = res.ok ? await res.json() : {};
+  } catch(e){ _urlMapCache = {}; }
+  return _urlMapCache;
+}
+async function downloadDesignBrief(){
+  var sel = getSelected();
+  if(!sel.length){ alert('Ничего не выбрано'); return; }
+  var urlMap = await getUrlMap();
+  var parts = [];
+  for (var i=0;i<sel.length;i++){
+    var sc = sel[i];
+    var meta = urlMap[sc] || {};
+    var block = '=== ' + sc + ' ===\n';
+    block += 'Оригинал: ' + (meta.url || 'н/д') + '\n';
+    var nImg = meta.images || 0;
+    if(nImg > 0){
+      block += 'Картинки:\n';
+      for (var j=0;j<nImg;j++){
+        block += SITE_BASE + '/media/' + sc + '_' + j + '.jpg\n';
+      }
+    }
+    try {
+      var res = await fetch('../media/' + sc + '_design.txt');
+      var text = res.ok ? (await res.text()).trim() : '';
+      block += '\n' + (text || '(дизайн-описание недоступно для этого поста)') + '\n';
+    } catch(e){
+      block += '\n(ошибка загрузки дизайн-описания)\n';
+    }
+    parts.push(block);
+  }
+  var blob = new Blob([parts.join('\n')], {type:'text/plain;charset=utf-8'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'tz_dizain_karuselei.txt';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
 function toggleAccordion(group){
   ['refs','theory','millionniki'].forEach(function(g){
     var el = document.getElementById('acc-' + g);
