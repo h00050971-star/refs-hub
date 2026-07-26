@@ -426,8 +426,31 @@ ChatGPT научился показывать погоду, карту, спор
 <div class="card" data-date="2026-07-04T18:56:38+00:00"><div class="stats"><span>❤ 14.8K</span><span>💬 108</span><span>🖼 0 фото</span></div><div class="owner"><a class="authorlink" href="author_manucharov.html">@manucharov</a> · <a class="origlink" href="https://www.instagram.com/p/DaLWjo-lzAq/?img_index=2&amp;igsh=MWIzeDkyMWdjZG02aQ==" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">Отпусти и всё придет ;) 
 
 Проверено ☑️</div></div>
-<div class="card" data-date="2026-07-04T11:40:36+00:00"><div class="stats"><span>❤ 572</span><span>💬 8</span><span>🖼 0 фото</span></div><div class="owner"><a class="authorlink" href="author_psyagromov.html">@psyagromov</a> · <a class="origlink" href="https://www.instagram.com/p/DaNUScmDsRg/?img_index=6&amp;igsh=MXR2aGlyd2U1bjdhZA==" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">Не обесценивай себя зря</div></div>
-<div class="card" data-date="2026-07-04T11:36:53+00:00"><div class="stats"><span>❤ 1.9K</span><span>💬 60</span><span>🖼 0 фото</span></div><div class="owner"><a class="authorlink" href="author_world_thoughts.html">@world_thoughts</a> · <a class="origlink" href="https://www.instagram.com/p/DaTHjJAE-EH/?img_index=8&amp;igsh=cjJmdHF1ZXlhMWZo" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">Не принимайте чужую низость на свой счёт
+</div>
+<div class="selbar">
+Выбрано: <span id="selcount">0</span>
+<button onclick="downloadSelectedTranscripts()">Скачать txt</button>
+<button class="teleprompter" onclick="sendToTeleprompter()">На суфлер</button>
+<button class="secondary" onclick="clearSelection()">Сбросить</button>
+</div>
+<script>
+function csSet(sc, idx) {
+  var wrap = document.getElementById('cwrap-' + sc);
+  wrap.dataset.idx = idx;
+  document.getElementById('main-' + sc).src = '../media/' + sc + '_' + idx + '.jpg';
+  wrap.parentElement.querySelectorAll('.thumbs img').forEach(function(t, i) {
+    t.classList.toggle('active', i === idx);
+  });
+}
+function csNav(sc, dir) {
+  var wrap = document.getElementById('cwrap-' + sc);
+  var count = parseInt(wrap.dataset.count, 10);
+  var idx = (parseInt(wrap.dataset.idx, 10) + dir + count) % count;
+  csSet(sc, idx);
+}
+</script>
+<script src="../assets/site.js"></script>
+</body></html>v><div class="text">Не принимайте чужую низость на свой счёт
 
 Это его стиль общения, а не ваша цена
 
