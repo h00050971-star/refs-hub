@@ -10,22 +10,26 @@ body { background:#111; color:#eee; font-family:-apple-system,Segoe UI,Arial,san
 h1 { font-size:22px; margin-bottom:4px; }
 .pageheader { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
 .pageheader h1 { margin:0; }
-nav { margin-bottom:2px; }
-nav a { color:#7cc4ff; margin-right:14px; text-decoration:none; font-size:14px; }
-nav a.active { color:#fff; text-decoration:underline; }
+.toolbar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; margin:6px 0 16px; }
+nav { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:0; }
+nav a { background:#1a1a1a; border:1px solid #2a2a2a; color:#7cc4ff; padding:6px 14px; border-radius:20px; text-decoration:none; font-size:13px; transition:background .15s,border-color .15s; }
+nav a:hover { border-color:#4a4a4a; }
+nav a.active { background:#2a2a2a; color:#fff; border-color:#555; }
 nav a.home { color:#ddd; }
-nav a.shotnav { color:#ff6b6b; }
-nav a.shotnav.active { color:#fff; text-decoration:underline; }
-.supercat-row { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:6px; }
+nav a.shotnav { color:#ff6b6b; border-color:rgba(255,107,107,.25); }
+nav a.shotnav.active { background:#3a1f1f; color:#fff; border-color:#ff6b6b; }
+.filterpanel { background:#181818; border:1px solid #262626; border-radius:12px; padding:14px 18px; margin-bottom:20px; }
+.supercat-row { display:flex; gap:24px; flex-wrap:wrap; }
 .supercat { color:#6ee7c4; font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:13px; cursor:pointer; user-select:none; }
 .acc-arrow { display:inline-block; width:10px; }
-.accordion-body { margin-bottom:8px; }
+.accordion-body { margin-top:4px; padding-top:12px; border-top:1px solid #252525; }
 .accordion-body.collapsed { display:none; }
-.topicrow { margin:4px 0 4px 0; }
-.topicrow a { color:#ff6b6b; margin-right:12px; text-decoration:none; font-size:13px; }
-.topicrow a.active { color:#fff; text-decoration:underline; }
-.typerow a { color:#7cc4ff; margin-right:14px; text-decoration:none; font-size:14px; }
-.typerow a.active { color:#fff; text-decoration:underline; }
+.topicrow, .typerow { display:flex; flex-wrap:wrap; gap:8px; margin:5px 0; }
+.topicrow a, .typerow a { background:#222; border:1px solid #2c2c2c; padding:4px 12px; border-radius:14px; text-decoration:none; font-size:12.5px; transition:background .15s,border-color .15s; }
+.topicrow a { color:#ff9f9f; }
+.typerow a { color:#a8d8ff; }
+.topicrow a.active, .typerow a.active { background:#333; color:#fff; border-color:#666; }
+.topicrow a:hover, .typerow a:hover { background:#282828; }
 .grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; margin-top:20px; max-width:100%; }
 @media (max-width:1400px){ .grid{ grid-template-columns:repeat(4,minmax(0,1fr));} }
 @media (max-width:1100px){ .grid{ grid-template-columns:repeat(3,minmax(0,1fr));} }
@@ -48,7 +52,7 @@ nav a.shotnav.active { color:#fff; text-decoration:underline; }
 }
 .card.shot { opacity:.6; }
 .refcode { font-size:10.5px; color:#666; letter-spacing:.03em; margin-bottom:4px; font-family:monospace; }
-.searchbox { display:flex; gap:6px; align-items:center; margin:4px 0 2px; }
+.searchbox { display:flex; gap:6px; align-items:center; margin:0; }
 .searchbox input { background:#1c1c1c; border:1px solid #333; color:#eee; border-radius:6px; padding:5px 8px; font-size:12px; width:140px; }
 .searchbox button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .card video, .card img.main { width:100%; border-radius:6px; background:#000; max-height:340px; object-fit:contain; }
@@ -105,9 +109,12 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 .selbar button.secondary { background:#444; color:#eee; }
 .selbar button.teleprompter { background:#ff9800; color:#111; }
 .selbar button.design { background:#a970ff; color:#111; }
-.sortbar { display:flex; justify-content:flex-end; gap:8px; margin:0; }
+.sortbar { display:flex; justify-content:flex-end; align-items:center; gap:8px; margin:0; }
 .sortbar button { background:#242424; color:#7cc4ff; border:1px solid #333; border-radius:6px; padding:5px 10px; cursor:pointer; font-size:12px; }
 .sortbar button.active { color:#fff; border-color:#7cc4ff; }
+.sortdiv { width:1px; align-self:stretch; background:#333; margin:0 2px; }
+.sortbar #sort-unshot, .sortbar #sort-shot { color:#ff9f9f; }
+.sortbar #sort-unshot.active, .sortbar #sort-shot.active { color:#fff; border-color:#ff6b6b; }
 @media (max-width:600px){ .sortbar{ justify-content:flex-start; flex-wrap:wrap; } }
 </style>
 </head><body>
@@ -116,15 +123,15 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="sortbar">
 <button id="sort-desc" onclick="sortCards('desc')">Сначала новые</button>
 <button id="sort-asc" onclick="sortCards('asc')">Сначала старые</button>
+<span class="sortdiv"></span>
+<button id="sort-unshot" onclick="sortByShot('unshot')">Сначала неотснятые</button>
+<button id="sort-shot" onclick="sortByShot('shot')">Сначала отснятые</button>
 </div>
 </div>
-<div class="searchbox">
+<div class="toolbar"><nav><a class="home" href="../index.html">Главная</a><a class="home shotnav" href="snyato.html">✕ Снято</a></nav><div class="searchbox">
 <input type="text" id="refcodeInput" name="refcode-search" placeholder="REF-00042" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore data-form-type="other" onkeydown="if(event.key==='Enter')searchByRefCode()">
 <button onclick="searchByRefCode()">Найти по коду</button>
-</div>
-<nav><a class="home" href="../index.html">Главная</a><a class="home shotnav" href="snyato.html">✕ Снято</a></nav>
-<div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▾</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▾</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▾</span> Миллионники</span></div>
-<div class="accordion-body" id="acc-refs">
+</div></div><div class="filterpanel"><div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▾</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▾</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▾</span> Миллионники</span></div><div class="accordion-body" id="acc-refs">
 <div class="topicrow"><a class="" href="refs_all.html">Все</a><a class="" href="refs_topic_psychology.html">Психология</a><a class="" href="refs_topic_marketing.html">Маркетинг</a><a class="" href="refs_topic_design.html">Дизайн</a><a class="" href="refs_topic_fonts.html">Шрифты</a><a class="" href="refs_topic_editing.html">Монтаж</a><a class="" href="refs_topic_ai.html">ИИ</a><a class="" href="refs_topic_audio.html">Аудио</a></div>
 <div class="typerow"><a class="" href="refs_all.html">Все</a><a class="" href="refs_reels.html">Рилсы</a><a class="" href="refs_carousels.html">Карусели</a><a class="" href="refs_posts.html">Одиночные посты</a><a class="" href="refs_tgposts.html">ТГ-посты</a><a class="" href="refs_other.html">Остальное</a></div>
 </div><div class="accordion-body" id="acc-theory">
@@ -133,7 +140,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 </div><div class="accordion-body" id="acc-millionniki">
 <div class="topicrow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_topic_psychology.html">Психология</a><a class="" href="millionniki_topic_marketing.html">Маркетинг</a><a class="" href="millionniki_topic_design.html">Дизайн</a><a class="" href="millionniki_topic_fonts.html">Шрифты</a><a class="" href="millionniki_topic_editing.html">Монтаж</a><a class="" href="millionniki_topic_ai.html">ИИ</a><a class="" href="millionniki_topic_audio.html">Аудио</a></div>
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
-</div>
+</div></div>
 <div class="grid">
 <div class="card" id="card-REF-00164" data-date="2026-07-01T18:07:31+00:00" data-shotkey="DZw3CPcRlMS"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DZw3CPcRlMS', this)">&#10005;</button><div class="refcode">REF-00164</div><div class="vwrap"><video id="v-DZw3CPcRlMS" controls preload="metadata" src="../media/DZw3CPcRlMS.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-DZw3CPcRlMS').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DZw3CPcRlMS" data-sc="DZw3CPcRlMS" onchange="toggleSel('DZw3CPcRlMS', this.checked)"><label for="chk-DZw3CPcRlMS" class="selmark"></label></div></div><div class="stats"><span>❤ 2.4K</span><span>💬 31</span><span>👁 45.5K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_annayabur.html">@annayabur</a> · <a class="origlink" href="https://www.instagram.com/reel/DZw3CPcRlMS/?igsh=Mjl0NmFleG5qMWt0" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">Вам нужно влюбиться в свою личность, в того самого персонажа, за которого вы играете в этой жизни, а чтобы это сделать, вам нужно лучше узнать себя. Узнавать себя можно в двух направлениях. Первое – это вширь. Когда вы собираете информацию о своей личности из внешнего мира, изучаете разные системы самопознания, проходите психологические тесты, изучаете свой тип личности. Господи, здесь даже знак из идиака вам тоже в этом помогут. Нахрена это все нужно, таким образом у вас соберется определенная база данных, как можно описать вашу личность в разных системах. И во многих из них вы реально найдете ответы, а почему я настолько отличаюсь от других? И почему вы чемпион в чем -то, что даётся другим очень тяжело, и почему вы лошара в том, что другим удается одной или и пятка? Выбирайте, какие вам больше нравится, их много разности пенеотлетевшей степени на любой вкус. Второй путь познания себя – вглубь, ваша способность к рефлексе. Когда вы живете не просто на автопилоте, а можете задавать себе вопросы. А почему именно сейчас я чувствую именно эту эмоцию, а что именно за эмоцию я чувствую? А чего на самом деле мне хочется? Что вызывает вам мне радость? Что не вызывает вам мне радость? Что я хочу выбрать для себя в своей жизни? А чего я не хочу? И делать этот процесс настолько, осознанным, насколько вы можете. Это, кстати, один из главных навыков, которые тренируются в терапии с психологом. Почему это важно? Когда вы умеете замечать, задавать себе такие вопросы и отвечать на них честно, вы получаете те ответы, которые больше не сможете развить. Рано или поздно вы начнете задаваться вопросами. А почему я создаю в своей жизни то, что мне не нравится? Почему я соглашаюсь на то, чего я не хочу? И все это две стартовые штуки, которыми я реально рекомендую вам заняться, если вы хотите узнать свою личность и попробовать в нее влюбиться. Потому что мы не можем менять то, чего мы не видим, чего мы не знаем. Мы никогда не сможем изменить свою жизнь, сделать другие выборы, если мы не понимаем, почему мы делаем выборы старые. Поэтому развиваем свое видение в ширь, развиваем свое видение в глубь и в один момент вы поймете, что ваш персонаж самый крутой на свете.</div><div class="section-label">Описание</div><div class="text">Это ЧРЕЗВЫЧАЙНО интересный процесс!
 Рекомендую каждому озаботиться этой задачей.
