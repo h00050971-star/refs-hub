@@ -142,6 +142,50 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div></div>
 <div class="grid">
+<div class="card" id="card-REF-00119" data-date="2026-06-29T08:01:32+00:00" data-shotkey="refs_1447433"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1447433', this)">&#10005;</button><div class="refcode">REF-00119</div><div class="vwrap"><video id="v-refs_1447433" controls preload="metadata" src="../media/refs_video_1447433.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-refs_1447433').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1447433" data-sc="refs_1447433" onchange="toggleSel('refs_1447433', this.checked)"><label for="chk-refs_1447433" class="selmark"></label></div></div><div class="section-label">Расшифровка</div><div class="text">Бен! Бен! Это Данила! Бен! Айнистел!</div><div class="section-label">Описание</div><div class="text">Я с Claude Code, когда узнал, что промты на английском расходуют меньше токенов</div></div>
+<div class="card" id="card-REF-00179" data-date="2026-07-02T14:58:16+00:00" data-shotkey="refs_1448238"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1448238', this)">&#10005;</button><div class="refcode">REF-00179</div><div class="vwrap"><video id="v-refs_1448238" controls preload="metadata" src="../media/refs_video_1448238.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-refs_1448238').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1448238" data-sc="refs_1448238" onchange="toggleSel('refs_1448238', this.checked)"><label for="chk-refs_1448238" class="selmark"></label></div></div><div class="section-label">Расшифровка</div><div class="text">Кому из вас нужен карманный программист, который будет работать за вас, да еще и прямо внутри вашего телеграмма? Ты компания Antropic выпустила официальный плаген, который можно теперь подключить к лод прямо к вашему телеграмму. То есть, телефон работает в окошке чатом. Как это работает? Заходим на платформу Git Hub. Это такая платформа, которая программисты и пользователь обычный, обмениваются своими какими -то находками, которые они сделали. И нам нужен аккаунт Antropic. Не перепутайте это очень важно. Дальше скачиваем файл и скинуем его в код Кот. И код Кот сам этот файл установит. Там остается только зайти в телеграм Бот Фады, создать внутри этого ботона наш новый бот. Это ваш оболочка, где будет сидеть ваш личный код Кот. А в Клот нужно закинуть токен. И все готово. Но есть один нюанс. Компьютер во время работы в телеграме не должен спать. То есть он должен быть открыт и включен. Инструкцию подробную я оставил сам серограмм канале, так что переходите по ссылке в шапке профиль и забирайте.</div><div class="section-label">Описание</div><div class="text">Поставила себе **Claude прямо в телеграм** 
+
+Теперь могу писать боту с телефона, а он делает задачи на компьютере и отвечает мне сюда же. Очень удобно, если я вышла из дома забрать дочку из садика или просто сижу с подругами) 
+
+Ставила с помощью Claude Code. Вышло не с первого раза, пару раз споткнулась, потому что есть нюансы, поэтому рассказываю по шагам, чтоб вы не мучились)
+
+**1. Создаем бота.**
+Пишешь [@BotFather](https://t.me/BotFather), команда /newbot, придумываешь имя — и он выдаёт токен, длинную строку типа 123456789:AAH.... Это ключ, никому его нельзя показывать
+
+**2. Ставим Bun.**
+Ставится через терминал на компьютере — не пугайтесь, там буквально одна строчка.
+
+▪️ Если __Windows:__ нажмите «Пуск», напишите **PowerShell**, откройте его. В чёрное окно вставьте и нажмите Enter: winget install Oven-sh.Bun
+
+▪️ __Mac:__ откройте программу **Терминал** (Cmd+Пробел → напишите «Терминал»). Вставьте и Enter: curl -fsSL https://bun.sh/install | bash
+
+Подождите, пока прокрутится установка. А дальше **самое важное:** закройте терминал и откройте заново, без этого комп Bun не увидит.
+
+Проверьте, что всё встало: в новом окне напиши bun --version — если показал цифры (типа 1.3.14), всё ок.
+
+**3. Ставим сам плагин.** В Claude Code:
+/plugin marketplace add anthropics/claude-plugins-official
+/plugin install telegram@claude-plugins-official
+**4. Скармливаем токен бота нашего.** /telegram:configure &lt;твой токен&gt;
+
+**5. Запускаем канал.**
+claude --channels plugin:telegram@claude-plugins-official
+Второй момент, на котором я споткнулась: **это окно нельзя закрывать.** Закрыла и бот замолчал, держите его открытым.
+
+**6. Знакомимся с ботом.** 
+Пишем ему в телеге что угодно и он присылает 6-значный код. Вбиваете в Claude: /telegram:access pair &lt;код&gt; 
+
+**И сразу закрываете доступ другим людям: **/telegram:access policy allowlist
+
+Всё. Кидаете боту задачу текстом или голосом и Claude делает.  Он отвечает текстом, ставит эмодзи т.д.
+
+Плагин официальный, от Anthropic. Я своему Claude дала вот эту ссылку и он по сути 80% шагов сделал за меня: 🔗 github.com/anthropics/claude-plugins-official/tree/main/external_plugins/telegram
+
+
+Очень удобно, что не нужны сторонние приложения) Достаточно подписки на Claude и все.
+
+А если &quot;ничего не понятно, но очень интересно&quot; и хочется делать своих ИИ-помощников, приходите на мастер-класс, где я покажу азы создания нейроассистентов для личных задач, фото и видео и т.д.
+https://kristinawb.com/chatgpt_claude</div></div>
 <div class="card" id="card-REF-00387" data-date="2026-07-12T23:08:24+00:00" data-shotkey="refs_1452807"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452807', this)">&#10005;</button><div class="refcode">REF-00387</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1452807.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1452807" data-sc="refs_1452807" onchange="toggleSel('refs_1452807', this.checked)"><label for="chk-refs_1452807" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Превью субтитров в стиле Captions (шрифт Montserrat, пословная подсветка). Черновая транскрибация small — слова на финале уточню на medium. Оцени стиль/шрифт/позицию.</div></div>
 <div class="card" id="card-REF-00595" data-date="2026-07-26T22:03:22+00:00" data-shotkey="refs_1456677"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1456677', this)">&#10005;</button><div class="refcode">REF-00595</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1456677.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1456677" data-sc="refs_1456677" onchange="toggleSel('refs_1456677', this.checked)"><label for="chk-refs_1456677" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">https://www.threads.com/@vibecode.girl/post/DbQ__-8DLbG?xmt=AQG0Acm85djY2aR8o9AfsZ5gNvFsDznAOfuTh7GP2aLTbP29VYmHXq-C7Z6mesQi35xrrKw&amp;slof=1</div></div>
 </div>

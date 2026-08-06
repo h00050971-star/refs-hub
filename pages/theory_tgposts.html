@@ -242,6 +242,104 @@ __Поэтому не гонитесь за просмотрами, гоните
 
 ____#продвижение_LeraMarkuss__
 ✔️ **Подписывайся на канал**, тут много пользы для блога, контента, Reels и продвижения.</div></div>
+<div class="card" id="card-REF-00178" data-date="2026-07-02T14:58:12+00:00" data-shotkey="theory_1448237"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1448237', this)">&#10005;</button><div class="refcode">REF-00178</div><div class="vwrap"><video id="v-theory_1448237" controls preload="metadata" src="../media/theory_video_1448237.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-theory_1448237').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1448237" data-sc="theory_1448237" onchange="toggleSel('theory_1448237', this.checked)"><label for="chk-theory_1448237" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Поставила себе **Claude прямо в телеграм** 
+
+Теперь могу писать боту с телефона, а он делает задачи на компьютере и отвечает мне сюда же. Очень удобно, если я вышла из дома забрать дочку из садика или просто сижу с подругами) 
+
+Ставила с помощью Claude Code. Вышло не с первого раза, пару раз споткнулась, потому что есть нюансы, поэтому рассказываю по шагам, чтоб вы не мучились)
+
+**1. Создаем бота.**
+Пишешь [@BotFather](https://t.me/BotFather), команда /newbot, придумываешь имя — и он выдаёт токен, длинную строку типа 123456789:AAH.... Это ключ, никому его нельзя показывать
+
+**2. Ставим Bun.**
+Ставится через терминал на компьютере — не пугайтесь, там буквально одна строчка.
+
+▪️ Если __Windows:__ нажмите «Пуск», напишите **PowerShell**, откройте его. В чёрное окно вставьте и нажмите Enter: winget install Oven-sh.Bun
+
+▪️ __Mac:__ откройте программу **Терминал** (Cmd+Пробел → напишите «Терминал»). Вставьте и Enter: curl -fsSL https://bun.sh/install | bash
+
+Подождите, пока прокрутится установка. А дальше **самое важное:** закройте терминал и откройте заново, без этого комп Bun не увидит.
+
+Проверьте, что всё встало: в новом окне напиши bun --version — если показал цифры (типа 1.3.14), всё ок.
+
+**3. Ставим сам плагин.** В Claude Code:
+/plugin marketplace add anthropics/claude-plugins-official
+/plugin install telegram@claude-plugins-official
+**4. Скармливаем токен бота нашего.** /telegram:configure &lt;твой токен&gt;
+
+**5. Запускаем канал.**
+claude --channels plugin:telegram@claude-plugins-official
+Второй момент, на котором я споткнулась: **это окно нельзя закрывать.** Закрыла и бот замолчал, держите его открытым.
+
+**6. Знакомимся с ботом.** 
+Пишем ему в телеге что угодно и он присылает 6-значный код. Вбиваете в Claude: /telegram:access pair &lt;код&gt; 
+
+**И сразу закрываете доступ другим людям: **/telegram:access policy allowlist
+
+Всё. Кидаете боту задачу текстом или голосом и Claude делает.  Он отвечает текстом, ставит эмодзи т.д.
+
+Плагин официальный, от Anthropic. Я своему Claude дала вот эту ссылку и он по сути 80% шагов сделал за меня: 🔗 github.com/anthropics/claude-plugins-official/tree/main/external_plugins/telegram
+
+
+Очень удобно, что не нужны сторонние приложения) Достаточно подписки на Claude и все.
+
+А если &quot;ничего не понятно, но очень интересно&quot; и хочется делать своих ИИ-помощников, приходите на мастер-класс, где я покажу азы создания нейроассистентов для личных задач, фото и видео и т.д.
+https://kristinawb.com/chatgpt_claude</div></div>
+<div class="card" id="card-REF-00236" data-date="2026-07-05T12:14:46+00:00" data-shotkey="theory_1449071"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1449071', this)">&#10005;</button><div class="refcode">REF-00236</div><div class="vwrap"><video id="v-theory_1449071" controls preload="metadata" src="../media/theory_video_1449071.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-theory_1449071').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1449071" data-sc="theory_1449071" onchange="toggleSel('theory_1449071', this.checked)"><label for="chk-theory_1449071" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Контент-завод. Как работает система агентов ❓**
+
+Разбираем наглядный кейс, один из базовых запросов: fashion-съемка для товара 
+
+🤩[Создай свою мультиагентную систему за 7 дней (тык-тык](https://go.prof-ai.pro/index.html))</div></div>
+<div class="card" id="card-REF-00238" data-date="2026-07-05T12:49:49+00:00" data-shotkey="theory_1449099"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1449099', this)">&#10005;</button><div class="refcode">REF-00238</div><div class="vwrap"><video id="v-theory_1449099" controls preload="metadata" src="../media/theory_video_1449099.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-theory_1449099').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1449099" data-sc="theory_1449099" onchange="toggleSel('theory_1449099', this.checked)"><label for="chk-theory_1449099" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Это видео мне смонтировал Claude** 😍
+
+Он всё сделал сам: нарезал видео, наложил субтитры. 
+
+В четверг 9 июля в 14:00 в прямом эфире я покажу, как делать такие фото и видео с 0 🔥
+
+
+📍**В программе:**
+ •  Какие ИИ использовать для создания фото и видео в России
+ •  Как настроить себе ИИ-помощника по промптам
+ •  Как делать серии ИИ-фото с реальным лицом или лицом модели в разных локациях и стилях
+ •  Как делать фото с реальным товаром и инфографику без опечаток и зарабатывать на этом
+ •  Как собирать 100 Reels через ИИ: от идеи и сценария до субтитром и финального монтажа
+ •  Где искать клиентов и как написать первое сообщение без портфолио, чтобы вам ответили? 
+ •  Как выйти на 100-150 тыс рублей с нуля на создании ИИ-фото и видео под ключ на 30 дней вперед
+
+**Жмите на кнопку, чтобы занять место на эфире!**</div></div>
+<div class="card" id="card-REF-00345" data-date="2026-07-09T23:42:01+00:00" data-shotkey="theory_1451669"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1451669', this)">&#10005;</button><div class="refcode">REF-00345</div><div class="vwrap"><video id="v-theory_1451669" controls preload="metadata" src="../media/theory_video_1451669.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-theory_1451669').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1451669" data-sc="theory_1451669" onchange="toggleSel('theory_1451669', this.checked)"><label for="chk-theory_1451669" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Хватит разговаривать с ChatGPT**
+
+Самая бесполезная вещь, которую можно делать с ChatGPT — использовать его только как чат-бота.
+
+Потому что OpenAI только что научили его не просто отвечать на вопросы, а полноценно работать за вас.
+
+Главное [обновление](https://openai.com/chatgpt-work/) 2026 года называется ChatGPT Work.
+
+Теперь в ChatGPT можно скинуть не только вопрос, а целую задачу: разобрать заметки на компьютере, собрать данные из файлов и приложений, найти информацию в браузере, разложить сложную задачу по шагам — и через пару часов вернуться за готовым результатом.
+
+Таблицей.
+
+Презентацией.
+
+Документом.
+
+Сайтом.
+
+Интерактивной визуализацией.
+
+Агент сам зайдёт в нужные приложения, найдёт и обработает файлы, соберёт информацию в браузере, разобьёт работу на этапы и, если нужно, подключит цифровых помощников — субагентов.
+
+Параллельно OpenAI выпустили GPT-5.6, добавили новые режимы рассуждения и объединили ChatGPT с Codex в одно десктопное приложение. 
+
+Вся эта инженерная мощь нужна ради одного простого сдвига: раньше вы открывали ChatGPT, чтобы спросить: «как мне собрать отчёт?»
+
+Теперь можно просто скинуть ему папку с файлами и сказать: «сравни данные, найди главное и собери презентацию».
+
+Кстати, всё это доступно и на подписке Plus за 20 баксов.
+
+ChatGPT перестаёт быть примитивным собеседником, которому нужно разжёвывать каждый шаг.
+
+Это ваш новый коллега, который наконец-то научился пользоваться компьютером.</div></div>
 <div class="card" id="card-REF-00435" data-date="2026-07-16T12:06:17+00:00" data-shotkey="theory_1453981"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1453981', this)">&#10005;</button><div class="refcode">REF-00435</div><div class="imgwrap"><img class="main" src="../media/theory_photo_1453981.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1453981" data-sc="theory_1453981" onchange="toggleSel('theory_1453981', this.checked)"><label for="chk-theory_1453981" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
 <div class="card" id="card-REF-00437" data-date="2026-07-16T12:52:17+00:00" data-shotkey="theory_1454002"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1454002', this)">&#10005;</button><div class="refcode">REF-00437</div><div class="imgwrap"><img class="main" src="../media/theory_photo_1454002.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1454002" data-sc="theory_1454002" onchange="toggleSel('theory_1454002', this.checked)"><label for="chk-theory_1454002" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
 <div class="card" id="card-REF-00438" data-date="2026-07-16T12:52:17+00:00" data-shotkey="theory_1454001"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1454001', this)">&#10005;</button><div class="refcode">REF-00438</div><div class="imgwrap"><img class="main" src="../media/theory_photo_1454001.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1454001" data-sc="theory_1454001" onchange="toggleSel('theory_1454001', this.checked)"><label for="chk-theory_1454001" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text"></div></div>
@@ -292,6 +390,8 @@ __📌Подписывайся на канал, тут много пользы �
 Внутри тест-драйва — 3 урока и обратная связь, которая поможет увидеть свою ошибку и понять, что делать дальше.
 
 До закрытия распродажи осталось **48 часов**. Сейчас вход стоит **490₽ вместо 990₽**.</div></div>
+<div class="card" id="card-REF-00564" data-date="2026-07-25T10:14:58+00:00" data-shotkey="theory_1456239"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1456239', this)">&#10005;</button><div class="refcode">REF-00564</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1456239" data-sc="theory_1456239" onchange="toggleSel('theory_1456239', this.checked)"><label for="chk-theory_1456239" class="selmark"></label></div><div class="section-label">Описание</div><div class="text">https://www.instagram.com/reel/Da8t88uAYJC/?igsh=MXNkdmJub2V2cGF4</div></div>
+<div class="card" id="card-REF-00588" data-date="2026-07-26T20:59:08+00:00" data-shotkey="theory_1456660"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1456660', this)">&#10005;</button><div class="refcode">REF-00588</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1456660" data-sc="theory_1456660" onchange="toggleSel('theory_1456660', this.checked)"><label for="chk-theory_1456660" class="selmark"></label></div><div class="section-label">Описание</div><div class="text"></div></div>
 </div>
 <div class="selbar">
 Выбрано: <span id="selcount">0</span>

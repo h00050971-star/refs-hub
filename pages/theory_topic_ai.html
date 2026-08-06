@@ -174,9 +174,74 @@ Reels, монтаж, CapCut, съёмка конт</div></div>
 Forge замыкает цепочку до конца:
 → Диктуешь за</div></div>
 <div class="card" id="card-REF-00162" data-date="2026-07-01T16:24:56+00:00" data-shotkey="DaQHuDRjDwt"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DaQHuDRjDwt', this)">&#10005;</button><div class="refcode">REF-00162</div><div class="cwrap" id="cwrap-DaQHuDRjDwt" data-idx="0" data-count="9"><img class="main" id="main-DaQHuDRjDwt" src="../media/DaQHuDRjDwt_0.jpg"><div class="carousel-nav prev" onclick="csNav('DaQHuDRjDwt',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DaQHuDRjDwt',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DaQHuDRjDwt" data-sc="DaQHuDRjDwt" onchange="toggleSel('DaQHuDRjDwt', this.checked)"><label for="chk-DaQHuDRjDwt" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DaQHuDRjDwt_0.jpg" class="active" onclick="csSet('DaQHuDRjDwt',0)"><img src="../media/DaQHuDRjDwt_1.jpg" class="" onclick="csSet('DaQHuDRjDwt',1)"><img src="../media/DaQHuDRjDwt_2.jpg" class="" onclick="csSet('DaQHuDRjDwt',2)"><img src="../media/DaQHuDRjDwt_3.jpg" class="" onclick="csSet('DaQHuDRjDwt',3)"><img src="../media/DaQHuDRjDwt_4.jpg" class="" onclick="csSet('DaQHuDRjDwt',4)"><img src="../media/DaQHuDRjDwt_5.jpg" class="" onclick="csSet('DaQHuDRjDwt',5)"><img src="../media/DaQHuDRjDwt_6.jpg" class="" onclick="csSet('DaQHuDRjDwt',6)"><img src="../media/DaQHuDRjDwt_7.jpg" class="" onclick="csSet('DaQHuDRjDwt',7)"><img src="../media/DaQHuDRjDwt_8.jpg" class="" onclick="csSet('DaQHuDRjDwt',8)"></div><div class="stats"><span>❤ 22</span><span>💬 5</span><span>🖼 9 фото</span></div><div class="owner"><a class="authorlink" href="author_petrochenkow.html">@petrochenkow</a> · <a class="origlink" href="https://www.instagram.com/p/DaQHuDRjDwt/?igsh=Z3JpNTB2amZlcTBp" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">Claude нашел где я теряю 80% своих клиентов👆🏻</div></div>
+<div class="card" id="card-REF-00178" data-date="2026-07-02T14:58:12+00:00" data-shotkey="theory_1448237"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1448237', this)">&#10005;</button><div class="refcode">REF-00178</div><div class="vwrap"><video id="v-theory_1448237" controls preload="metadata" src="../media/theory_video_1448237.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-theory_1448237').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1448237" data-sc="theory_1448237" onchange="toggleSel('theory_1448237', this.checked)"><label for="chk-theory_1448237" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Поставила себе **Claude прямо в телеграм** 
+
+Теперь могу писать боту с телефона, а он делает задачи на компьютере и отвечает мне сюда же. Очень удобно, если я вышла из дома забрать дочку из садика или просто сижу с подругами) 
+
+Ставила с помощью Claude Code. Вышло не с первого раза, пару раз споткнулась, потому что есть нюансы, поэтому рассказываю по шагам, чтоб вы не мучились)
+
+**1. Создаем бота.**
+Пишешь [@BotFather](https://t.me/BotFather), команда /newbot, придумываешь имя — и он выдаёт токен, длинную строку типа 123456789:AAH.... Это ключ, никому его нельзя показывать
+
+**2. Ставим Bun.**
+Ставится через терминал на компьютере — не пугайтесь, там буквально одна строчка.
+
+▪️ Если __Windows:__ нажмите «Пуск», напишите **PowerShell**, откройте его. В чёрное окно вставьте и нажмите Enter: winget install Oven-sh.Bun
+
+▪️ __Mac:__ откройте программу **Терминал** (Cmd+Пробел → напишите «Терминал»). Вставьте и Enter: curl -fsSL https://bun.sh/install | bash
+
+Подождите, пока прокрутится установка. А дальше **самое важное:** закройте терминал и откройте заново, без этого комп Bun не увидит.
+
+Проверьте, что всё встало: в новом окне напиши bun --version — если показал цифры (типа 1.3.14), всё ок.
+
+**3. Ставим сам плагин.** В Claude Code:
+/plugin marketplace add anthropics/claude-plugins-official
+/plugin install telegram@claude-plugins-official
+**4. Скармливаем токен бота нашего.** /telegram:configure &lt;твой токен&gt;
+
+**5. Запускаем канал.**
+claude --channels plugin:telegram@claude-plugins-official
+Второй момент, на котором я споткнулась: **это окно нельзя закрывать.** Закрыла и бот замолчал, держите его открытым.
+
+**6. Знакомимся с ботом.** 
+Пишем ему в телеге что угодно и он присылает 6-значный код. Вбиваете в Claude: /telegram:access pair &lt;код&gt; 
+
+**И сразу закрываете доступ другим людям: **/telegram:access policy allowlist
+
+Всё. Кидаете боту задачу текстом или голосом и Claude делает.  Он отвечает текстом, ставит эмодзи т.д.
+
+Плагин официальный, от Anthropic. Я своему Claude дала вот эту ссылку и он по сути 80% шагов сделал за меня: 🔗 github.com/anthropics/claude-plugins-official/tree/main/external_plugins/telegram
+
+
+Очень удобно, что не нужны сторонние приложения) Достаточно подписки на Claude и все.
+
+А если &quot;ничего не понятно, но очень интересно&quot; и хочется делать своих ИИ-помощников, приходите на мастер-класс, где я покажу азы создания нейроассистентов для личных задач, фото и видео и т.д.
+https://kristinawb.com/chatgpt_claude</div></div>
 <div class="card" id="card-REF-00201" data-date="2026-07-03T18:16:40+00:00" data-shotkey="DaUzv_4kc_G"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DaUzv_4kc_G', this)">&#10005;</button><div class="refcode">REF-00201</div><div class="cwrap" id="cwrap-DaUzv_4kc_G" data-idx="0" data-count="11"><img class="main" id="main-DaUzv_4kc_G" src="../media/DaUzv_4kc_G_0.jpg"><div class="carousel-nav prev" onclick="csNav('DaUzv_4kc_G',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DaUzv_4kc_G',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DaUzv_4kc_G" data-sc="DaUzv_4kc_G" onchange="toggleSel('DaUzv_4kc_G', this.checked)"><label for="chk-DaUzv_4kc_G" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DaUzv_4kc_G_0.jpg" class="active" onclick="csSet('DaUzv_4kc_G',0)"><img src="../media/DaUzv_4kc_G_1.jpg" class="" onclick="csSet('DaUzv_4kc_G',1)"><img src="../media/DaUzv_4kc_G_2.jpg" class="" onclick="csSet('DaUzv_4kc_G',2)"><img src="../media/DaUzv_4kc_G_3.jpg" class="" onclick="csSet('DaUzv_4kc_G',3)"><img src="../media/DaUzv_4kc_G_4.jpg" class="" onclick="csSet('DaUzv_4kc_G',4)"><img src="../media/DaUzv_4kc_G_5.jpg" class="" onclick="csSet('DaUzv_4kc_G',5)"><img src="../media/DaUzv_4kc_G_6.jpg" class="" onclick="csSet('DaUzv_4kc_G',6)"><img src="../media/DaUzv_4kc_G_7.jpg" class="" onclick="csSet('DaUzv_4kc_G',7)"><img src="../media/DaUzv_4kc_G_8.jpg" class="" onclick="csSet('DaUzv_4kc_G',8)"><img src="../media/DaUzv_4kc_G_9.jpg" class="" onclick="csSet('DaUzv_4kc_G',9)"><img src="../media/DaUzv_4kc_G_10.jpg" class="" onclick="csSet('DaUzv_4kc_G',10)"></div><div class="stats"><span>❤ 3.2K</span><span>💬 15</span><span>🖼 11 фото</span></div><div class="owner"><a class="authorlink" href="author_businesspro_inc.html">@businesspro.inc</a> · <a class="origlink" href="https://www.instagram.com/p/DaUzv_4kc_G/?img_index=3&amp;igsh=OHpndmFwOG9idzE5" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">Фразы, которые помогут вам получать лучшие варианты ответов от нейросетей
 
 #маркетинг #ии #нейросети</div></div>
+<div class="card" id="card-REF-00236" data-date="2026-07-05T12:14:46+00:00" data-shotkey="theory_1449071"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1449071', this)">&#10005;</button><div class="refcode">REF-00236</div><div class="vwrap"><video id="v-theory_1449071" controls preload="metadata" src="../media/theory_video_1449071.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-theory_1449071').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1449071" data-sc="theory_1449071" onchange="toggleSel('theory_1449071', this.checked)"><label for="chk-theory_1449071" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Контент-завод. Как работает система агентов ❓**
+
+Разбираем наглядный кейс, один из базовых запросов: fashion-съемка для товара 
+
+🤩[Создай свою мультиагентную систему за 7 дней (тык-тык](https://go.prof-ai.pro/index.html))</div></div>
+<div class="card" id="card-REF-00238" data-date="2026-07-05T12:49:49+00:00" data-shotkey="theory_1449099"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1449099', this)">&#10005;</button><div class="refcode">REF-00238</div><div class="vwrap"><video id="v-theory_1449099" controls preload="metadata" src="../media/theory_video_1449099.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-theory_1449099').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1449099" data-sc="theory_1449099" onchange="toggleSel('theory_1449099', this.checked)"><label for="chk-theory_1449099" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Это видео мне смонтировал Claude** 😍
+
+Он всё сделал сам: нарезал видео, наложил субтитры. 
+
+В четверг 9 июля в 14:00 в прямом эфире я покажу, как делать такие фото и видео с 0 🔥
+
+
+📍**В программе:**
+ •  Какие ИИ использовать для создания фото и видео в России
+ •  Как настроить себе ИИ-помощника по промптам
+ •  Как делать серии ИИ-фото с реальным лицом или лицом модели в разных локациях и стилях
+ •  Как делать фото с реальным товаром и инфографику без опечаток и зарабатывать на этом
+ •  Как собирать 100 Reels через ИИ: от идеи и сценария до субтитром и финального монтажа
+ •  Где искать клиентов и как написать первое сообщение без портфолио, чтобы вам ответили? 
+ •  Как выйти на 100-150 тыс рублей с нуля на создании ИИ-фото и видео под ключ на 30 дней вперед
+
+**Жмите на кнопку, чтобы занять место на эфире!**</div></div>
 <div class="card" id="card-REF-00268" data-date="2026-07-06T09:14:05+00:00" data-shotkey="DacgSG3FVKp"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DacgSG3FVKp', this)">&#10005;</button><div class="refcode">REF-00268</div><div class="cwrap" id="cwrap-DacgSG3FVKp" data-idx="0" data-count="12"><img class="main" id="main-DacgSG3FVKp" src="../media/DacgSG3FVKp_0.jpg"><div class="carousel-nav prev" onclick="csNav('DacgSG3FVKp',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DacgSG3FVKp',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DacgSG3FVKp" data-sc="DacgSG3FVKp" onchange="toggleSel('DacgSG3FVKp', this.checked)"><label for="chk-DacgSG3FVKp" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DacgSG3FVKp_0.jpg" class="active" onclick="csSet('DacgSG3FVKp',0)"><img src="../media/DacgSG3FVKp_1.jpg" class="" onclick="csSet('DacgSG3FVKp',1)"><img src="../media/DacgSG3FVKp_2.jpg" class="" onclick="csSet('DacgSG3FVKp',2)"><img src="../media/DacgSG3FVKp_3.jpg" class="" onclick="csSet('DacgSG3FVKp',3)"><img src="../media/DacgSG3FVKp_4.jpg" class="" onclick="csSet('DacgSG3FVKp',4)"><img src="../media/DacgSG3FVKp_5.jpg" class="" onclick="csSet('DacgSG3FVKp',5)"><img src="../media/DacgSG3FVKp_6.jpg" class="" onclick="csSet('DacgSG3FVKp',6)"><img src="../media/DacgSG3FVKp_7.jpg" class="" onclick="csSet('DacgSG3FVKp',7)"><img src="../media/DacgSG3FVKp_8.jpg" class="" onclick="csSet('DacgSG3FVKp',8)"><img src="../media/DacgSG3FVKp_9.jpg" class="" onclick="csSet('DacgSG3FVKp',9)"><img src="../media/DacgSG3FVKp_10.jpg" class="" onclick="csSet('DacgSG3FVKp',10)"><img src="../media/DacgSG3FVKp_11.jpg" class="" onclick="csSet('DacgSG3FVKp',11)"></div><div class="stats"><span>❤ 228</span><span>💬 26</span><span>🖼 12 фото</span></div><div class="owner"><a class="authorlink" href="author_chernykh_smm.html">@chernykh_smm</a> · <a class="origlink" href="https://www.instagram.com/p/DacgSG3FVKp/?img_index=1&amp;igsh=cGl3ejl4dnBmbGM2" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">Я помогаю делать контент с помощью нейросетей, чтобы он приносил клиентов и при этом не занимал много времени уже очень давно. 
 
 И есть у людей одно большое заблуждение: все думают, что ИИ — это какая-то волшебная таблетка. Что ты нажмешь одну кнопку, и ты и получишь и видео, и пост, и 100 заявок в директе. 
@@ -199,6 +264,39 @@ Forge замыкает цепочку до конца:
 И это ещё не всё её возможности!
 
 Сервис </div></div>
+<div class="card" id="card-REF-00345" data-date="2026-07-09T23:42:01+00:00" data-shotkey="theory_1451669"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('theory_1451669', this)">&#10005;</button><div class="refcode">REF-00345</div><div class="vwrap"><video id="v-theory_1451669" controls preload="metadata" src="../media/theory_video_1451669.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-theory_1451669').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-theory_1451669" data-sc="theory_1451669" onchange="toggleSel('theory_1451669', this.checked)"><label for="chk-theory_1451669" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Хватит разговаривать с ChatGPT**
+
+Самая бесполезная вещь, которую можно делать с ChatGPT — использовать его только как чат-бота.
+
+Потому что OpenAI только что научили его не просто отвечать на вопросы, а полноценно работать за вас.
+
+Главное [обновление](https://openai.com/chatgpt-work/) 2026 года называется ChatGPT Work.
+
+Теперь в ChatGPT можно скинуть не только вопрос, а целую задачу: разобрать заметки на компьютере, собрать данные из файлов и приложений, найти информацию в браузере, разложить сложную задачу по шагам — и через пару часов вернуться за готовым результатом.
+
+Таблицей.
+
+Презентацией.
+
+Документом.
+
+Сайтом.
+
+Интерактивной визуализацией.
+
+Агент сам зайдёт в нужные приложения, найдёт и обработает файлы, соберёт информацию в браузере, разобьёт работу на этапы и, если нужно, подключит цифровых помощников — субагентов.
+
+Параллельно OpenAI выпустили GPT-5.6, добавили новые режимы рассуждения и объединили ChatGPT с Codex в одно десктопное приложение. 
+
+Вся эта инженерная мощь нужна ради одного простого сдвига: раньше вы открывали ChatGPT, чтобы спросить: «как мне собрать отчёт?»
+
+Теперь можно просто скинуть ему папку с файлами и сказать: «сравни данные, найди главное и собери презентацию».
+
+Кстати, всё это доступно и на подписке Plus за 20 баксов.
+
+ChatGPT перестаёт быть примитивным собеседником, которому нужно разжёвывать каждый шаг.
+
+Это ваш новый коллега, который наконец-то научился пользоваться компьютером.</div></div>
 <div class="card" id="card-REF-00349" data-date="2026-07-10T14:09:38+00:00" data-shotkey="DanXJ4VihAN"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DanXJ4VihAN', this)">&#10005;</button><div class="refcode">REF-00349</div><div class="cwrap" id="cwrap-DanXJ4VihAN" data-idx="0" data-count="10"><img class="main" id="main-DanXJ4VihAN" src="../media/DanXJ4VihAN_0.jpg"><div class="carousel-nav prev" onclick="csNav('DanXJ4VihAN',-1)">&#10094;</div><div class="carousel-nav next" onclick="csNav('DanXJ4VihAN',1)">&#10095;</div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DanXJ4VihAN" data-sc="DanXJ4VihAN" onchange="toggleSel('DanXJ4VihAN', this.checked)"><label for="chk-DanXJ4VihAN" class="selmark"></label></div></div><div class="thumbs"><img src="../media/DanXJ4VihAN_0.jpg" class="active" onclick="csSet('DanXJ4VihAN',0)"><img src="../media/DanXJ4VihAN_1.jpg" class="" onclick="csSet('DanXJ4VihAN',1)"><img src="../media/DanXJ4VihAN_2.jpg" class="" onclick="csSet('DanXJ4VihAN',2)"><img src="../media/DanXJ4VihAN_3.jpg" class="" onclick="csSet('DanXJ4VihAN',3)"><img src="../media/DanXJ4VihAN_4.jpg" class="" onclick="csSet('DanXJ4VihAN',4)"><img src="../media/DanXJ4VihAN_5.jpg" class="" onclick="csSet('DanXJ4VihAN',5)"><img src="../media/DanXJ4VihAN_6.jpg" class="" onclick="csSet('DanXJ4VihAN',6)"><img src="../media/DanXJ4VihAN_7.jpg" class="" onclick="csSet('DanXJ4VihAN',7)"><img src="../media/DanXJ4VihAN_8.jpg" class="" onclick="csSet('DanXJ4VihAN',8)"><img src="../media/DanXJ4VihAN_9.jpg" class="" onclick="csSet('DanXJ4VihAN',9)"></div><div class="stats"><span>❤ 1K</span><span>💬 252</span><span>🖼 10 фото</span></div><div class="owner"><a class="authorlink" href="author_chatplace_io.html">@chatplace.io</a> · <a class="origlink" href="https://www.instagram.com/p/DanXJ4VihAN/?img_index=3&amp;igsh=MXk2dWN4Y3QxaGMz" target="_blank">оригинал</a></div><div class="section-label">Описание</div><div class="text">✨Пиши СЕРВИС и забирай доступ к платформе для создания вирусного контента
 
 Она построена на базе Claude и автоматически подключается к твоему аккаунту Instagram. Тебе не нужно заниматься длительным обучением
