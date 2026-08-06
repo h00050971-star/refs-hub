@@ -14,6 +14,8 @@ nav { margin-bottom:2px; }
 nav a { color:#7cc4ff; margin-right:14px; text-decoration:none; font-size:14px; }
 nav a.active { color:#fff; text-decoration:underline; }
 nav a.home { color:#ddd; }
+nav a.shotnav { color:#ff6b6b; }
+nav a.shotnav.active { color:#fff; text-decoration:underline; }
 .supercat-row { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:6px; }
 .supercat { color:#6ee7c4; font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:13px; cursor:pointer; user-select:none; }
 .acc-arrow { display:inline-block; width:10px; }
@@ -29,8 +31,22 @@ nav a.home { color:#ddd; }
 @media (max-width:1100px){ .grid{ grid-template-columns:repeat(3,minmax(0,1fr));} }
 @media (max-width:800px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:500px){ .grid{ grid-template-columns:minmax(0,1fr);} }
-.card { background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; min-width:0; max-width:100%; overflow:hidden; }
+.card { position:relative; background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; min-width:0; max-width:100%; overflow:hidden; }
 .card.hl { outline:3px solid #ff6b6b; }
+.shotbtn {
+  position:absolute; top:6px; left:6px; z-index:8; width:26px; height:26px; border-radius:50%;
+  background:rgba(20,20,20,.75); border:2px solid #ff4444; color:#ff4444; font-size:14px; font-weight:700;
+  line-height:22px; text-align:center; cursor:pointer; padding:0;
+}
+.shotbtn:hover { background:#ff4444; color:#fff; }
+.card.shot .shotbtn { background:#ff4444; color:#fff; }
+.card.shot::after {
+  content:""; position:absolute; inset:0; pointer-events:none; z-index:7; border-radius:10px;
+  background:
+    linear-gradient(to top right, transparent calc(50% - 1.5px), #ff4444 calc(50% - 1.5px), #ff4444 calc(50% + 1.5px), transparent calc(50% + 1.5px)),
+    linear-gradient(to top left, transparent calc(50% - 1.5px), #ff4444 calc(50% - 1.5px), #ff4444 calc(50% + 1.5px), transparent calc(50% + 1.5px));
+}
+.card.shot { opacity:.6; }
 .refcode { font-size:10.5px; color:#666; letter-spacing:.03em; margin-bottom:4px; font-family:monospace; }
 .searchbox { display:flex; gap:6px; align-items:center; margin:4px 0 2px; }
 .searchbox input { background:#1c1c1c; border:1px solid #333; color:#eee; border-radius:6px; padding:5px 8px; font-size:12px; width:140px; }
@@ -106,7 +122,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <input type="text" id="refcodeInput" name="refcode-search" placeholder="REF-00042" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore data-form-type="other" onkeydown="if(event.key==='Enter')searchByRefCode()">
 <button onclick="searchByRefCode()">Найти по коду</button>
 </div>
-<nav><a class="home" href="../index.html">Главная</a></nav>
+<nav><a class="home" href="../index.html">Главная</a><a class="home shotnav" href="snyato.html">✕ Снято</a></nav>
 <div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▾</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▸</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▸</span> Миллионники</span></div>
 <div class="accordion-body" id="acc-refs">
 <div class="topicrow"><a class="" href="refs_tgposts.html">Все</a><a class="" href="refs_psychology_tgposts.html">Психология</a><a class="active" href="refs_marketing_tgposts.html">Маркетинг</a><a class="" href="refs_design_tgposts.html">Дизайн</a><a class="" href="refs_fonts_tgposts.html">Шрифты</a><a class="" href="refs_editing_tgposts.html">Монтаж</a><a class="" href="refs_ai_tgposts.html">ИИ</a><a class="" href="refs_audio_tgposts.html">Аудио</a></div>
@@ -119,19 +135,19 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div>
 <div class="grid">
-<div class="card" id="card-REF-00026" data-date="2026-06-26T15:02:03+00:00"><div class="refcode">REF-00026</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446697.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446697" data-sc="refs_1446697" onchange="toggleSel('refs_1446697', this.checked)"><label for="chk-refs_1446697" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Глобальное потепление сдвинуло дедлайны маркетологов: бренды меняют свои календари из-за аномальной жары. 
+<div class="card" id="card-REF-00026" data-date="2026-06-26T15:02:03+00:00" data-shotkey="refs_1446697"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1446697', this)">&#10005;</button><div class="refcode">REF-00026</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446697.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446697" data-sc="refs_1446697" onchange="toggleSel('refs_1446697', this.checked)"><label for="chk-refs_1446697" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Глобальное потепление сдвинуло дедлайны маркетологов: бренды меняют свои календари из-за аномальной жары. 
 
 И речь тут не только о коллекциях одежды: чем дольше на улице высокая температура, тем дольше люди пьют холодные напитки, покупают SPF, устанавливают кондиционеры и планируют свои викенды на природе. 
 
 В итоге в отделах маркетинга горит не только от +30 за окном, но еще и от дедлайнов и реакции работяг, которым остается надеяться только на помощь шаманов, чтобы те вернули прохладу, а вместе с ней и адекватное рабочие задачи 🔥</div></div>
-<div class="card" id="card-REF-00089" data-date="2026-06-26T17:44:23+00:00"><div class="refcode">REF-00089</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446838.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446838" data-sc="refs_1446838" onchange="toggleSel('refs_1446838', this.checked)"><label for="chk-refs_1446838" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Алкоголь официально вышел из моды **— московские зумеры больше не пьют. Нарколог Антон Масякин [утверждает](https://moskvichmag.ru/gorod/glavnyj-narkolog-moskvy-zayavil-alkogol-sredi-molodezhi-okonchatelno-vyshel-iz-mody/), что столица входит в число регионов с самым низким уровнем потребления алкоголя. Москва находится примерно на одной ступеньке с кавказскими республиками, где пить нельзя по религиозным причинам. 
+<div class="card" id="card-REF-00089" data-date="2026-06-26T17:44:23+00:00" data-shotkey="refs_1446838"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1446838', this)">&#10005;</button><div class="refcode">REF-00089</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446838.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446838" data-sc="refs_1446838" onchange="toggleSel('refs_1446838', this.checked)"><label for="chk-refs_1446838" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Алкоголь официально вышел из моды **— московские зумеры больше не пьют. Нарколог Антон Масякин [утверждает](https://moskvichmag.ru/gorod/glavnyj-narkolog-moskvy-zayavil-alkogol-sredi-molodezhi-okonchatelno-vyshel-iz-mody/), что столица входит в число регионов с самым низким уровнем потребления алкоголя. Москва находится примерно на одной ступеньке с кавказскими республиками, где пить нельзя по религиозным причинам. 
 
 Все благодаря зумерам, которые выбирают **вместо бокала просекко спорт, пробежки, теннис и волейбол**.  
 
 Владельцам баров срочно нужно переоборудовать помещения под падел и бильярд 😋
 
 @trends</div></div>
-<div class="card" id="card-REF-00096" data-date="2026-06-26T19:37:31+00:00"><div class="refcode">REF-00096</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446887.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446887" data-sc="refs_1446887" onchange="toggleSel('refs_1446887', this.checked)"><label for="chk-refs_1446887" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Кринж детектед** 🤓
+<div class="card" id="card-REF-00096" data-date="2026-06-26T19:37:31+00:00" data-shotkey="refs_1446887"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1446887', this)">&#10005;</button><div class="refcode">REF-00096</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1446887.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1446887" data-sc="refs_1446887" onchange="toggleSel('refs_1446887', this.checked)"><label for="chk-refs_1446887" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Кринж детектед** 🤓
 
 Лосины для кошек стали неожиданным хитом в Азии 😰 __Первую партию этой кошачьей имбы раскупили буквально за полдня. __
 
@@ -141,7 +157,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 🐾 С каких козырей и посылов зайдёшь?
 
 🐈🐈🐈 Пока котики страдают, **качай маркетинговую мышцу в комментах,** не стесняйся 👇</div></div>
-<div class="card" id="card-REF-00104" data-date="2026-06-27T07:42:09+00:00"><div class="refcode">REF-00104</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1447059.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1447059" data-sc="refs_1447059" onchange="toggleSel('refs_1447059', this.checked)"><label for="chk-refs_1447059" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Как понять, залетел ролик или нет? **🤔
+<div class="card" id="card-REF-00104" data-date="2026-06-27T07:42:09+00:00" data-shotkey="refs_1447059"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1447059', this)">&#10005;</button><div class="refcode">REF-00104</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1447059.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1447059" data-sc="refs_1447059" onchange="toggleSel('refs_1447059', this.checked)"><label for="chk-refs_1447059" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Как понять, залетел ролик или нет? **🤔
 
 __Это зависит от размера вашего аккаунта.__
 
@@ -176,13 +192,13 @@ __Поэтому не гонитесь за просмотрами, гоните
 
 ____#продвижение_LeraMarkuss__
 ✔️ **Подписывайся на канал**, тут много пользы для блога, контента, Reels и продвижения.</div></div>
-<div class="card" id="card-REF-00112" data-date="2026-06-27T14:10:42+00:00"><div class="refcode">REF-00112</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1447117.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1447117" data-sc="refs_1447117" onchange="toggleSel('refs_1447117', this.checked)"><label for="chk-refs_1447117" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Coors Light выпустили огромную банку пива «Tallerboy» к ЧМ по футболу специально для фанатов.
+<div class="card" id="card-REF-00112" data-date="2026-06-27T14:10:42+00:00" data-shotkey="refs_1447117"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1447117', this)">&#10005;</button><div class="refcode">REF-00112</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1447117.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1447117" data-sc="refs_1447117" onchange="toggleSel('refs_1447117', this.checked)"><label for="chk-refs_1447117" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Coors Light выпустили огромную банку пива «Tallerboy» к ЧМ по футболу специально для фанатов.
 
 Банка символизируют протяжные крики «Гооооол» на матчах, так что вмещает в себя сразу 3 банки пива. Главное — лимитку раскупили в считанные дни.
 
 Идеальная баночка для выходных.</div></div>
-<div class="card" id="card-REF-00338" data-date="2026-07-09T19:59:49+00:00"><div class="refcode">REF-00338</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1451415.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1451415" data-sc="refs_1451415" onchange="toggleSel('refs_1451415', this.checked)"><label for="chk-refs_1451415" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Если ты все ещё не снимаешь рилс каждый день — обязательно прочитай этот пост</div></div>
-<div class="card" id="card-REF-00339" data-date="2026-07-09T20:00:38+00:00"><div class="refcode">REF-00339</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1451416.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1451416" data-sc="refs_1451416" onchange="toggleSel('refs_1451416', this.checked)"><label for="chk-refs_1451416" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Твой день устроен так, что в нём никогда не будет рилсов.
+<div class="card" id="card-REF-00338" data-date="2026-07-09T19:59:49+00:00" data-shotkey="refs_1451415"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1451415', this)">&#10005;</button><div class="refcode">REF-00338</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1451415.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1451415" data-sc="refs_1451415" onchange="toggleSel('refs_1451415', this.checked)"><label for="chk-refs_1451415" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">Если ты все ещё не снимаешь рилс каждый день — обязательно прочитай этот пост</div></div>
+<div class="card" id="card-REF-00339" data-date="2026-07-09T20:00:38+00:00" data-shotkey="refs_1451416"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1451416', this)">&#10005;</button><div class="refcode">REF-00339</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1451416.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1451416" data-sc="refs_1451416" onchange="toggleSel('refs_1451416', this.checked)"><label for="chk-refs_1451416" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Твой день устроен так, что в нём никогда не будет рилсов.
 **
 Сейчас опишу его по минутам)
 
@@ -229,7 +245,7 @@ ____#продвижение_LeraMarkuss__
 Напиши мне «группа» @potapovfx - расскажу детали.
 
 Гарантия прежняя: **10 000 подписчиков за 5 недель** или работаем дальше бесплатно, пока не сделаем.</div></div>
-<div class="card" id="card-REF-00413" data-date="2026-07-13T13:54:20+00:00"><div class="refcode">REF-00413</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1453159.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453159" data-sc="refs_1453159" onchange="toggleSel('refs_1453159', this.checked)"><label for="chk-refs_1453159" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Перфекционизм - это то, что больше всего мешало мне регулярно вести блог.**
+<div class="card" id="card-REF-00413" data-date="2026-07-13T13:54:20+00:00" data-shotkey="refs_1453159"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1453159', this)">&#10005;</button><div class="refcode">REF-00413</div><div class="imgwrap"><img class="main" src="../media/refs_photo_1453159.jpg"><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-refs_1453159" data-sc="refs_1453159" onchange="toggleSel('refs_1453159', this.checked)"><label for="chk-refs_1453159" class="selmark"></label></div></div><div class="section-label">Описание</div><div class="text">**Перфекционизм - это то, что больше всего мешало мне регулярно вести блог.**
 
 Я могла монтировать один ролик по 8 часов, бесконечно переснимать и переделывать. 
 

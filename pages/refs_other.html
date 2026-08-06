@@ -14,6 +14,8 @@ nav { margin-bottom:2px; }
 nav a { color:#7cc4ff; margin-right:14px; text-decoration:none; font-size:14px; }
 nav a.active { color:#fff; text-decoration:underline; }
 nav a.home { color:#ddd; }
+nav a.shotnav { color:#ff6b6b; }
+nav a.shotnav.active { color:#fff; text-decoration:underline; }
 .supercat-row { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:6px; }
 .supercat { color:#6ee7c4; font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:13px; cursor:pointer; user-select:none; }
 .acc-arrow { display:inline-block; width:10px; }
@@ -29,8 +31,22 @@ nav a.home { color:#ddd; }
 @media (max-width:1100px){ .grid{ grid-template-columns:repeat(3,minmax(0,1fr));} }
 @media (max-width:800px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media (max-width:500px){ .grid{ grid-template-columns:minmax(0,1fr);} }
-.card { background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; min-width:0; max-width:100%; overflow:hidden; }
+.card { position:relative; background:#1c1c1c; border-radius:10px; padding:10px; display:flex; flex-direction:column; min-width:0; max-width:100%; overflow:hidden; }
 .card.hl { outline:3px solid #ff6b6b; }
+.shotbtn {
+  position:absolute; top:6px; left:6px; z-index:8; width:26px; height:26px; border-radius:50%;
+  background:rgba(20,20,20,.75); border:2px solid #ff4444; color:#ff4444; font-size:14px; font-weight:700;
+  line-height:22px; text-align:center; cursor:pointer; padding:0;
+}
+.shotbtn:hover { background:#ff4444; color:#fff; }
+.card.shot .shotbtn { background:#ff4444; color:#fff; }
+.card.shot::after {
+  content:""; position:absolute; inset:0; pointer-events:none; z-index:7; border-radius:10px;
+  background:
+    linear-gradient(to top right, transparent calc(50% - 1.5px), #ff4444 calc(50% - 1.5px), #ff4444 calc(50% + 1.5px), transparent calc(50% + 1.5px)),
+    linear-gradient(to top left, transparent calc(50% - 1.5px), #ff4444 calc(50% - 1.5px), #ff4444 calc(50% + 1.5px), transparent calc(50% + 1.5px));
+}
+.card.shot { opacity:.6; }
 .refcode { font-size:10.5px; color:#666; letter-spacing:.03em; margin-bottom:4px; font-family:monospace; }
 .searchbox { display:flex; gap:6px; align-items:center; margin:4px 0 2px; }
 .searchbox input { background:#1c1c1c; border:1px solid #333; color:#eee; border-radius:6px; padding:5px 8px; font-size:12px; width:140px; }
@@ -106,7 +122,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <input type="text" id="refcodeInput" name="refcode-search" placeholder="REF-00042" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore data-form-type="other" onkeydown="if(event.key==='Enter')searchByRefCode()">
 <button onclick="searchByRefCode()">Найти по коду</button>
 </div>
-<nav><a class="home" href="../index.html">Главная</a></nav>
+<nav><a class="home" href="../index.html">Главная</a><a class="home shotnav" href="snyato.html">✕ Снято</a></nav>
 <div class="supercat-row"><span class="supercat" id="label-refs" onclick="toggleAccordion('refs')"><span class="acc-arrow">▾</span> Рефы</span><span class="supercat" id="label-theory" onclick="toggleAccordion('theory')"><span class="acc-arrow">▸</span> Теория</span><span class="supercat" id="label-millionniki" onclick="toggleAccordion('millionniki')"><span class="acc-arrow">▸</span> Миллионники</span></div>
 <div class="accordion-body" id="acc-refs">
 <div class="topicrow"><a class="active" href="refs_other.html">Все</a><a class="" href="refs_psychology_other.html">Психология</a><a class="" href="refs_marketing_other.html">Маркетинг</a><a class="" href="refs_design_other.html">Дизайн</a><a class="" href="refs_fonts_other.html">Шрифты</a><a class="" href="refs_editing_other.html">Монтаж</a><a class="" href="refs_ai_other.html">ИИ</a><a class="" href="refs_audio_other.html">Аудио</a></div>
@@ -119,14 +135,14 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div>
 <div class="grid">
-<div class="card" id="card-REF-00003" data-date="2026-06-26T08:48:08+00:00"><div class="refcode">REF-00003</div><div class="section-label">Заметка</div><div class="text">1</div></div>
-<div class="card" id="card-REF-00005" data-date="2026-06-26T08:50:09+00:00"><div class="refcode">REF-00005</div><div class="section-label">Заметка</div><div class="text">fb</div></div>
-<div class="card" id="card-REF-00008" data-date="2026-06-26T08:55:16+00:00"><div class="refcode">REF-00008</div><div class="section-label">Заметка</div><div class="text">заебал</div></div>
-<div class="card" id="card-REF-00025" data-date="2026-06-26T15:00:51+00:00"><div class="refcode">REF-00025</div><div class="section-label">Заметка</div><div class="text">⚡ Путин ввёл штрафы до 700 тысяч рублей за авторизацию через Gmail и другие зарубежные сервисы на российских сайтах 
+<div class="card" id="card-REF-00003" data-date="2026-06-26T08:48:08+00:00" data-shotkey="refs_1446595"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1446595', this)">&#10005;</button><div class="refcode">REF-00003</div><div class="section-label">Заметка</div><div class="text">1</div></div>
+<div class="card" id="card-REF-00005" data-date="2026-06-26T08:50:09+00:00" data-shotkey="refs_1446597"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1446597', this)">&#10005;</button><div class="refcode">REF-00005</div><div class="section-label">Заметка</div><div class="text">fb</div></div>
+<div class="card" id="card-REF-00008" data-date="2026-06-26T08:55:16+00:00" data-shotkey="refs_1446600"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1446600', this)">&#10005;</button><div class="refcode">REF-00008</div><div class="section-label">Заметка</div><div class="text">заебал</div></div>
+<div class="card" id="card-REF-00025" data-date="2026-06-26T15:00:51+00:00" data-shotkey="refs_1446696"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1446696', this)">&#10005;</button><div class="refcode">REF-00025</div><div class="section-label">Заметка</div><div class="text">⚡ Путин ввёл штрафы до 700 тысяч рублей за авторизацию через Gmail и другие зарубежные сервисы на российских сайтах 
 
 Соответствующий закон подписан сегодня. Штрафы будут платить сайты.</div></div>
-<div class="card" id="card-REF-00028" data-date="2026-06-26T15:06:24+00:00"><div class="refcode">REF-00028</div><div class="section-label">Заметка</div><div class="text">Универсальный шот-лист</div></div>
-<div class="card" id="card-REF-00102" data-date="2026-06-27T06:44:54+00:00"><div class="refcode">REF-00102</div><div class="section-label">Заметка</div><div class="text">Главная мантра реализации:
+<div class="card" id="card-REF-00028" data-date="2026-06-26T15:06:24+00:00" data-shotkey="refs_1446704"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1446704', this)">&#10005;</button><div class="refcode">REF-00028</div><div class="section-label">Заметка</div><div class="text">Универсальный шот-лист</div></div>
+<div class="card" id="card-REF-00102" data-date="2026-06-27T06:44:54+00:00" data-shotkey="refs_1447006"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1447006', this)">&#10005;</button><div class="refcode">REF-00102</div><div class="section-label">Заметка</div><div class="text">Главная мантра реализации:
 
 Я МОГУ ПОПРОБОВАТЬ!
 
@@ -139,18 +155,18 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 Пишите ваши запросы на @sien_shamuratova
 
 Как вам отзывается такой подход? ❤️</div></div>
-<div class="card" id="card-REF-00128" data-date="2026-06-29T16:36:15+00:00"><div class="refcode">REF-00128</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/DaLJcAsKHVV/?igsh=ZGdoZHZqbXJxM2Nn</div></div>
-<div class="card" id="card-REF-00186" data-date="2026-07-02T16:51:20+00:00"><div class="refcode">REF-00186</div><div class="section-label">Заметка</div><div class="text">Молитва от Зеланда</div></div>
-<div class="card" id="card-REF-00197" data-date="2026-07-03T16:39:04+00:00"><div class="refcode">REF-00197</div><div class="section-label">Заметка</div><div class="text">Хедхантеру невыгодно чтобы люди находили работу</div></div>
-<div class="card" id="card-REF-00198" data-date="2026-07-03T16:39:09+00:00"><div class="refcode">REF-00198</div><div class="section-label">Заметка</div><div class="text">Из за подписок</div></div>
-<div class="card" id="card-REF-00199" data-date="2026-07-03T16:39:20+00:00"><div class="refcode">REF-00199</div><div class="section-label">Заметка</div><div class="text">Микро сервисы типа career space</div></div>
-<div class="card" id="card-REF-00217" data-date="2026-07-04T14:57:48+00:00"><div class="refcode">REF-00217</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/p/DaX71GoAkkB/?igsh=MXJ0Nmd0aGk4Z3A4eg==</div></div>
-<div class="card" id="card-REF-00223" data-date="2026-07-04T20:24:01+00:00"><div class="refcode">REF-00223</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/DaYeuBwIzjt/?igsh=MXBpbWxtMzhlMXN6Yg==</div></div>
-<div class="card" id="card-REF-00272" data-date="2026-07-06T11:17:26+00:00"><div class="refcode">REF-00272</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/DacN0octFOw/?igsh=NjJqODEwa2kwemho</div></div>
-<div class="card" id="card-REF-00302" data-date="2026-07-07T08:57:51+00:00"><div class="refcode">REF-00302</div><div class="section-label">Заметка</div><div class="text">Excelsior, я хочу написать пост про видеоредакторы CapCut, VN, Edits, Captions и Reels App, для чего каждый нужен.</div></div>
-<div class="card" id="card-REF-00322" data-date="2026-07-08T12:18:51+00:00"><div class="refcode">REF-00322</div><div class="section-label">Заметка</div><div class="text">переснять в &quot;смотри&quot;</div></div>
-<div class="card" id="card-REF-00366" data-date="2026-07-12T07:51:28+00:00"><div class="refcode">REF-00366</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reels.teacher?igsh=MWh5Y2dyZWdpaDh3cQ==</div></div>
-<div class="card" id="card-REF-00370" data-date="2026-07-12T16:12:39+00:00"><div class="refcode">REF-00370</div><div class="section-label">Заметка</div><div class="text">Почему некоторые магазины работают только по будням?
+<div class="card" id="card-REF-00128" data-date="2026-06-29T16:36:15+00:00" data-shotkey="DaLJcAsKHVV"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DaLJcAsKHVV', this)">&#10005;</button><div class="refcode">REF-00128</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/DaLJcAsKHVV/?igsh=ZGdoZHZqbXJxM2Nn</div></div>
+<div class="card" id="card-REF-00186" data-date="2026-07-02T16:51:20+00:00" data-shotkey="refs_1448270"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1448270', this)">&#10005;</button><div class="refcode">REF-00186</div><div class="section-label">Заметка</div><div class="text">Молитва от Зеланда</div></div>
+<div class="card" id="card-REF-00197" data-date="2026-07-03T16:39:04+00:00" data-shotkey="refs_1448554"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1448554', this)">&#10005;</button><div class="refcode">REF-00197</div><div class="section-label">Заметка</div><div class="text">Хедхантеру невыгодно чтобы люди находили работу</div></div>
+<div class="card" id="card-REF-00198" data-date="2026-07-03T16:39:09+00:00" data-shotkey="refs_1448555"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1448555', this)">&#10005;</button><div class="refcode">REF-00198</div><div class="section-label">Заметка</div><div class="text">Из за подписок</div></div>
+<div class="card" id="card-REF-00199" data-date="2026-07-03T16:39:20+00:00" data-shotkey="refs_1448556"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1448556', this)">&#10005;</button><div class="refcode">REF-00199</div><div class="section-label">Заметка</div><div class="text">Микро сервисы типа career space</div></div>
+<div class="card" id="card-REF-00217" data-date="2026-07-04T14:57:48+00:00" data-shotkey="DaX71GoAkkB"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DaX71GoAkkB', this)">&#10005;</button><div class="refcode">REF-00217</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/p/DaX71GoAkkB/?igsh=MXJ0Nmd0aGk4Z3A4eg==</div></div>
+<div class="card" id="card-REF-00223" data-date="2026-07-04T20:24:01+00:00" data-shotkey="DaYeuBwIzjt"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DaYeuBwIzjt', this)">&#10005;</button><div class="refcode">REF-00223</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/DaYeuBwIzjt/?igsh=MXBpbWxtMzhlMXN6Yg==</div></div>
+<div class="card" id="card-REF-00272" data-date="2026-07-06T11:17:26+00:00" data-shotkey="DacN0octFOw"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DacN0octFOw', this)">&#10005;</button><div class="refcode">REF-00272</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/DacN0octFOw/?igsh=NjJqODEwa2kwemho</div></div>
+<div class="card" id="card-REF-00302" data-date="2026-07-07T08:57:51+00:00" data-shotkey="refs_1449821"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1449821', this)">&#10005;</button><div class="refcode">REF-00302</div><div class="section-label">Заметка</div><div class="text">Excelsior, я хочу написать пост про видеоредакторы CapCut, VN, Edits, Captions и Reels App, для чего каждый нужен.</div></div>
+<div class="card" id="card-REF-00322" data-date="2026-07-08T12:18:51+00:00" data-shotkey="refs_1450782"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1450782', this)">&#10005;</button><div class="refcode">REF-00322</div><div class="section-label">Заметка</div><div class="text">переснять в &quot;смотри&quot;</div></div>
+<div class="card" id="card-REF-00366" data-date="2026-07-12T07:51:28+00:00" data-shotkey="refs_1452325"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452325', this)">&#10005;</button><div class="refcode">REF-00366</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reels.teacher?igsh=MWh5Y2dyZWdpaDh3cQ==</div></div>
+<div class="card" id="card-REF-00370" data-date="2026-07-12T16:12:39+00:00" data-shotkey="refs_1452444"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452444', this)">&#10005;</button><div class="refcode">REF-00370</div><div class="section-label">Заметка</div><div class="text">Почему некоторые магазины работают только по будням?
 
 Большинство людей в это время на работе. Когда у человека появляются выходные и время спокойно пройтись по магазинам — магазин уже закрыт.
 
@@ -159,7 +175,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 Потому что онлайн работает тогда, когда удобно покупателю.
 
 Еще думал на такую тему</div></div>
-<div class="card" id="card-REF-00371" data-date="2026-07-12T16:12:39+00:00"><div class="refcode">REF-00371</div><div class="section-label">Заметка</div><div class="text">Обратите внимание: если после разговора с человеком вы начинаете думать не о том, что он сделал, а о том, что с вами что-то не так — остановитесь и подумайте.
+<div class="card" id="card-REF-00371" data-date="2026-07-12T16:12:39+00:00" data-shotkey="refs_1452443"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452443', this)">&#10005;</button><div class="refcode">REF-00371</div><div class="section-label">Заметка</div><div class="text">Обратите внимание: если после разговора с человеком вы начинаете думать не о том, что он сделал, а о том, что с вами что-то не так — остановитесь и подумайте.
 
 Иногда человек делает вам больно, но вместо того чтобы сказать: «Да, я поступил неправильно», он говорит:
 
@@ -170,8 +186,8 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 И вы уже начинаете сомневаться в себе, а не в его поступке.
 
 Это удобный способ избежать ответственности: сделать виноватым того, кому сделали больно, а не того, кто причинил боль.</div></div>
-<div class="card" id="card-REF-00372" data-date="2026-07-12T16:13:02+00:00"><div class="refcode">REF-00372</div><div class="section-label">Заметка</div><div class="text">и в конце можно вопрос а как вы думаете нужны ли выходные для магазинов</div></div>
-<div class="card" id="card-REF-00409" data-date="2026-07-13T07:50:53+00:00"><div class="refcode">REF-00409</div><div class="section-label">Заметка</div><div class="text">Власть!?
+<div class="card" id="card-REF-00372" data-date="2026-07-12T16:13:02+00:00" data-shotkey="refs_1452447"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452447', this)">&#10005;</button><div class="refcode">REF-00372</div><div class="section-label">Заметка</div><div class="text">и в конце можно вопрос а как вы думаете нужны ли выходные для магазинов</div></div>
+<div class="card" id="card-REF-00409" data-date="2026-07-13T07:50:53+00:00" data-shotkey="refs_1452860"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452860', this)">&#10005;</button><div class="refcode">REF-00409</div><div class="section-label">Заметка</div><div class="text">Власть!?
 Один из самых глубоких запретов, с которыми мы можем столкнуться, звучит не как «мне нельзя быть сильной», а гораздо конкретнее: мне нельзя иметь власть и влиять на то, что находится вокруг меня.
 
 Силу ещё можно переживать внутри себя. 
@@ -209,7 +225,7 @@ __Именно здесь возникает страх: имею ли я пра
 
 А как у вас дела с правом на расширение,  влияние и власть?
 ❤️</div></div>
-<div class="card" id="card-REF-00410" data-date="2026-07-13T07:50:53+00:00"><div class="refcode">REF-00410</div><div class="section-label">Заметка</div><div class="text">Власть!?
+<div class="card" id="card-REF-00410" data-date="2026-07-13T07:50:53+00:00" data-shotkey="refs_1452859"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452859', this)">&#10005;</button><div class="refcode">REF-00410</div><div class="section-label">Заметка</div><div class="text">Власть!?
 Один из самых глубоких запретов, с которыми мы можем столкнуться, звучит не как «мне нельзя быть сильной», а гораздо конкретнее: мне нельзя иметь власть и влиять на то, что находится вокруг меня.
 
 Силу ещё можно переживать внутри себя. 
@@ -247,7 +263,7 @@ __Именно здесь возникает страх: имею ли я пра
 
 А как у вас дела с правом на расширение,  влияние и власть?
 ❤️</div></div>
-<div class="card" id="card-REF-00411" data-date="2026-07-13T07:50:53+00:00"><div class="refcode">REF-00411</div><div class="section-label">Заметка</div><div class="text">Власть!?
+<div class="card" id="card-REF-00411" data-date="2026-07-13T07:50:53+00:00" data-shotkey="refs_1452858"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452858', this)">&#10005;</button><div class="refcode">REF-00411</div><div class="section-label">Заметка</div><div class="text">Власть!?
 Один из самых глубоких запретов, с которыми мы можем столкнуться, звучит не как «мне нельзя быть сильной», а гораздо конкретнее: мне нельзя иметь власть и влиять на то, что находится вокруг меня.
 
 Силу ещё можно переживать внутри себя. 
@@ -285,11 +301,11 @@ __Именно здесь возникает страх: имею ли я пра
 
 А как у вас дела с правом на расширение,  влияние и власть?
 ❤️</div></div>
-<div class="card" id="card-REF-00418" data-date="2026-07-15T14:35:29+00:00"><div class="refcode">REF-00418</div><div class="section-label">Заметка</div><div class="text">Платежи через ИП распределяются самостоятельно по усн и по патенту Эльба</div></div>
-<div class="card" id="card-REF-00487" data-date="2026-07-18T00:09:37+00:00"><div class="refcode">REF-00487</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/DayOCsqow6O/?igsh=MTh2YW84cXoxeWY1aw==</div></div>
-<div class="card" id="card-REF-00504" data-date="2026-07-18T10:01:50+00:00"><div class="refcode">REF-00504</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/Da3CaQAoRJD/?igsh=amR0YXJlYmV3OG8y</div></div>
-<div class="card" id="card-REF-00507" data-date="2026-07-18T14:59:54+00:00"><div class="refcode">REF-00507</div><div class="section-label">Заметка</div><div class="text">Все, я удаляю Капкат</div></div>
-<div class="card" id="card-REF-00527" data-date="2026-07-20T08:22:37+00:00"><div class="refcode">REF-00527</div><div class="section-label">Заметка</div><div class="text">Агрессия и власть.
+<div class="card" id="card-REF-00418" data-date="2026-07-15T14:35:29+00:00" data-shotkey="refs_1453885"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1453885', this)">&#10005;</button><div class="refcode">REF-00418</div><div class="section-label">Заметка</div><div class="text">Платежи через ИП распределяются самостоятельно по усн и по патенту Эльба</div></div>
+<div class="card" id="card-REF-00487" data-date="2026-07-18T00:09:37+00:00" data-shotkey="DayOCsqow6O"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DayOCsqow6O', this)">&#10005;</button><div class="refcode">REF-00487</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/DayOCsqow6O/?igsh=MTh2YW84cXoxeWY1aw==</div></div>
+<div class="card" id="card-REF-00504" data-date="2026-07-18T10:01:50+00:00" data-shotkey="Da3CaQAoRJD"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('Da3CaQAoRJD', this)">&#10005;</button><div class="refcode">REF-00504</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/Da3CaQAoRJD/?igsh=amR0YXJlYmV3OG8y</div></div>
+<div class="card" id="card-REF-00507" data-date="2026-07-18T14:59:54+00:00" data-shotkey="refs_1454845"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1454845', this)">&#10005;</button><div class="refcode">REF-00507</div><div class="section-label">Заметка</div><div class="text">Все, я удаляю Капкат</div></div>
+<div class="card" id="card-REF-00527" data-date="2026-07-20T08:22:37+00:00" data-shotkey="refs_1455093"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1455093', this)">&#10005;</button><div class="refcode">REF-00527</div><div class="section-label">Заметка</div><div class="text">Агрессия и власть.
 Кого пугает эта связка ?
 
 Многие люди боятся собственной агрессии, потому что путают её с разрушением. Но агрессия в своём здоровом проявлении не имеет отношения к насилию.
@@ -329,7 +345,7 @@ __Зрелость начинается в тот момент, когда же�
 И именно тогда агрессия перестаёт быть разрушительной силой и становится тем, чем её задумала природа, — энергией, которая помогает жизни расширяться, занимать своё место и воплощать себя в мире.
 
 Позволяешь ли ты себе быть собой, в своей власти и силе? ❤️</div></div>
-<div class="card" id="card-REF-00556" data-date="2026-07-24T14:46:36+00:00"><div class="refcode">REF-00556</div><div class="section-label">Заметка</div><div class="text">💥 МЫСЛЬ ДНЯ :
+<div class="card" id="card-REF-00556" data-date="2026-07-24T14:46:36+00:00" data-shotkey="refs_1455935"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1455935', this)">&#10005;</button><div class="refcode">REF-00556</div><div class="section-label">Заметка</div><div class="text">💥 МЫСЛЬ ДНЯ :
 
 Подсознание всегда знает больше, чем успевает объяснить сознание. Поэтому ясный вопрос появляется только тогда, когда внутри уже созрел ответ.
 
@@ -339,12 +355,12 @@ __Зрелость начинается в тот момент, когда же�
 ЗНАЧИТ ВНУТРИ У ВАС УЖЕ ЕСТЬ РЕШЕНИЕ
 
 Откликается? ❤️</div></div>
-<div class="card" id="card-REF-00616" data-date="2026-07-27T16:05:04+00:00"><div class="refcode">REF-00616</div><div class="section-label">Заметка</div><div class="text">Я, конечно, слышала, что мамский контент — это тот еще портал в ад, но чтоб настолько… просто по прикрой решила посмотреть Рилзы про воспитание, сады, кормление, пеленание — вот где никогда нет правильного ответа, а уровень токсичность зашкаливает до небес. Такого даже инфоцыганам не снилось! 
+<div class="card" id="card-REF-00616" data-date="2026-07-27T16:05:04+00:00" data-shotkey="refs_1456950"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1456950', this)">&#10005;</button><div class="refcode">REF-00616</div><div class="section-label">Заметка</div><div class="text">Я, конечно, слышала, что мамский контент — это тот еще портал в ад, но чтоб настолько… просто по прикрой решила посмотреть Рилзы про воспитание, сады, кормление, пеленание — вот где никогда нет правильного ответа, а уровень токсичность зашкаливает до небес. Такого даже инфоцыганам не снилось! 
 
 Но и из этого возьмем пользу для коммуникаций — неудивительно, что такой эмоциональной и вспыльчивой аудиторией (а именно главным советчикам в интернете) так легко управлять и продавать им в целом что угодно.</div></div>
-<div class="card" id="card-REF-00636" data-date="2026-07-28T14:12:43+00:00"><div class="refcode">REF-00636</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/p/DbQlLi7CKfv/?igsh=MXEyMGZkZTIzdjBycA==</div></div>
-<div class="card" id="card-REF-00667" data-date="2026-07-31T09:28:50+00:00"><div class="refcode">REF-00667</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/DRRnAKrjZgV/?igsh=Y2k0ZGc5Z2IwOWZl</div></div>
-<div class="card" id="card-REF-00669" data-date="2026-08-01T10:01:28+00:00"><div class="refcode">REF-00669</div><div class="section-label">Заметка</div><div class="text">**Срок годности идеальных отношений — ровно 90 дней. Что ждет вас дальше? **⏱️
+<div class="card" id="card-REF-00636" data-date="2026-07-28T14:12:43+00:00" data-shotkey="DbQlLi7CKfv"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DbQlLi7CKfv', this)">&#10005;</button><div class="refcode">REF-00636</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/p/DbQlLi7CKfv/?igsh=MXEyMGZkZTIzdjBycA==</div></div>
+<div class="card" id="card-REF-00667" data-date="2026-07-31T09:28:50+00:00" data-shotkey="DRRnAKrjZgV"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DRRnAKrjZgV', this)">&#10005;</button><div class="refcode">REF-00667</div><div class="note">недоступно (пост удалён или приватный): https://www.instagram.com/reel/DRRnAKrjZgV/?igsh=Y2k0ZGc5Z2IwOWZl</div></div>
+<div class="card" id="card-REF-00669" data-date="2026-08-01T10:01:28+00:00" data-shotkey="refs_1458333"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458333', this)">&#10005;</button><div class="refcode">REF-00669</div><div class="section-label">Заметка</div><div class="text">**Срок годности идеальных отношений — ровно 90 дней. Что ждет вас дальше? **⏱️
 
 Вы встречаете человека. Он заботлив, умен, понимает с полуслова.
 Вам кажется, что вы сорвали джекпот. В обществе есть красивый миф: если в начале все легко и безупречно, значит, это судьба.
@@ -385,7 +401,7 @@ __Зрелость начинается в тот момент, когда же�
 Вы можете продолжать скупать чужие демо-версии и оплачивать этот банкет своими разбитыми иллюзиями. А можете внедрить алгоритм и превратить дейтинг в свой личный, бесперебойно работающий отдел кадров. Выбор за вами.
 
 👉 Переходите по ссылке прямо сейчас, забирайте доступ к системе «КАСТИНГ» и начинайте играть по правилам, в которых вы всегда побеждаете:</div></div>
-<div class="card" id="card-REF-00676" data-date="2026-08-02T09:34:31+00:00"><div class="refcode">REF-00676</div><div class="section-label">Заметка</div><div class="text">Мы боимся не больших денег. Мы боимся нового социального положения.
+<div class="card" id="card-REF-00676" data-date="2026-08-02T09:34:31+00:00" data-shotkey="refs_1458468"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458468', this)">&#10005;</button><div class="refcode">REF-00676</div><div class="section-label">Заметка</div><div class="text">Мы боимся не больших денег. Мы боимся нового социального положения.
 
 Человек редко боится будущего.
 Будущее вообще не умеет пугать. Оно ещё не наступило.
@@ -415,7 +431,7 @@ __Вопрос в том, готовы ли вы жить в мире, кото�
 
 Освободившееся пространство редко остаётся пустым. Его постепенно занимают люди, отношения и возможности, которым соответствует ваш настоящий масштаб
 ❤️</div></div>
-<div class="card" id="card-REF-00688" data-date="2026-08-05T06:18:46+00:00"><div class="refcode">REF-00688</div><div class="section-label">Заметка</div><div class="text">Мы привыкли считать, что страдание разрушает человека. Часто это так. Но иногда оно выполняет совсем другую функцию.
+<div class="card" id="card-REF-00688" data-date="2026-08-05T06:18:46+00:00" data-shotkey="refs_1458878"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458878', this)">&#10005;</button><div class="refcode">REF-00688</div><div class="section-label">Заметка</div><div class="text">Мы привыкли считать, что страдание разрушает человека. Часто это так. Но иногда оно выполняет совсем другую функцию.
 
 ⚡️__Оно становится единственным известным способом заботы о себе.__
 
@@ -441,7 +457,7 @@ __Они начинаются, когда ты открываешь для се�
 &quot;Просто так&quot; - это порой самое сложное. 
 Согласна?
 ❤️</div></div>
-<div class="card" id="card-REF-00689" data-date="2026-08-05T09:33:01+00:00"><div class="refcode">REF-00689</div><div class="section-label">Заметка</div><div class="text">Прикиньте, если вы СММщик и на машине времени попадаете в 2018 год и рассказываете в что нас ждет в 2026:
+<div class="card" id="card-REF-00689" data-date="2026-08-05T09:33:01+00:00" data-shotkey="refs_1458965"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458965', this)">&#10005;</button><div class="refcode">REF-00689</div><div class="section-label">Заметка</div><div class="text">Прикиньте, если вы СММщик и на машине времени попадаете в 2018 год и рассказываете в что нас ждет в 2026:
 
 Инстаграм — запрещен и признан экстремистским
 Дуров — признан террористом
@@ -451,12 +467,12 @@ __Они начинаются, когда ты открываешь для се�
 Склады Вб сгорели 
 
 Вас слушают первые 5 минут, а потом вызывают дурку</div></div>
-<div class="card" id="card-REF-00690" data-date="2026-08-05T09:56:52+00:00"><div class="refcode">REF-00690</div><div class="section-label">Заметка</div><div class="text">Кстати, женщина в депрессии — легкая добыча. Был момент на свидании, когда мне захотелось уйти.
+<div class="card" id="card-REF-00690" data-date="2026-08-05T09:56:52+00:00" data-shotkey="refs_1458966"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458966', this)">&#10005;</button><div class="refcode">REF-00690</div><div class="section-label">Заметка</div><div class="text">Кстати, женщина в депрессии — легкая добыча. Был момент на свидании, когда мне захотелось уйти.
 
 Но под таблами у меня какой-то седативный эффект, не могу достаточно разозлиться, чтоб преодолеть лень и встать.
 
 Смотришь думаешь, ну да, мэтча нет, ладно внучек рассказывай про свою крипту, мне все равно делать нехуй</div></div>
-<div class="card" id="card-REF-00693" data-date="2026-08-05T22:20:39+00:00"><div class="refcode">REF-00693</div><div class="section-label">Заметка</div><div class="text">самый еврейский способ создавать контнет в 2026 - хук на всё</div></div>
+<div class="card" id="card-REF-00693" data-date="2026-08-05T22:20:39+00:00" data-shotkey="refs_1459029"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1459029', this)">&#10005;</button><div class="refcode">REF-00693</div><div class="section-label">Заметка</div><div class="text">самый еврейский способ создавать контнет в 2026 - хук на всё</div></div>
 </div>
 <div class="selbar">
 Выбрано: <span id="selcount">0</span>
