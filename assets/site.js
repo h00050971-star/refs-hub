@@ -161,8 +161,32 @@ function toggleAccordion(group){
     }
   });
 }
-function sendToTeleprompter(){
-  alert('На суфлер: скоро будет готово');
+async function sendToTeleprompter(){
+  var sel = getSelected();
+  if(!sel.length){ toast('Ничего не выбрано', true); return; }
+  toast('Собираю тексты на суфлёр (' + sel.length + ')...');
+  var parts = [];
+  var errors = 0;
+  for (var i=0;i<sel.length;i++){
+    var sc = sel[i];
+    try {
+      var res = await fetch('../media/' + sc + '_export.txt');
+      var text = res.ok ? (await res.text()).trim() : '';
+      if(!res.ok || !text) errors++;
+      if(text) parts.push(text);
+    } catch(e){
+      errors++;
+    }
+  }
+  if(!parts.length){ toast('Нет текста ни у одного выбранного', true); return; }
+  var blob = new Blob([parts.join('\n\n')], {type:'text/plain;charset=utf-8'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'na_sufler_' + Date.now() + '.txt';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  toast(errors ? ('Отправлено, но ' + errors + ' из ' + sel.length + ' без текста') : 'Отправлено на суфлёр ✓ (суфлёр должен быть открыт на компе)', errors > 0);
 }
 function sortCards(dir){
   var grid = document.querySelector('.grid');
