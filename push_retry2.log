@@ -1,0 +1,10 @@
+remote: warning: File media/Dbfv88bsRVm.mp4 is 60.81 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File media/refs_video_1448238.mp4 is 50.99 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File media/theory_video_1449071_compressed.mp4 is 80.47 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: error: Trace: 8b510f4cb9579a3ad66c7acf000f9a06aa103c1d493964b87b8c98881007759c        
+remote: error: See https://gh.io/lfs for more information.        
+remote: error: File media/theory_video_1449071.mp4 is 184.98 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/h00050971-star/refs-hub.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/h00050971-star/refs-hub.git'
