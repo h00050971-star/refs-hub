@@ -402,8 +402,10 @@ async function savePlanItem(){
     }
     var putRes = await doPut(sha);
     if(putRes.status === 409 || putRes.status === 422){
-      var r2 = await fetch(GH_API, { headers:{Accept:'application/vnd.github+json'} });
+      var r2 = await fetch(GH_API, { headers:{ Authorization:'Bearer ' + token, Accept:'application/vnd.github+json' } });
+      if(!r2.ok) throw new Error('не смог обновить sha перед повтором: HTTP ' + r2.status);
       var d2 = await r2.json();
+      if(!d2.sha) throw new Error('сервер не вернул sha при повторе');
       putRes = await doPut(d2.sha);
     }
     if(!putRes.ok){
