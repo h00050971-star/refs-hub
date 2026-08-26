@@ -44,6 +44,25 @@ nav a.shotnav.active { background:#3a1f1f; color:#fff; border-color:#ff6b6b; }
 }
 .shotbtn:hover { background:#ff4444; color:#fff; }
 .card.shot .shotbtn { background:#ff4444; color:#fff; }
+.planbtn {
+  position:absolute; top:36px; left:6px; z-index:8; width:26px; height:26px; border-radius:50%;
+  background:rgba(20,20,20,.75); border:2px solid #7cc4ff; color:#7cc4ff; font-size:14px; font-weight:700;
+  line-height:22px; text-align:center; cursor:pointer; padding:0;
+}
+.planbtn:hover { background:#7cc4ff; color:#111; }
+.planmodal { position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:100; display:none; align-items:center; justify-content:center; }
+.planmodal.open { display:flex; }
+.planmodal-box { background:#1c1c1c; border:1px solid #333; border-radius:10px; padding:18px; width:420px; max-width:92vw; max-height:86vh; overflow-y:auto; display:flex; flex-direction:column; gap:6px; }
+.planmodal-box h3 { margin:0 0 6px; font-size:15px; }
+.planmodal-box label { font-size:11px; color:#888; text-transform:uppercase; letter-spacing:.04em; margin-top:6px; }
+.planmodal-box select, .planmodal-box input, .planmodal-box textarea {
+  background:#242424; border:1px solid #333; color:#eee; border-radius:6px; padding:7px 9px; font-size:13px; font-family:inherit; width:100%; box-sizing:border-box;
+}
+.planmodal-box textarea { resize:vertical; }
+.planmodal-btns { display:flex; gap:8px; margin-top:10px; justify-content:flex-end; }
+.planmodal-btns button { background:#242424; border:1px solid #333; color:#7cc4ff; border-radius:6px; padding:7px 14px; cursor:pointer; font-size:13px; }
+.planmodal-btns button.cancel { color:#999; }
+.planmodal-btns button:hover { background:#2d2d2d; }
 .card.shot::after {
   content:""; position:absolute; inset:0; pointer-events:none; z-index:7; border-radius:10px;
   background:
@@ -142,7 +161,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div></div>
 <div class="grid">
-<div class="card" id="card-REF-00102" data-date="2026-06-27T06:44:54+00:00" data-shotkey="refs_1447006"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1447006', this)">&#10005;</button><div class="refcode">REF-00102</div><div class="section-label">Заметка</div><div class="text">Главная мантра реализации:
+<div class="card" id="card-REF-00102" data-date="2026-06-27T06:44:54+00:00" data-shotkey="refs_1447006"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1447006', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1447006', this)">&#10133;</button><div class="refcode">REF-00102</div><div class="section-label">Заметка</div><div class="text">Главная мантра реализации:
 
 Я МОГУ ПОПРОБОВАТЬ!
 
@@ -155,7 +174,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 Пишите ваши запросы на @sien_shamuratova
 
 Как вам отзывается такой подход? ❤️</div></div>
-<div class="card" id="card-REF-00371" data-date="2026-07-12T16:12:39+00:00" data-shotkey="refs_1452443"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452443', this)">&#10005;</button><div class="refcode">REF-00371</div><div class="section-label">Заметка</div><div class="text">Обратите внимание: если после разговора с человеком вы начинаете думать не о том, что он сделал, а о том, что с вами что-то не так — остановитесь и подумайте.
+<div class="card" id="card-REF-00371" data-date="2026-07-12T16:12:39+00:00" data-shotkey="refs_1452443"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452443', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1452443', this)">&#10133;</button><div class="refcode">REF-00371</div><div class="section-label">Заметка</div><div class="text">Обратите внимание: если после разговора с человеком вы начинаете думать не о том, что он сделал, а о том, что с вами что-то не так — остановитесь и подумайте.
 
 Иногда человек делает вам больно, но вместо того чтобы сказать: «Да, я поступил неправильно», он говорит:
 
@@ -166,7 +185,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 И вы уже начинаете сомневаться в себе, а не в его поступке.
 
 Это удобный способ избежать ответственности: сделать виноватым того, кому сделали больно, а не того, кто причинил боль.</div></div>
-<div class="card" id="card-REF-00409" data-date="2026-07-13T07:50:53+00:00" data-shotkey="refs_1452860"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452860', this)">&#10005;</button><div class="refcode">REF-00409</div><div class="section-label">Заметка</div><div class="text">Власть!?
+<div class="card" id="card-REF-00409" data-date="2026-07-13T07:50:53+00:00" data-shotkey="refs_1452860"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452860', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1452860', this)">&#10133;</button><div class="refcode">REF-00409</div><div class="section-label">Заметка</div><div class="text">Власть!?
 Один из самых глубоких запретов, с которыми мы можем столкнуться, звучит не как «мне нельзя быть сильной», а гораздо конкретнее: мне нельзя иметь власть и влиять на то, что находится вокруг меня.
 
 Силу ещё можно переживать внутри себя. 
@@ -204,7 +223,7 @@ __Именно здесь возникает страх: имею ли я пра
 
 А как у вас дела с правом на расширение,  влияние и власть?
 ❤️</div></div>
-<div class="card" id="card-REF-00410" data-date="2026-07-13T07:50:53+00:00" data-shotkey="refs_1452859"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452859', this)">&#10005;</button><div class="refcode">REF-00410</div><div class="section-label">Заметка</div><div class="text">Власть!?
+<div class="card" id="card-REF-00410" data-date="2026-07-13T07:50:53+00:00" data-shotkey="refs_1452859"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452859', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1452859', this)">&#10133;</button><div class="refcode">REF-00410</div><div class="section-label">Заметка</div><div class="text">Власть!?
 Один из самых глубоких запретов, с которыми мы можем столкнуться, звучит не как «мне нельзя быть сильной», а гораздо конкретнее: мне нельзя иметь власть и влиять на то, что находится вокруг меня.
 
 Силу ещё можно переживать внутри себя. 
@@ -242,7 +261,7 @@ __Именно здесь возникает страх: имею ли я пра
 
 А как у вас дела с правом на расширение,  влияние и власть?
 ❤️</div></div>
-<div class="card" id="card-REF-00411" data-date="2026-07-13T07:50:53+00:00" data-shotkey="refs_1452858"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452858', this)">&#10005;</button><div class="refcode">REF-00411</div><div class="section-label">Заметка</div><div class="text">Власть!?
+<div class="card" id="card-REF-00411" data-date="2026-07-13T07:50:53+00:00" data-shotkey="refs_1452858"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1452858', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1452858', this)">&#10133;</button><div class="refcode">REF-00411</div><div class="section-label">Заметка</div><div class="text">Власть!?
 Один из самых глубоких запретов, с которыми мы можем столкнуться, звучит не как «мне нельзя быть сильной», а гораздо конкретнее: мне нельзя иметь власть и влиять на то, что находится вокруг меня.
 
 Силу ещё можно переживать внутри себя. 
@@ -280,7 +299,7 @@ __Именно здесь возникает страх: имею ли я пра
 
 А как у вас дела с правом на расширение,  влияние и власть?
 ❤️</div></div>
-<div class="card" id="card-REF-00527" data-date="2026-07-20T08:22:37+00:00" data-shotkey="refs_1455093"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1455093', this)">&#10005;</button><div class="refcode">REF-00527</div><div class="section-label">Заметка</div><div class="text">Агрессия и власть.
+<div class="card" id="card-REF-00527" data-date="2026-07-20T08:22:37+00:00" data-shotkey="refs_1455093"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1455093', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1455093', this)">&#10133;</button><div class="refcode">REF-00527</div><div class="section-label">Заметка</div><div class="text">Агрессия и власть.
 Кого пугает эта связка ?
 
 Многие люди боятся собственной агрессии, потому что путают её с разрушением. Но агрессия в своём здоровом проявлении не имеет отношения к насилию.
@@ -320,7 +339,7 @@ __Зрелость начинается в тот момент, когда же�
 И именно тогда агрессия перестаёт быть разрушительной силой и становится тем, чем её задумала природа, — энергией, которая помогает жизни расширяться, занимать своё место и воплощать себя в мире.
 
 Позволяешь ли ты себе быть собой, в своей власти и силе? ❤️</div></div>
-<div class="card" id="card-REF-00556" data-date="2026-07-24T14:46:36+00:00" data-shotkey="refs_1455935"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1455935', this)">&#10005;</button><div class="refcode">REF-00556</div><div class="section-label">Заметка</div><div class="text">💥 МЫСЛЬ ДНЯ :
+<div class="card" id="card-REF-00556" data-date="2026-07-24T14:46:36+00:00" data-shotkey="refs_1455935"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1455935', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1455935', this)">&#10133;</button><div class="refcode">REF-00556</div><div class="section-label">Заметка</div><div class="text">💥 МЫСЛЬ ДНЯ :
 
 Подсознание всегда знает больше, чем успевает объяснить сознание. Поэтому ясный вопрос появляется только тогда, когда внутри уже созрел ответ.
 
@@ -330,10 +349,10 @@ __Зрелость начинается в тот момент, когда же�
 ЗНАЧИТ ВНУТРИ У ВАС УЖЕ ЕСТЬ РЕШЕНИЕ
 
 Откликается? ❤️</div></div>
-<div class="card" id="card-REF-00616" data-date="2026-07-27T16:05:04+00:00" data-shotkey="refs_1456950"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1456950', this)">&#10005;</button><div class="refcode">REF-00616</div><div class="section-label">Заметка</div><div class="text">Я, конечно, слышала, что мамский контент — это тот еще портал в ад, но чтоб настолько… просто по прикрой решила посмотреть Рилзы про воспитание, сады, кормление, пеленание — вот где никогда нет правильного ответа, а уровень токсичность зашкаливает до небес. Такого даже инфоцыганам не снилось! 
+<div class="card" id="card-REF-00616" data-date="2026-07-27T16:05:04+00:00" data-shotkey="refs_1456950"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1456950', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1456950', this)">&#10133;</button><div class="refcode">REF-00616</div><div class="section-label">Заметка</div><div class="text">Я, конечно, слышала, что мамский контент — это тот еще портал в ад, но чтоб настолько… просто по прикрой решила посмотреть Рилзы про воспитание, сады, кормление, пеленание — вот где никогда нет правильного ответа, а уровень токсичность зашкаливает до небес. Такого даже инфоцыганам не снилось! 
 
 Но и из этого возьмем пользу для коммуникаций — неудивительно, что такой эмоциональной и вспыльчивой аудиторией (а именно главным советчикам в интернете) так легко управлять и продавать им в целом что угодно.</div></div>
-<div class="card" id="card-REF-00669" data-date="2026-08-01T10:01:28+00:00" data-shotkey="refs_1458333"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458333', this)">&#10005;</button><div class="refcode">REF-00669</div><div class="section-label">Заметка</div><div class="text">**Срок годности идеальных отношений — ровно 90 дней. Что ждет вас дальше? **⏱️
+<div class="card" id="card-REF-00669" data-date="2026-08-01T10:01:28+00:00" data-shotkey="refs_1458333"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458333', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1458333', this)">&#10133;</button><div class="refcode">REF-00669</div><div class="section-label">Заметка</div><div class="text">**Срок годности идеальных отношений — ровно 90 дней. Что ждет вас дальше? **⏱️
 
 Вы встречаете человека. Он заботлив, умен, понимает с полуслова.
 Вам кажется, что вы сорвали джекпот. В обществе есть красивый миф: если в начале все легко и безупречно, значит, это судьба.
@@ -374,7 +393,7 @@ __Зрелость начинается в тот момент, когда же�
 Вы можете продолжать скупать чужие демо-версии и оплачивать этот банкет своими разбитыми иллюзиями. А можете внедрить алгоритм и превратить дейтинг в свой личный, бесперебойно работающий отдел кадров. Выбор за вами.
 
 👉 Переходите по ссылке прямо сейчас, забирайте доступ к системе «КАСТИНГ» и начинайте играть по правилам, в которых вы всегда побеждаете:</div></div>
-<div class="card" id="card-REF-00676" data-date="2026-08-02T09:34:31+00:00" data-shotkey="refs_1458468"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458468', this)">&#10005;</button><div class="refcode">REF-00676</div><div class="section-label">Заметка</div><div class="text">Мы боимся не больших денег. Мы боимся нового социального положения.
+<div class="card" id="card-REF-00676" data-date="2026-08-02T09:34:31+00:00" data-shotkey="refs_1458468"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458468', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1458468', this)">&#10133;</button><div class="refcode">REF-00676</div><div class="section-label">Заметка</div><div class="text">Мы боимся не больших денег. Мы боимся нового социального положения.
 
 Человек редко боится будущего.
 Будущее вообще не умеет пугать. Оно ещё не наступило.
@@ -404,7 +423,7 @@ __Вопрос в том, готовы ли вы жить в мире, кото�
 
 Освободившееся пространство редко остаётся пустым. Его постепенно занимают люди, отношения и возможности, которым соответствует ваш настоящий масштаб
 ❤️</div></div>
-<div class="card" id="card-REF-00688" data-date="2026-08-05T06:18:46+00:00" data-shotkey="refs_1458878"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458878', this)">&#10005;</button><div class="refcode">REF-00688</div><div class="section-label">Заметка</div><div class="text">Мы привыкли считать, что страдание разрушает человека. Часто это так. Но иногда оно выполняет совсем другую функцию.
+<div class="card" id="card-REF-00688" data-date="2026-08-05T06:18:46+00:00" data-shotkey="refs_1458878"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458878', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1458878', this)">&#10133;</button><div class="refcode">REF-00688</div><div class="section-label">Заметка</div><div class="text">Мы привыкли считать, что страдание разрушает человека. Часто это так. Но иногда оно выполняет совсем другую функцию.
 
 ⚡️__Оно становится единственным известным способом заботы о себе.__
 
@@ -430,12 +449,12 @@ __Они начинаются, когда ты открываешь для се�
 &quot;Просто так&quot; - это порой самое сложное. 
 Согласна?
 ❤️</div></div>
-<div class="card" id="card-REF-00690" data-date="2026-08-05T09:56:52+00:00" data-shotkey="refs_1458966"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458966', this)">&#10005;</button><div class="refcode">REF-00690</div><div class="section-label">Заметка</div><div class="text">Кстати, женщина в депрессии — легкая добыча. Был момент на свидании, когда мне захотелось уйти.
+<div class="card" id="card-REF-00690" data-date="2026-08-05T09:56:52+00:00" data-shotkey="refs_1458966"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1458966', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1458966', this)">&#10133;</button><div class="refcode">REF-00690</div><div class="section-label">Заметка</div><div class="text">Кстати, женщина в депрессии — легкая добыча. Был момент на свидании, когда мне захотелось уйти.
 
 Но под таблами у меня какой-то седативный эффект, не могу достаточно разозлиться, чтоб преодолеть лень и встать.
 
 Смотришь думаешь, ну да, мэтча нет, ладно внучек рассказывай про свою крипту, мне все равно делать нехуй</div></div>
-<div class="card" id="card-REF-00695" data-date="2026-08-06T14:20:06+00:00" data-shotkey="refs_1459070"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1459070', this)">&#10005;</button><div class="refcode">REF-00695</div><div class="section-label">Заметка</div><div class="text">Что помогает не сойти с ума во времена турбулентности и длительной неопределённости?
+<div class="card" id="card-REF-00695" data-date="2026-08-06T14:20:06+00:00" data-shotkey="refs_1459070"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1459070', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1459070', this)">&#10133;</button><div class="refcode">REF-00695</div><div class="section-label">Заметка</div><div class="text">Что помогает не сойти с ума во времена турбулентности и длительной неопределённости?
 
 У нас есть сферы жизни и зоны, которые мы можем контролировать и влиять на них (бытовые вопросы, состояние и эмоции, личные интересы, рабочие вопросы, место и способ жизни и пр...)
 
@@ -453,7 +472,7 @@ __Они начинаются, когда ты открываешь для се�
 Расширяйте и усиливайте свой фокус внимания на сферы МОГУ  и забирайте внимание максимально из вопросов, где НЕ МОГУ
 
 🙏</div></div>
-<div class="card" id="card-REF-00696" data-date="2026-08-06T14:20:14+00:00" data-shotkey="refs_1459071"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1459071', this)">&#10005;</button><div class="refcode">REF-00696</div><div class="section-label">Заметка</div><div class="text">Хорошая и проверенная техника изменения жизни от Зеланда.
+<div class="card" id="card-REF-00696" data-date="2026-08-06T14:20:14+00:00" data-shotkey="refs_1459071"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1459071', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1459071', this)">&#10133;</button><div class="refcode">REF-00696</div><div class="section-label">Заметка</div><div class="text">Хорошая и проверенная техника изменения жизни от Зеланда.
 
 📍Подумай о том, какой ты хотела бы быть, какое качество или свойство натуры проявлять в мире и общении.
 
@@ -467,7 +486,7 @@ __Они начинаются, когда ты открываешь для се�
 Эта способность есть у каждого человека, просто попробуй развлечься этим экспериментом и удивись !
 
 __Кто так уже делал, поделитесь опытом ❤️__</div></div>
-<div class="card" id="card-REF-00712" data-date="2026-08-07T21:07:34+00:00" data-shotkey="refs_1459179"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1459179', this)">&#10005;</button><div class="refcode">REF-00712</div><div class="section-label">Заметка</div><div class="text">Любовь к себе начинается не тогда, когда вы себе нравитесь, а тогда, когда перестаете внутренне себя бросать в момент обнаружения неприятной правды.
+<div class="card" id="card-REF-00712" data-date="2026-08-07T21:07:34+00:00" data-shotkey="refs_1459179"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('refs_1459179', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('refs_1459179', this)">&#10133;</button><div class="refcode">REF-00712</div><div class="section-label">Заметка</div><div class="text">Любовь к себе начинается не тогда, когда вы себе нравитесь, а тогда, когда перестаете внутренне себя бросать в момент обнаружения неприятной правды.
 
 Большинство людей готовы любить себя только хорошими. Пока они успешны, красивы, &quot;духовны&quot; или  &quot;правильны&quot;
 

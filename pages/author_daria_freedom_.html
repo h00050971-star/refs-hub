@@ -44,6 +44,25 @@ nav a.shotnav.active { background:#3a1f1f; color:#fff; border-color:#ff6b6b; }
 }
 .shotbtn:hover { background:#ff4444; color:#fff; }
 .card.shot .shotbtn { background:#ff4444; color:#fff; }
+.planbtn {
+  position:absolute; top:36px; left:6px; z-index:8; width:26px; height:26px; border-radius:50%;
+  background:rgba(20,20,20,.75); border:2px solid #7cc4ff; color:#7cc4ff; font-size:14px; font-weight:700;
+  line-height:22px; text-align:center; cursor:pointer; padding:0;
+}
+.planbtn:hover { background:#7cc4ff; color:#111; }
+.planmodal { position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:100; display:none; align-items:center; justify-content:center; }
+.planmodal.open { display:flex; }
+.planmodal-box { background:#1c1c1c; border:1px solid #333; border-radius:10px; padding:18px; width:420px; max-width:92vw; max-height:86vh; overflow-y:auto; display:flex; flex-direction:column; gap:6px; }
+.planmodal-box h3 { margin:0 0 6px; font-size:15px; }
+.planmodal-box label { font-size:11px; color:#888; text-transform:uppercase; letter-spacing:.04em; margin-top:6px; }
+.planmodal-box select, .planmodal-box input, .planmodal-box textarea {
+  background:#242424; border:1px solid #333; color:#eee; border-radius:6px; padding:7px 9px; font-size:13px; font-family:inherit; width:100%; box-sizing:border-box;
+}
+.planmodal-box textarea { resize:vertical; }
+.planmodal-btns { display:flex; gap:8px; margin-top:10px; justify-content:flex-end; }
+.planmodal-btns button { background:#242424; border:1px solid #333; color:#7cc4ff; border-radius:6px; padding:7px 14px; cursor:pointer; font-size:13px; }
+.planmodal-btns button.cancel { color:#999; }
+.planmodal-btns button:hover { background:#2d2d2d; }
 .card.shot::after {
   content:""; position:absolute; inset:0; pointer-events:none; z-index:7; border-radius:10px;
   background:
@@ -142,7 +161,7 @@ a.origlink { font-size:11px; color:#7cc4ff; }
 <div class="typerow"><a class="" href="millionniki_all.html">Все</a><a class="" href="millionniki_reels.html">Рилсы</a><a class="" href="millionniki_carousels.html">Карусели</a><a class="" href="millionniki_posts.html">Одиночные посты</a><a class="" href="millionniki_tgposts.html">ТГ-посты</a><a class="" href="millionniki_other.html">Остальное</a></div>
 </div></div>
 <div class="grid">
-<div class="card" id="card-REF-00664" data-date="2026-07-31T09:18:01+00:00" data-shotkey="DbagSUZu5-k"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DbagSUZu5-k', this)">&#10005;</button><div class="refcode">REF-00664</div><div class="vwrap"><video id="v-DbagSUZu5-k" controls preload="metadata" src="../media/DbagSUZu5-k.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-DbagSUZu5-k').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DbagSUZu5-k" data-sc="DbagSUZu5-k" onchange="toggleSel('DbagSUZu5-k', this.checked)"><label for="chk-DbagSUZu5-k" class="selmark"></label></div></div><div class="stats"><span>❤ 6.9K</span><span>💬 370</span><span>👁 135.7K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_daria_freedom_.html">@daria.freedom_</a> · <a class="origlink" href="https://www.instagram.com/reel/DbagSUZu5-k/?igsh=OTFsZGNzcnB2c29x" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">В мире психологии случился настоящий прорыв: американские учёные впервые сравнили практику осознанности и антидепрессант в честном научном эксперименте. И знаете, чем закончилось? Что вообще сделали?
+<div class="card" id="card-REF-00664" data-date="2026-07-31T09:18:01+00:00" data-shotkey="DbagSUZu5-k"><button type="button" class="shotbtn" title="Снято" onclick="toggleShot('DbagSUZu5-k', this)">&#10005;</button><button type="button" class="planbtn" title="Добавить в контент-план" onclick="openPlanModal('DbagSUZu5-k', this)">&#10133;</button><div class="refcode">REF-00664</div><div class="vwrap"><video id="v-DbagSUZu5-k" controls preload="metadata" src="../media/DbagSUZu5-k.mp4" onplay="this.parentElement.querySelector('.playbtn').classList.add('hidden')" onpause="this.parentElement.querySelector('.playbtn').classList.remove('hidden')" onended="this.parentElement.querySelector('.playbtn').classList.remove('hidden')"></video><div class="playbtn" onclick="document.getElementById('v-DbagSUZu5-k').play()"></div><div class="selectwrap"><input type="checkbox" class="selchk" id="chk-DbagSUZu5-k" data-sc="DbagSUZu5-k" onchange="toggleSel('DbagSUZu5-k', this.checked)"><label for="chk-DbagSUZu5-k" class="selmark"></label></div></div><div class="stats"><span>❤ 6.9K</span><span>💬 370</span><span>👁 135.7K</span><span>🔁 repost н/д</span></div><div class="owner"><a class="authorlink" href="author_daria_freedom_.html">@daria.freedom_</a> · <a class="origlink" href="https://www.instagram.com/reel/DbagSUZu5-k/?igsh=OTFsZGNzcnB2c29x" target="_blank">оригинал</a></div><div class="section-label">Расшифровка</div><div class="text">В мире психологии случился настоящий прорыв: американские учёные впервые сравнили практику осознанности и антидепрессант в честном научном эксперименте. И знаете, чем закончилось? Что вообще сделали?
 
 Взяли почти четыреста человек с реальными тревожными расстройствами, которые портят жизнь. Разделили их на две группы. Первым дали один из самых назначаемых антидепрессантов в мире — сертралин. Другим прописали ту самую 8-недельную программу снижения стресса на основе осознанности.
 

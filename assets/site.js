@@ -275,6 +275,132 @@ function sortByShot(mode){
   if(unshotBtn) unshotBtn.classList.toggle('active', mode === 'unshot');
   if(shotBtn) shotBtn.classList.toggle('active', mode === 'shot');
 }
+/* ---------- добавление рефа в контент-план "Тема" (client-hub) ---------- */
+var TEMA_BASE = 'https://h00050971-star.github.io/client-hub/pages/';
+var GH_TOKEN_KEY = 'gh_pat_client_hub';
+var _temaMetaCache = null;
+async function getTemaMeta(){
+  if(_temaMetaCache) return _temaMetaCache;
+  try {
+    var res = await fetch(TEMA_BASE + 'tema_plan_data.js', {cache:'no-store'});
+    var text = await res.text();
+    var fakeWindow = {};
+    (new Function('window', text))(fakeWindow);
+    _temaMetaCache = { meta: fakeWindow.PLAN_META || {kinds:[]}, days: fakeWindow.PLAN_DAYS || [] };
+  } catch(e){ _temaMetaCache = { meta:{kinds:[]}, days:[] }; }
+  return _temaMetaCache;
+}
+function ghToken(promptIfMissing){
+  var t = localStorage.getItem(GH_TOKEN_KEY);
+  if(!t && promptIfMissing){
+    t = window.prompt('Нужен GitHub-токен (fine-grained PAT на репозиторий client-hub, права Contents: Read & Write):');
+    if(t) localStorage.setItem(GH_TOKEN_KEY, t.trim());
+  }
+  return t ? t.trim() : '';
+}
+function b64ToUtf8(b64){
+  var bin = atob(b64.replace(/\n/g,''));
+  var bytes = new Uint8Array(bin.length);
+  for(var i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+  return new TextDecoder('utf-8').decode(bytes);
+}
+function utf8ToB64(str){
+  var bytes = new TextEncoder().encode(str), bin='';
+  bytes.forEach(function(b){ bin += String.fromCharCode(b); });
+  return btoa(bin);
+}
+var _planTargetKey = null;
+async function openPlanModal(key, btn){
+  _planTargetKey = key;
+  var urlMap = await getUrlMap();
+  var meta = urlMap[key] || {};
+  var capText = '';
+  try {
+    var r = await fetch('../media/' + key + '_export.txt');
+    if(r.ok) capText = (await r.text()).trim();
+  } catch(e){}
+  var tema = await getTemaMeta();
+  var days = tema.days || [];
+  var kinds = tema.meta.kinds || [];
+  if(!days.length){ toast('Не удалось загрузить план Тема (нет доступа к client-hub)', true); return; }
+
+  var modal = document.getElementById('planModal');
+  if(!modal){
+    modal = document.createElement('div');
+    modal.id = 'planModal';
+    modal.className = 'planmodal';
+    document.body.appendChild(modal);
+  }
+  var dayOpts = days.map(function(d){ return '<option value="'+d.d+'">'+d.d+' ('+d.w+')</option>'; }).join('');
+  var kindOpts = kinds.map(function(k){ return '<option value="'+k.k+'">'+k.emoji+' '+k.label+'</option>'; }).join('');
+  var esc = function(t){ return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); };
+  var hookDefault = (meta.ref_code ? meta.ref_code + ': ' : '') + (capText ? capText.slice(0,80) : ('реф ' + key));
+  var scriptDefault = 'Реф: ' + (meta.ref_code||key) + (meta.url ? ('\nОригинал: ' + meta.url) : '') + (capText ? ('\n\n' + capText) : '');
+  modal.innerHTML =
+    '<div class="planmodal-box">' +
+      '<h3>Добавить в контент-план (Тема)</h3>' +
+      '<label>Дата</label><select id="pm-date">' + dayOpts + '</select>' +
+      '<label>Тип</label><select id="pm-kind">' + kindOpts + '</select>' +
+      '<label>Хук</label><input type="text" id="pm-hook" value="' + esc(hookDefault) + '">' +
+      '<label>Текст/заметка</label><textarea id="pm-script" rows="6">' + esc(scriptDefault) + '</textarea>' +
+      '<div class="planmodal-btns">' +
+        '<button onclick="savePlanItem()">Сохранить</button>' +
+        '<button class="cancel" onclick="closePlanModal()">Отмена</button>' +
+      '</div>' +
+    '</div>';
+  modal.classList.add('open');
+}
+function closePlanModal(){
+  var modal = document.getElementById('planModal');
+  if(modal) modal.classList.remove('open');
+}
+async function savePlanItem(){
+  var date = document.getElementById('pm-date').value;
+  var kind = document.getElementById('pm-kind').value;
+  var hook = document.getElementById('pm-hook').value.trim();
+  var script = document.getElementById('pm-script').value.trim();
+  if(!hook){ toast('Хук не может быть пустым', true); return; }
+  var token = ghToken(true);
+  if(!token){ toast('Нет токена - не сохранено', true); return; }
+  var GH_API = 'https://api.github.com/repos/h00050971-star/client-hub/contents/pages/tema_plan_state.json';
+  toast('Сохраняю...');
+  try {
+    var sha = null, state = { done:{}, own:{}, edits:{} };
+    var res = await fetch(GH_API, { headers:{Accept:'application/vnd.github+json'}, cache:'no-store' });
+    if(res.status === 200){
+      var data = await res.json();
+      sha = data.sha;
+      state = JSON.parse(b64ToUtf8(data.content));
+    } else if(res.status !== 404){
+      throw new Error('HTTP ' + res.status);
+    }
+    if(!state.own) state.own = {};
+    if(!state.own[date]) state.own[date] = [];
+    state.own[date].push({ k: kind, h: hook, s: script });
+    var payload = JSON.stringify(state, null, 1);
+    function doPut(shaVal){
+      return fetch(GH_API, {
+        method:'PUT',
+        headers:{ Authorization:'Bearer ' + token, Accept:'application/vnd.github+json' },
+        body: JSON.stringify({ message:'add from refs-hub: ' + _planTargetKey, content: utf8ToB64(payload), sha: shaVal || undefined, branch:'main' })
+      });
+    }
+    var putRes = await doPut(sha);
+    if(putRes.status === 409 || putRes.status === 422){
+      var r2 = await fetch(GH_API, { headers:{Accept:'application/vnd.github+json'} });
+      var d2 = await r2.json();
+      putRes = await doPut(d2.sha);
+    }
+    if(!putRes.ok){
+      var err = await putRes.json();
+      throw new Error(err.message || putRes.status);
+    }
+    closePlanModal();
+    toast('Добавлено в план Тема на ' + date + ' ✓');
+  } catch(e){
+    toast('Не сохранил: ' + e.message, true);
+  }
+}
 document.addEventListener('DOMContentLoaded', function(){
   restoreSelUI();
   restoreShotUI();
