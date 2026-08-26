@@ -416,9 +416,35 @@ async function savePlanItem(){
     toast('Не сохранил: ' + e.message, true);
   }
 }
+function loadLazyVideo(v){
+  if(!v || v.src || !v.dataset.src) return;
+  v.src = v.dataset.src;
+  v.removeAttribute('data-src');
+}
+function lazyPlayVideo(vid){
+  var v = document.getElementById(vid);
+  if(!v) return;
+  loadLazyVideo(v);
+  v.play();
+}
+var lazyVideoObserver = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      loadLazyVideo(entry.target);
+      lazyVideoObserver.unobserve(entry.target);
+    }
+  });
+}, { rootMargin: '800px 0px' }) : null;
+function initLazyVideos(){
+  document.querySelectorAll('video.lazyvideo[data-src]').forEach(function(v){
+    if(lazyVideoObserver) lazyVideoObserver.observe(v);
+    else loadLazyVideo(v);
+  });
+}
 document.addEventListener('DOMContentLoaded', function(){
   restoreSelUI();
   restoreShotUI();
   sortCards('desc');
   highlightFromHash();
+  initLazyVideos();
 });
