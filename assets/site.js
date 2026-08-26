@@ -311,6 +311,7 @@ function utf8ToB64(str){
 }
 var _planTargetKey = null;
 var _planTargetMedia = null;
+var _planTargetRefLink = null;
 async function openPlanModal(key, btn){
   _planTargetKey = key;
   var urlMap = await getUrlMap();
@@ -334,6 +335,8 @@ async function openPlanModal(key, btn){
   } else {
     _planTargetMedia = { type:'missing' };
   }
+  var pageFile = location.pathname.split('/').pop();
+  _planTargetRefLink = SITE_BASE + '/pages/' + pageFile + '#card-' + (meta.ref_code || key);
 
   var modal = document.getElementById('planModal');
   if(!modal){
@@ -388,7 +391,7 @@ async function savePlanItem(){
     }
     if(!state.own) state.own = {};
     if(!state.own[date]) state.own[date] = [];
-    state.own[date].push({ k: kind, h: hook, s: script, media: _planTargetMedia });
+    state.own[date].push({ k: kind, h: hook, s: script, media: _planTargetMedia, ref_link: _planTargetRefLink });
     var payload = JSON.stringify(state, null, 1);
     function doPut(shaVal){
       return fetch(GH_API, {
