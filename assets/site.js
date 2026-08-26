@@ -310,6 +310,7 @@ function utf8ToB64(str){
   return btoa(bin);
 }
 var _planTargetKey = null;
+var _planTargetMedia = null;
 async function openPlanModal(key, btn){
   _planTargetKey = key;
   var urlMap = await getUrlMap();
@@ -324,6 +325,16 @@ async function openPlanModal(key, btn){
   var kinds = tema.meta.kinds || [];
   if(!days.length){ toast('Не удалось загрузить план Тема (нет доступа к client-hub)', true); return; }
 
+  if(meta.video){
+    _planTargetMedia = { type:'video', url: SITE_BASE + '/media/' + key + '.mp4' };
+  } else if(meta.images > 0){
+    var mUrls = [];
+    for(var mi=0; mi<meta.images; mi++) mUrls.push(SITE_BASE + '/media/' + key + '_' + mi + '.jpg');
+    _planTargetMedia = { type:'images', urls: mUrls };
+  } else {
+    _planTargetMedia = { type:'missing' };
+  }
+
   var modal = document.getElementById('planModal');
   if(!modal){
     modal = document.createElement('div');
@@ -331,8 +342,9 @@ async function openPlanModal(key, btn){
     modal.className = 'planmodal';
     document.body.appendChild(modal);
   }
+  var defKind = meta.def_kind || (kinds[0] && kinds[0].k);
   var dayOpts = days.map(function(d){ return '<option value="'+d.d+'">'+d.d+' ('+d.w+')</option>'; }).join('');
-  var kindOpts = kinds.map(function(k){ return '<option value="'+k.k+'">'+k.emoji+' '+k.label+'</option>'; }).join('');
+  var kindOpts = kinds.map(function(k){ return '<option value="'+k.k+'"'+(k.k===defKind?' selected':'')+'>'+k.emoji+' '+k.label+'</option>'; }).join('');
   var esc = function(t){ return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); };
   var hookDefault = (meta.ref_code ? meta.ref_code + ': ' : '') + (capText ? capText.slice(0,80) : ('реф ' + key));
   var scriptDefault = 'Реф: ' + (meta.ref_code||key) + (meta.url ? ('\nОригинал: ' + meta.url) : '') + (capText ? ('\n\n' + capText) : '');
@@ -376,7 +388,7 @@ async function savePlanItem(){
     }
     if(!state.own) state.own = {};
     if(!state.own[date]) state.own[date] = [];
-    state.own[date].push({ k: kind, h: hook, s: script });
+    state.own[date].push({ k: kind, h: hook, s: script, media: _planTargetMedia });
     var payload = JSON.stringify(state, null, 1);
     function doPut(shaVal){
       return fetch(GH_API, {
