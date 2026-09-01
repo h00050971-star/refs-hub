@@ -420,6 +420,7 @@ async function savePlanItem(){
 }
 function loadLazyVideo(v){
   if(!v || v.src || !v.dataset.src) return;
+  v.preload = 'metadata';
   v.src = v.dataset.src;
   v.removeAttribute('data-src');
 }
